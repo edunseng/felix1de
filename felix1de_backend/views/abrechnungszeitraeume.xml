@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+<!-- search view -->
+    <record model="ir.ui.view" id="abrechnungszeitraeume_search_view">
+            <field name="name">abrechnungszeitraeume.search</field>
+            <field name="model">backend.abrechnungszeitraeume</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group>
+                        <field name="abrechnungszeitraum"/>
+                    </group>
+                </search>
+            </field>
+    </record>
+<!-- tree view -->    
+    <record model="ir.ui.view" id="abrechnungszeitraeume_tree_view">
+            <field name="name">abrechnungszeitraeume.tree</field>
+            <field name="model">backend.abrechnungszeitraeume</field>
+            <field name="arch" type="xml">
+                <tree string="Abrechnungszeitraeume Tree">
+                    <field name="abr_accessid"/>
+                    <field name="abr_name"/>
+                </tree>
+            </field>
+    </record>
+<!-- form view -->
+    <record model="ir.ui.view" id="abrechnungszeitraeume_form_view">
+            <field name="name">abrechnungszeitraeume.form</field>
+            <field name="model">backend.abrechnungszeitraeume</field>
+            <field name="arch" type="xml">
+
+                <form string="Abrechnungszeitraeume Form">
+
+                    <sheet>
+                        <group>                            
+                            <field name="abr_accessid"/>                                                                       
+                        </group> 
+                        <group>
+                            <field name="abrechnungszeitraum"/>
+                            <field name="abr_faelligkeit"/>
+                            <field name="abr_beschreibung"/> 
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+</data>
+</openerp>

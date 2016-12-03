@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+<!--search-->
+   <record model="ir.ui.view" id="mandanten_search_view">
+            <field name="name">mandanten.search</field>
+            <field name="model">backend.mandanten</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="mandantennummer"/>
+                    <field name="mandant"/>
+                </search>
+            </field>
+    </record>
+<!--tree-->    
+    <record model="ir.ui.view" id="mandanten_tree_view">
+            <field name="name">mandanten.tree</field>
+            <field name="model">backend.mandanten</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="man_accessid"/>
+                    <field name="mandantennummer"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+<!-- form view -->
+    <record model="ir.ui.view" id="mandanten_form_view">
+            <field name="name">mandanten.form</field>
+            <field name="model">backend.mandanten</field>
+            <field name="arch" type="xml">
+
+                <form string="Mandanten Tabellenfelder">
+
+                    <sheet>
+                    <group>              
+                        <field name="man_accessid"/>
+                    </group>
+                     <group> 
+                        <group>   
+                            <field name="mandant"/>
+                            <field name="mandantennummer"/>
+                        </group>                                                                                                             
+                            <group colspan="2">
+                                <group>
+                                    <field name="man_bemerkung"/>
+                                    <field name="man_emailpisa"/>
+                                    <field name="man_kanzlei"/>
+                                    <field name="man_steuerberater"/>
+                                    <field name="man_unternehmensform"/>
+                                    <field name="man_branche"/>
+                                    <field name="man_status"/>
+                                    <field name="man_empfaenger1"/>
+                                    <field name="man_empfaenger2"/>
+                                    <field name="man_strasse"/>
+                                    <field name="man_hausnummer"/>
+                                    <field name="man_plz"/>
+                                    <field name="man_ort"/>
+                                </group>
+                                <group>
+                                    <field name="man_bundesland"/>
+                                    <!--field name="man_land"/-->
+                                    <field name="man_adresse"/>
+                                    <field name="man_bankname"/>
+                                    <field name="man_bic"/>
+                                    <field name="man_iban"/>
+                                    <field name="man_kontoinhaber"/>
+                                    <field name="man_telefon1"/>
+                                    <field name="man_telefon2"/>
+                                    <field name="man_email1"/>
+                                    <field name="man_email2"/>
+                                    <field name="man_datenok"/>
+                                </group>
+                            </group>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+</data>
+</openerp>

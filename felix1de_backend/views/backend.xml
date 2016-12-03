@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+  <!--Mandanten-->
+   <record model="ir.ui.view" id="mandanten_search_view">
+            <field name="name">mandanten.search</field>
+            <field name="model">backend.mandanten</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="mandantennummer"/>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="mandanten_tree_view">
+            <field name="name">mandanten.tree</field>
+            <field name="model">backend.mandanten</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="mandantennummer"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+<!--auftraege-->
+   <record model="ir.ui.view" id="auftraege_search_view">
+            <field name="name">auftraege.search</field>
+            <field name="model">backend.auftraege</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="paket"/>
+                    <field name="start"/>
+                    <field name="ende"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="auftraege_tree_view">
+            <field name="name">auftraege.tree</field>
+            <field name="model">backend.auftraege</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="paket"/>
+                    <field name="start"/>
+                    <field name="ende"/>
+                    <field name="auftragswert"/>
+                    <field name="currency_id"/>
+                </tree>
+            </field>
+    </record>
+    <!--Berater-->
+    <record model="ir.ui.view" id="berater_search_view">
+            <field name="name">berater.search</field>
+            <field name="model">backend.berater</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="beraterid"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="berater_tree_view">
+            <field name="name">berater.tree</field>
+            <field name="model">backend.berater</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="beraterid"/>
+                </tree>
+            </field>
+    </record>
+<!--Branchen-->
+    <record model="ir.ui.view" id="branchen_search_view">
+            <field name="name">branchen.search</field>
+            <field name="model">backend.branchen</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="branchen_tree_view">
+            <field name="name">branchen.tree</field>
+            <field name="model">backend.branchen</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+  <!--checklistentypen-->
+    <record model="ir.ui.view" id="checklistentypen_search_view">
+            <field name="name">checklistentypen.search</field>
+            <field name="model">backend.checklistentypen</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="checklistentypen_tree_view">
+            <field name="name">checklistentypen.tree</field>
+            <field name="model">backend.checklistentypen</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+<!--checklistenvorlagen-->
+    <record model="ir.ui.view" id="checklistenvorlagen_search_view">
+            <field name="name">checklistenvorlagen.search</field>
+            <field name="model">backend.checklistenvorlagen</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="typ"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="checklistenvorlagen_tree_view">
+            <field name="name">checklistenvorlagen.tree</field>
+            <field name="model">backend.checklistenvorlagen</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="typ"/>
+                </tree>
+            </field>
+    </record>
+<!--felix1gruppen-->
+    <record model="ir.ui.view" id="felix1gruppen_search_view">
+            <field name="name">felix1gruppen.search</field>
+            <field name="model">backend.felix1gruppen</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="felix1gruppen_tree_view">
+            <field name="name">felix1gruppen.tree</field>
+            <field name="model">backend.felix1gruppen</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+<!--jahresplan-->
+    <record model="ir.ui.view" id="jahresplan_search_view">
+            <field name="name">jahresplan.search</field>
+            <field name="model">backend.jahresplan</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="jahresplan_tree_view">
+            <field name="name">jahresplan.tree</field>
+            <field name="model">backend.jahresplan</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+<!--kanzleien-->
+    <record model="ir.ui.view" id="kanzleien_search_view">
+            <field name="name">kanzleien.search</field>
+            <field name="model">backend.kanzleien</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="f1kanzleinummer"/>
+                    <field name="etlnummerstammkanzlei"/>
+                    <field name="namestammkanzlei"/>
+                    <field name="ortstammkanzlei"/>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="kanzleien_tree_view">
+            <field name="name">kanzleien.tree</field>
+            <field name="model">backend.kanzleien</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="f1kanzleinummer"/>
+                    <field name="etlnummerstammkanzlei"/>
+                    <field name="namestammkanzlei"/>
+                    <field name="ortstammkanzlei"/>
+
+                </tree>
+            </field>
+    </record>
+<!--kontakte-->
+    <record model="ir.ui.view" id="kontakte_search_view">
+            <field name="name">kontakte.search</field>
+            <field name="model">backend.kontakte</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="vip"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="kontakte_tree_view">
+            <field name="name">kontakte.tree</field>
+            <field name="model">backend.kontakte</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="vip"/>
+                </tree>
+            </field>
+    </record>
+<!--lohnmandanten-->
+    <record model="ir.ui.view" id="lohnmandanten_search_view">
+            <field name="name">lohnmandanten.search</field>
+            <field name="model">backend.lohnmandanten</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="edlohnmandantennummer"/>
+                    <field name="edlohnBeraternummer"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="lohnmandanten_tree_view">
+            <field name="name">lohnmandanten.tree</field>
+            <field name="model">backend.lohnmandanten</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="edlohnmandantennummer"/>
+                    <field name="edlohnBeraternummer"/>
+                </tree>
+            </field>
+    </record>
+<!--lohnpreiseartikel-->
+    <record model="ir.ui.view" id="lohnpreiseartikel_search_view">
+            <field name="name">lohnpreiseartikel.search</field>
+            <field name="model">backend.lohnpreiseartikel</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="artikellohnnummer"/>
+                    <field name="etlnrpkc"/>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="lohnpreiseartikel_tree_view">
+            <field name="name">lohnpreiseartikel.tree</field>
+            <field name="model">backend.lohnpreiseartikel</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="artikellohnnummer"/>
+                    <field name="etlnrpkc"/>
+                    
+                </tree>
+            </field>
+    </record>
+<!--mandantenstatus-->
+    <record model="ir.ui.view" id="mandantenstatus_search_view">
+            <field name="name">mandantenstatus.search</field>
+            <field name="model">backend.mandantenstatus</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="mandantenstatus_tree_view">
+            <field name="name">mandantenstatus.tree</field>
+            <field name="model">backend.mandantenstatus</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+<!--ops-->
+    <record model="ir.ui.view" id="ops_search_view">
+            <field name="name">ops.search</field>
+            <field name="model">backend.ops</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="opid"/>
+                    <field name="mandantennr"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="ops_tree_view">
+            <field name="name">ops.tree</field>
+            <field name="model">backend.ops</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="opid"/>
+                    <field name="mandantennr"/>
+                </tree>
+            </field>
+    </record>
+<!--paket-->
+    <record model="ir.ui.view" id="paket_search_view">
+            <field name="name">paket.search</field>
+            <field name="model">backend.paket</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="paket_tree_view">
+            <field name="name">paket.tree</field>
+            <field name="model">backend.paket</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+<!--pakete-->
+    <record model="ir.ui.view" id="pakete_search_view">
+            <field name="name">pakete.search</field>
+            <field name="model">backend.pakete</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="preisschluessel"/> 
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="pakete_tree_view">
+            <field name="name">pakete.tree</field>
+            <field name="model">backend.pakete</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="preisschluessel"/>                    
+                    <field name="beschreibung"/>                    
+                </tree>
+            </field>
+    </record>
+<!--paketestatus-->
+    <record model="ir.ui.view" id="paketestatus_search_view">
+            <field name="name">paketestatus.search</field>
+            <field name="model">backend.paketestatus</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="paketestatus_tree_view">
+            <field name="name">paketestatus.tree</field>
+            <field name="model">backend.paketestatus</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+<!--paketkategorie-->
+    <record model="ir.ui.view" id="paketkategorie_search_view">
+            <field name="name">paketkathegorie.search</field>
+            <field name="model">backend.paketkategorie</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+    <record model="ir.ui.view" id="paketkategorie_tree_view">
+            <field name="name">paketkategorie.tree</field>
+            <field name="model">backend.paketkategorie</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+<!--preiseschluessel-->
+    <record model="ir.ui.view" id="preiseschluessel_search_view">
+            <field name="name">preiseschluessel.search</field>
+            <field name="model">backend.preiseschluessel</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group>       
+                        <field name="name"/>
+                    </group>
+                    <field name="abrechnungszeitraum"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="preiseschluessel_tree_view">
+            <field name="name">preiseschluessel.tree</field>
+            <field name="model">backend.preiseschluessel</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                    <field name="abrechnungszeitraum"/>
+                    <field name="beschreibung"/>
+                </tree>
+            </field>
+    </record>
+<!--unternehmensformen-->
+    <record model="ir.ui.view" id="unternehmensformen_search_view">
+            <field name="name">unternehmensformen.search</field>
+            <field name="model">backend.unternehmensformen</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="unternehmensformen_tree_view">
+            <field name="name">unternehmensformen.tree</field>
+            <field name="model">backend.unternehmensformen</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+
+   <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="berater_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.berater</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="branchen_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.branchen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="kanzleien_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.kanzleien</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>                                      
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="mandanten_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.mandanten</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="mandantenstatus_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.mandantenstatus</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="unternehmensformen_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.unternehmensformen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="kontakte_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.kontakte</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="auftraege_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.auftraege</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="pakete_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.pakete</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="paket_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.paket</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="paketkategorie_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.paketkategorie</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+         <record model="ir.actions.act_window" id="felix1gruppen_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.felix1gruppen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="checklistenvorlagen_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.checklistenvorlagen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="checklistentypen_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.checklistentypen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="paketestatus_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.paketestatus</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="preiseschluessel_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.preiseschluessel</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="abrechnungszeitraeume_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.abrechnungszeitraeume</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="ops_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.ops</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="lohnmandanten_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.lohnmandanten</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="lohnpreiseartikel_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.lohnpreiseartikel</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+
+  </data>
+</openerp>

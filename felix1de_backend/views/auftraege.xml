@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!-- search view -->
+       <record model="ir.ui.view" id="auftraege_search_view">
+            <field name="name">auftraege.search</field>
+            <field name="model">backend.auftraege</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="auf_name"/>
+                    <field name="auf_paket"/>
+                    <field name="auf_start"/>
+                    <field name="auf_ende"/>
+                </search>
+            </field>
+    </record>
+<!-- tree view -->    
+    <record model="ir.ui.view" id="auftraege_tree_view">
+            <field name="name">auftraege.tree</field>
+            <field name="model">backend.auftraege</field>
+            <field name="arch" type="xml">
+                <tree string="Aufträge Tree">
+                    <field name="auf_accessid"/>
+                    <field name="auf_name"/>
+                    <field name="auf_paket"/>
+                    <field name="auf_start"/>
+                    <field name="auf_ende"/>
+                    <field name="auftragswert"/>
+                    <field name="currency_id" invisible="True"/>
+                </tree>
+            </field>
+    </record>
+<!-- form view-->
+    <record model="ir.ui.view" id="auftraege_form_view">
+            <field name="name">auftraege.form</field>
+            <field name="model">backend.auftraege</field>
+            <field name="arch" type="xml">
+
+                <form string="Aufträge Tabellenfelder">
+
+                    <sheet>
+                    <group>              
+                        <field name="auf_accessid"/>
+                    </group>
+                     <group> 
+                        <group>   
+                            <field name="auf_mandant"/>
+                            <field name="auf_paket"/>
+                            <field name="auf_angelegtvon"/>
+                            <field name="auf_ersteller"/>
+                            <field name="auf_buchungsdatum"/>
+                            <field name="auf_angelegtam"/>
+                            <field name="auftragswert"/>                          
+                            <field name="currency_id" invisible="True"/>
+                        </group>                                                                                                             
+                            <group colspan="2">
+                                <group>
+                                    <field name="auf_umsatz"/>         
+                                    <field name="auf_arbeitnehmer"/>                                    
+                                    <field name="auf_start"/>
+                                    <field name="auf_ende"/>
+                                </group>
+                                <group>
+                                    <field name="auf_umsatz1"/>    
+                                    <field name="auf_arbeitnehmer1"/>
+                                    <field name="auf_start1"/>
+                                    <field name="auf_ende1"/>
+                                </group>
+                            </group>
+                            <group colspan="2">
+                            <group>                 
+                                <field name="auf_bruttoeinnahmen"/>
+                                <field name="auf_gebuehrmonatsonst"/>
+                                <field name="auf_gebuehrmonatbetriebst"/>
+                                <field name="auf_gebuehrmonatfibu"/>
+                                <field name="auf_gebuehrmonatfibuueberw"/>
+                                <field name="auf_gebuehreinmalsonst"/>
+                                <field name="auf_gebuehreinmalbetriebst"/>
+                                <field name="auf_gebuehreinmalfibu"/>
+                                <field name="auf_gebuehreinmalfibuueberw"/>
+                                <field name="auf_gebuehrjahrsonst"/>
+                                <field name="auf_gebuehrjahrbetriebst"/>
+                                <field name="auf_gebuehrjahrfibu"/>         
+                                <field name="auf_gebuehrjahrfibuueberw"/>
+                            </group>
+                            <group>
+                                <field name="auf_bruttoeinnahmen1"/>                                
+                                <field name="auf_gebuehrmonatsonst1"/>
+                                <field name="auf_gebuehrmonatbetriebst1"/>
+                                <field name="auf_gebuehrmonatfibu1"/>
+                                <field name="auf_gebuehrmonatfibuueberw1"/>
+                                <field name="auf_gebuehreinmalsonst1"/>
+                                <field name="auf_gebuehreinmalbetriebst1"/>
+                                <field name="auf_gebuehreinmalfibu1"/>
+                                <field name="auf_gebuehreinmalfibuueberw1"/>
+                                <field name="auf_gebuehrjahrsonst1"/>
+                                <field name="auf_gebuehrjahrbetriebst1"/>
+                                <field name="auf_gebuehrjahrfibu1"/>
+                                <field name="auf_gebuehrjahrfibuueberw1"/>
+                                <field name="auf_fibuaufsage1"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="auf_gebuehrmonat"/>
+                                <field name="auf_gebuehreinmal"/>
+                                <field name="auf_gebuehrjahr"/>
+                            </group>
+                            <group>
+                                <field name="auf_datenok"/>
+                                <field name="auf_abgerechnet"/>
+                                <field name="auf_fibuaufsage"/>
+                            </group>
+                        </group>                                  
+                    </group>
+                    <group>
+                    <field name="auf_bemerkung"/>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+    </data>
+</openerp>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="customer_ticketing_system_tree_view" model="ir.ui.view">
+		    <field name="name">Ticketsystem</field>
+		    <field name="model">felix1.ticket</field>
+		    <field name="arch" type="xml">
+		        <tree colors="red:state == 'new';blue:state == 'progress';green:state == 'done';grey:state == 'cancel'" >   
+		          <!--field name="tikSenderID"/>
+		          <field name="tikSenderName"/>
+				  <field name="tikSenderDirectDial"/-->
+				   <!--field name="calFirstnameLastname"/-->
+				   <!--field name="cal_last_name"-->
+				   <field name="name"/>
+				   <field name="priPriority" required="1"/>
+				   <field name="mitarbeiter_id" required="1"/>
+				  <field name="ToDoPhone"/>
+				  <field name="tikStartDate"/>
+				 <field name="tikCloseDate"/>
+				  <field name="state"/>
+		        </tree>
+		    </field>
+		</record>
+		<record id="customer_ticketing_system_form_view" model="ir.ui.view">
+		    <field name="name">Ticketsystem</field>
+		    <field name="model">felix1.ticket</field>
+		    <field name="arch" type="xml">
+		        <form string="Ticketsystem" >
+					<header>
+					    <button name="progress_value" string="Fortschritt" type="object" states="new" />
+					    
+					     <button name="cancel_value" string="Abbrechen"  type="object" states="progress,done"/>
+					     <button name="done_value" string="Erledigt"  type="object"  states="progress"/>
+                
+					     <field name="state" widget="statusbar" statusbar_visible="new,progress,done,cancel"/>
+					</header>
+		           <sheet>
+					    <h2>
+						     <field name="name" nolabel="1" placeholder="Ticket Name..."/>
+						   </h2>
+					   <group>
+						  
+					      <group>
+							
+					       <field name="prm_ticket_id"/>
+					       <!--field name="tikSenderName" required="1"/>
+					       <field name="tikSenderID" required="1"/>
+					       <field name="tikSenderDirectDial"/-->
+					        <field name="priPriority"/>
+					        <!--field name="frmEmployee"/-->
+					        <field name="mitarbeiter_id"/>
+					        
+                            <!--field name="calFirstnameLastname"/>
+                            <field name="cal_last_name"/-->
+					      </group>
+					      <group>
+					       <field name="ChamBranch_rel" />
+					       <field name="ChamMail" />
+					       
+                            <field name="company_id"/>
+					      </group>
+					      <group>
+					      
+					      </group>
+					      <group>
+					      
+					      </group>
+					   </group>
+					  
+					   <notebook>
+					     <page string="Bearbeitung">
+					         <group>
+					            <group>
+					             
+					                <field name="rem_Content"/>
+					            </group>
+					            <group>
+									<label for="conMail" />
+										<div class="address_format">
+											 <field name="conMail" style="width: 65%" />
+											 <button name="action_send_mail" string="send email" style="width:35%" type="object" states="new" />
+											
+										</div>
+					              
+					                <field name="ToDoPhone"/>
+					                <!--field name="ToDoDone"/-->
+					            </group>
+					         </group>
+					     </page>
+					      <page string="Weitere Informaitionen">
+					         <group>
+					            <group>
+					                <field name="frkKathegory_id"/>
+					                <field name="tikDueDate"/>
+					                <field name="partner_id"/>
+					              
+					            </group>
+					            <group>
+					                  <field name="tikStartDate"/>
+					                  <field name="tikCloseDate"/>	
+					                  <field name="ticket_id"/>
+					            </group>
+					            <group>
+					                <field name="frkRemark"/>
+					            </group>
+					         </group>
+					      </page>
+					   </notebook>
+		           </sheet>
+		             <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+		        </form>
+		    </field>
+		</record>
+		  <record id="action_customer_ticketing_system" model="ir.actions.act_window">
+		    <field name="name">Ticketsystem</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">felix1.ticket</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		   
+		</record>
+		 <menuitem id="ticketing_root_menu" name="Ticketsystem" sequence="4" groups="customer_ticketing_system.group_ticket_menu"/> 
+		    <menuitem id="sub_menu_ticking" parent="ticketing_root_menu" name="Tickets List"/> 
+		    <menuitem id="sub_menu_ticking_sub" parent="sub_menu_ticking" name="Tickets" action="action_customer_ticketing_system"/> 
+	</data>
+</openerp>
+
