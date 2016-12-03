@@ -24,7 +24,11 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','hr','felix1de_backend','project_issue'],
+    'depends': [
+        #'base','mail','hr','felix1de_backend','project',
+        #'project_issue','note','board','mail_tracking',
+        #'openstow_backend_theme'
+    ],
 
     # always loaded
     'data': [
@@ -36,7 +40,7 @@
         'security/security.xml',
         # Model related views
         'views/backend.xml',
-        'views/res_partner/mandanten.xml',
+        ##'views/res_partner/mandanten.xml',
         ##'views/customer_form_view.xml',
         ##'views/customer_ticketing_view.xml',
         ##'views/branch_view.xml',

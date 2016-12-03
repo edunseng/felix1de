@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "felix1.de Backend 2",
+    'name': "felix1.de Backend",
 
     'summary': """
         Migration der Access Datenbank""",
@@ -11,7 +11,7 @@
         hiermit fortlaufend aktuallisiert werden.
    """,
 
-    'author': "HiYa Coding LTD",
+    'author': "hiyacoding ltd.",
     'website': "http://www.hiyacoding.co.uk",
     'icon': "/felix1de_backend/static/description/backend.png",
     # Categories can be used to filter modules in modules listing
