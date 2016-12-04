@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ticket_employee,access_ticket_employee,model_ticket_employee,,1,0,0,0
-access_felix1_employees,access_felix1_employees,model_felix1_employees,,1,0,0,0
-access_felix1_chambers,access_felix1_chambers,model_felix1_chambers,,1,0,0,0
-access_felix1_contacts,access_felix1_contacts,model_felix1_contacts,,1,0,0,0
-access_contact_contacts,access_contact_contacts,model_contact_contacts,,1,0,0,0

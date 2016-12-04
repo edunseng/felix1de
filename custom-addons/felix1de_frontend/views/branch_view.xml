@@ -60,7 +60,7 @@
 	 						<group>
                                                            <label for="street" string="Addresse"/>
                                                            <div class="o_address_format">
-                                                                        <field name="branch_street" placeholder="Staße..." class="o_address_street"/>
+                                    <field name="branch_street" placeholder="Staße..." class="o_address_street"/>
 									<field name="branch_street_no" placeholder="Straße 2..." />
 									<field name="branch_house_no" placeholder="Hausnummer.."/>
 									<field name="branch_street_extra" placeholder="Staße Extra" />
@@ -83,7 +83,6 @@
 					            <tree editable="bottom">
 					               <field name="name"/>
 					               <field name="lastname"/>
-					               <field name="title"/>
 					               <field name="user_id" string="Abteilungsleiter"/>
 					               <field name="parent_id" string="kontakt Person"/>
 					               <field name="phone"/>

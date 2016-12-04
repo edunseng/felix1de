@@ -63,7 +63,7 @@
 		    <field name="view_mode">tree,form</field>
 		   
 		</record>
-		 <menuitem id="admin_root_menu" name="Admin" sequence="8"/> 
+		 <menuitem id="admin_root_menu" name="Admin" sequence="8" groups="group_admin_menu"/> 
 		    <menuitem id="admin_sub_menu_branch" parent="admin_root_menu" name="Employee List"/> 
 		    <menuitem id="admin_sub_menu_bracnh_sub" parent="admin_sub_menu_branch" name="Employee" action="action_employee_system"/> 
 	</data>

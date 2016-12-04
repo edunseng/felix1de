@@ -25,9 +25,9 @@
 
     # any module necessary for this one to work correctly
     'depends': [
-        #'base','mail','hr','felix1de_backend','project',
-        #'project_issue','note','board','mail_tracking',
-        #'openstow_backend_theme'
+       # 'base','mail','hr','felix1de_backend','project',
+       # 'project_issue','note','board','mail_tracking',
+       # 'openstow_backend_theme'
     ],
 
     # always loaded
@@ -40,22 +40,24 @@
         'security/security.xml',
         # Model related views
         'views/backend.xml',
-        ##'views/res_partner/mandanten.xml',
-        ##'views/customer_form_view.xml',
-        ##'views/customer_ticketing_view.xml',
-        ##'views/branch_view.xml',
-        ##'views/contract_view.xml',
-        ##'views/bank_details_view.xml',
-        ##'views/ticket_employee_view.xml',
-        ##'views/order_view.xml',
-        ##'views/number_view.xml',
-        ##'views/start_ticket.xml',
-        ##'views/customer_mail_send_view.xml',
-        ##'views/product_view.xml',
-        ##'views/mandanten.xml',
-        ##'views/kontakte_view.xml',
-        ##'views/kanzleien.xml',
-        ##'views/project_view.xml'
+        #'security/ir.model.access.csv',
+        #'views/contact.xml',
+        #'views/customer_form_view.xml',
+        #'views/customer_ticketing_view.xml',
+        #'views/branch_view.xml',
+        #'views/contract_view.xml',
+        #'views/bank_details_view.xml',
+        #'security/ticket_security.xml',
+        #'views/ticket_employee_view.xml',
+        #'views/order_view.xml',
+        #'views/number_view.xml',
+        #'views/start_ticket.xml',
+        #'views/customer_mail_send_view.xml',
+        #'views/product_view.xml',
+        #'views/mandanten.xml',
+        #'views/kontakte_view.xml',
+        #'views/kanzleien.xml',
+        #'views/project_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

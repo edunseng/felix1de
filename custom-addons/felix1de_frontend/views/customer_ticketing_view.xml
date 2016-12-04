@@ -43,15 +43,12 @@
 					      <group>
 							
 					       <field name="prm_ticket_id"/>
-					       <!--field name="tikSenderName" required="1"/>
-					       <field name="tikSenderID" required="1"/>
-					       <field name="tikSenderDirectDial"/-->
+					   
 					        <field name="priPriority"/>
-					        <!--field name="frmEmployee"/-->
+					       
 					        <field name="mitarbeiter_id"/>
-					        
-                            <!--field name="calFirstnameLastname"/>
-                            <field name="cal_last_name"/-->
+                                                <field name="backend_kontakte_id"/>
+			
 					      </group>
 					      <group>
 					       <field name="ChamBranch_rel" />
@@ -92,7 +89,7 @@
 					            <group>
 					                <field name="frkKathegory_id"/>
 					                <field name="tikDueDate"/>
-					                <field name="partner_id"/>
+					                <field name="mandanten_id"/>
 					              
 					            </group>
 					            <group>
@@ -108,9 +105,9 @@
 					   </notebook>
 		           </sheet>
 		             <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
+				    <field name="message_follower_ids" widget="mail_followers" />
+				    <field name="message_ids" widget="mail_thread"/>
+				</div>
 		        </form>
 		    </field>
 		</record>

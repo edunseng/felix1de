@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
 from openerp import fields,models,api,_
-
 class res_partner(models.Model):
-   _inherit=['backend.mandanten','backend.kontakte']
    _inherit='res.partner'
-   
+   is_mandant=fields.Boolean('Is Mandant')
+   is_kontact=fields.Boolean('Is Kontact')
    lastname=fields.Char()
    client_value=fields.Boolean('Client',)
    client_number=fields.Char('Clientnumber')

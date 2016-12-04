@@ -80,6 +80,18 @@
                                               </group>
 					     </page>
                                              <page string="Preise">
+												  <field name="price_id">
+													  <tree editable="bottom">
+														 
+													   <field name="name"/>
+													   <field name="monatsgebuhr" sum="monatsgebuhr"/>
+													   <field name="einmalgebuhr" sum="einmalgebuhr"/>
+													   <field name="jahresgebuhr" sum="jahresgebuhr"/>
+													  
+													  
+													   
+													   </tree>
+                                               </field>
 					         
 					     </page>
                                              <page string="Auftragsänderungen">
@@ -97,8 +109,8 @@
 		    <field name="view_mode">tree,form</field>
 		   
 		</record>
-		 <menuitem id="order_sub_menu" parent="client_root_menu" name="Auftragsliste"/> 
-                    <menuitem id="order_sub_menu_sub" parent="order_sub_menu" name="Aufträge" action="action_order_system"/>   
+		<!-- <menuitem id="order_sub_menu" parent="client_root_menu1" name="Auftragsliste"/> 
+                    <menuitem id="order_sub_menu_sub" parent="order_sub_menu" name="Aufträge" action="action_order_system"/>  --> 
 	</data>
 </openerp>
 

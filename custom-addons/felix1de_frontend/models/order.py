@@ -15,7 +15,7 @@ class client_order(models.Model):
     revenue=fields.Float('Einnahmen')
     employee=fields.Char('Arbeitnehmer')
     product_id=fields.One2many('order.product','client_id','Zusatzprodukte')
-    price_id=fields.One2many('backend.auftraege_preise', 'order_id', 'Preise')
+    price_id=fields.One2many('backend.line', 'order_id', 'Preise')
     
     @api.multi
     def state_new(self):

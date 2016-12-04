@@ -74,8 +74,11 @@
 		    <field name="view_mode">tree,form</field>
 		   
 		</record>
-		 <menuitem id="number_sub_menu" parent="client_root_menu" name="Liste Nummern"/> 
-                    <menuitem id="number_sub_menu_sub" parent="number_sub_menu" name="Nummern" action="number_order_system"/>   
+		
+		<!-- <menuitem id="number_sub_menu" parent="client_root_menu" name="Liste Nummern"/> 
+                    <menuitem id="number_sub_menu_sub" parent="number_sub_menu" name="Nummern" action="number_order_system"/> -->
+		 <menuitem id="number_sub_menu1" parent="client_root_menu1" name="Liste Nummern"/> 
+		           <menuitem id="number_sub_menu_sub" parent="number_sub_menu1" name="Nummern" action="number_order_system"/>  
 	</data>
 </openerp>
 
