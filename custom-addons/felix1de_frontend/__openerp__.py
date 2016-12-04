@@ -25,8 +25,8 @@
 
     # any module necessary for this one to work correctly
     'depends': [
-       # 'base','mail','hr','felix1de_backend','project',
-       # 'project_issue','note','board','mail_tracking',
+        'base','mail','hr','felix1de_backend','project',
+        'project_issue','note','board','mail_tracking',
        # 'openstow_backend_theme'
     ],
 
@@ -41,7 +41,8 @@
         # Model related views
         'views/backend.xml',
         #'security/ir.model.access.csv',
-        #'views/contact.xml',
+        #####'views/res_partner/kontakte_view.xml',
+        #####'views/res_partner/partner.xml',
         #'views/customer_form_view.xml',
         #'views/customer_ticketing_view.xml',
         #'views/branch_view.xml',

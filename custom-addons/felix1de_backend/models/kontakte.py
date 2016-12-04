@@ -47,4 +47,12 @@ class backend_kontakte(models.Model):
     land=fields.Char("Land")
     addresse=fields.Char('Adresse')
     datenok=fields.Boolean("DatenOK", default=False)
+
+    #@api.onchange('name')
+    #def _auto_namename(self):
+     #   self.vorname=str(self.name) 
+
+    
+    
+
      
