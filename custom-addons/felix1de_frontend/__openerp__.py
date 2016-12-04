@@ -25,9 +25,9 @@
 
     # any module necessary for this one to work correctly
     'depends': [
-        'base','mail','hr','felix1de_backend','project',
+        'openstow_backend_theme'
         'project_issue','note','board','mail_tracking',
-       # 'openstow_backend_theme'
+        'base','mail','hr','felix1de_backend','project',
     ],
 
     # always loaded

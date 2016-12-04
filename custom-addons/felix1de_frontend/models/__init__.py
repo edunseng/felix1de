@@ -9,4 +9,7 @@
 #import kontakte
 #import kanzleien
 #import project
+<<<<<<< develop
 ####import partner
+=======
+>>>>>>> Backend Importiert
