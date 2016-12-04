@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 from openerp import fields, models, api
 class mail_followers(models.Model):
 	_inherit='mail.followers'
-	ticket_id=fields.Many2one('felix1.ticket')
+	#ticket_id=fields.Many2one('felix1.ticket')
 	
 class Felix1Ticket(models.Model):
 	_name='felix1.ticket'
@@ -13,38 +14,38 @@ class Felix1Ticket(models.Model):
 	name=fields.Char('Ticket')
 	claticketname=fields.Char('claTicketName')
 	state=fields.Selection([('new', 'Neu'),('progress','In Bearbeitung..'),('done', 'Bearbeitet'),('cancel', 'Abgebrochen')], string='Status',  default='new')
-	company_id = fields.Many2one('res.company', 'Niederlassung', default=lambda self: self.env['res.company']._company_default_get('felix1.ticket'))
-	mitarbeiter_id=fields.Many2one('felix1.employees',"Zugewiesener Mitarbeiter")
-	priPriority=fields.Many2one('res.partner', "Ticket-Ersteller")
-	conMail=fields.Char( string="Email", related="priPriority.email")
-	ToDoPhone=fields.Char( string="Telefon" , related="priPriority.phone")
+	#company_id = fields.Many2one('res.company', 'Niederlassung', default=lambda self: self.env['res.company']._company_default_get('felix1.ticket'))
+	#mitarbeiter_id=fields.Many2one('felix1.employees',"Zugewiesener Mitarbeiter")
+	#priPriority=fields.Many2one('res.partner', "Ticket-Ersteller")
+	#conMail=fields.Char( string="Email", related="priPriority.email")
+	#ToDoPhone=fields.Char( string="Telefon" , related="priPriority.phone")
 	tikSenderDirectDial=fields.Char('Absender Durchwahl')
 	tikSenderEmail=fields.Char('Absender Email')
 	tikStartDate=fields.Date('Erstellt Am')
 	tikDueDate=fields.Date('Faellig Am')
 	tikCloseDate=fields.Date('Geschlossen Am')
-	frkKathegory_id=fields.Many2one('felix1.ticket.kathegoriess', string='Kathegorie')
+	#frkKathegory_id=fields.Many2one('felix1.ticket.kathegoriess', string='Kathegorie')
 	frkRemark=fields.Text('Bemerkung')
 	frkChamber=fields.Char('Niederlassung')
 	frmSenderChamber=fields.Char('Absender-Kanzlei')
-	frmContact=fields.Many2one('felix1.contacts', 'Kontakte')
-	ChamBranch_rel=fields.Many2one('branch.branch', string="Kanzlei-Niederlassung")
-	ChamMail=fields.Char('Email-Kanzlei', related='ChamBranch_rel.branch_mail')
+	#frmContact=fields.Many2one('felix1.contacts', 'Kontakte')
+	#ChamBranch_rel=fields.Many2one('branch.branch', string="Kanzlei-Niederlassung")
+	#ChamMail=fields.Char('Email-Kanzlei', related='ChamBranch_rel.branch_mail')
 	ticketcalk=fields.Char(string="ticketingID",store=True, compute="ticketname")
-	priPriority_id=fields.Many2one('backend.mandanten')
+	#priPriority_id=fields.Many2one('backend.mandanten')
 
 		
 			
 	rem_Content=fields.Text('Problemloesung')
 	ToDoDone=fields.Boolean('Erledigt')
 	responsible=fields.Char('Verantwortlich')
-	partner_id=fields.Many2one('res.partner')
-        mandanten_id=fields.Many2one('backend.mandanten', string="Mandanten")
+	#partner_id=fields.Many2one('res.partner')
+       # mandanten_id=fields.Many2one('backend.mandanten', string="Mandanten")
         ticket_id_date=fields.Date('Ticket Erstellt Am') 
-        ticket_id=fields.Many2one('felix1.ticket')
-        backend_kontakte_id=fields.Many2one('backend.kontakte', string="kontakte")
-        contact_id=fields.Many2one('contact.contacts')
-        project_issue_id=fields.Many2one('project.issue')
+        #ticket_id=fields.Many2one('felix1.ticket')
+       # backend_kontakte_id=fields.Many2one('backend.kontakte', string="kontakte")
+       # contact_id=fields.Many2one('contact.contacts')
+       # project_issue_id=fields.Many2one('project.issue')
         @api.model
 	def _create_sequence(self, vals):
 	    """ Create new project issue"""
@@ -114,5 +115,5 @@ class Felix1TicketKathegories(models.Model):
 class ResPartner(models.Model):
 	_inherit='res.partner'
 	
-	ticketing_rel=fields.One2many('felix1.ticket','priPriority') 
+	#ticketing_rel=fields.One2many('felix1.ticket','priPriority') 
 

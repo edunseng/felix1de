@@ -1,15 +1,11 @@
-#import customer_ticketing
-#import res_partner
-#import branch
-#import order
-#import customer_mail_send
-#import customer
-#import product
-#import mandanten
-#import kontakte
-#import kanzleien
-#import project
-<<<<<<< develop
-####import partner
-=======
->>>>>>> Backend Importiert
+import project
+import kanzleien
+import kontakte
+import product
+import mandanten
+import customer
+import customer_mail_send
+import order
+import branch
+import res_partner
+import customer_ticketing

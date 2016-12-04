@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from openerp import fields,models,api,_
 class res_partner(models.Model):
    _inherit='res.partner'

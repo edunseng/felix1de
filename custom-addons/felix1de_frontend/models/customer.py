@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from openerp import fields,models,api,_
 
 
@@ -22,6 +23,6 @@ class ContactContacts(models.Model):
 	city=fields.Char('city')
 	state=fields.Char('state')
 	client_issue_date=fields.Date('Issue Date')
-	country_id=fields.Many2one('res.country')
-	ticket_id=fields.One2many('felix1.ticket', 'contact_id')
-	client_id=fields.One2many('res.partner', 'contact_id')
+	#country_id=fields.Many2one('res.country')
+	#ticket_id=fields.One2many('felix1.ticket', 'contact_id')
+	#client_id=fields.One2many('res.partner', 'contact_id')

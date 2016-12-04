@@ -1,11 +1,12 @@
+# -*- coding: utf-8 -*-
 from openerp import models, fields, api,_
 
 class BackendAuftraege(models.Model):
     _name='backend.auftraege'
     _inherit=['backend.auftraege','mail.thread']
     
-    product_id=fields.One2many('backend.line', 'line')
-    project_task_id=fields.Many2one('project.task')
+   # product_id=fields.One2many('backend.line', 'line')
+   # project_task_id=fields.Many2one('project.task')
     @api.model
     def _create_project_task(self, vals):
 	""" Create new project task"""
@@ -30,10 +31,10 @@ class BackendAuftraege(models.Model):
 class backend_auftraege(models.Model):
     _name='backend.line'
     
-    line=fields.Many2one('backend.auftraege')
+   # line=fields.Many2one('backend.auftraege')
     name=fields.Char('Name')
     monatsgebuhr=fields.Float('Monatsgebuhr')
     einmalgebuhr=fields.Float('Einmalgebuhr')
     jahresgebuhr=fields.Float('Jahresgebuhr')
-    order_id=fields.Many2one('client.order')
+    #order_id=fields.Many2one('client.order')
     

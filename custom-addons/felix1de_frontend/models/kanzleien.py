@@ -1,12 +1,13 @@
+# -*- coding: utf-8 -*-
 from openerp import models, fields, api,_
 
 class BackendKanzleien(models.Model):
     _name='backend.kanzleien'
     _inherit=['backend.kanzleien','mail.thread']
     
-    branch=fields.Many2one('backend.mandanten')
-    brach_contract_rel=fields.One2many('backend.kontakte','brach_contract')
-    contact_person_id=fields.One2many('backend.kontakte','brach_contract')
+    #branch=fields.Many2one('backend.mandanten')
+    #brach_contract_rel=fields.One2many('backend.kontakte','brach_contract')
+    #contact_person_id=fields.One2many('backend.kontakte','brach_contract')
     branch_phone=fields.Char('branch phone')
     address=fields.Char('Address')
     branch_street=fields.Char('branch_street')
@@ -17,10 +18,10 @@ class BackendKanzleien(models.Model):
     branch_post_code=fields.Char('branch_post_code')
     branch_mail=fields.Char('branch_mail')
     branch_city_extra=fields.Char('branch_city_extra')
-    branch_country=fields.Many2one('res.country')
-    branch_state=fields.Many2one('res.country.state')
-    company_id=fields.Many2one('res.company')
-    partner_id=fields.Many2one('res.partner')
+    #branch_country=fields.Many2one('res.country')
+    #branch_state=fields.Many2one('res.country.state')
+    #company_id=fields.Many2one('res.company')
+    #partner_id=fields.Many2one('res.partner')
     #@api.model
     #def _create_res_compnay_from_branch(self, vals):
 	#""" Create new project task"""

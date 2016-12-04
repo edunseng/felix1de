@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from openerp import fields,models,api
 class branch_branch(models.Model):
      _name='branch.branch' #Niederlassung.Niederlassung
@@ -13,7 +14,7 @@ class branch_branch(models.Model):
      branch_phone=fields.Char('Telefon')#
      branch_email=fields.Char('Email')
      chamber_responsable=fields.Char('Kanzleiverantwortlicher')
-     contract_person=fields.Many2one('res.partner', string='Kontaktperson')
+     #contract_person=fields.Many2one('res.partner', string='Kontaktperson')
      contract_type=fields.Char('Vertragsart')
      differetation=fields.Char('Spezialisierung')
      start_of_contract=fields.Date('Vertragsbeginn')
@@ -21,8 +22,8 @@ class branch_branch(models.Model):
      suspend_on=fields.Date('Ausgesetzt zum')
      suspended_untill=fields.Date('Ausgesetzt bis') 
      ###Relational Fields
-     brach_contract_rel=fields.One2many('branch.contract', 'name')
-     contact_person_id=fields.One2many('res.partner','branch_rel')
+     #brach_contract_rel=fields.One2many('branch.contract', 'name')
+     #contact_person_id=fields.One2many('res.partner','branch_rel')
      ######address fields
      branch_street=fields.Char('Str.')
      branch_street_no=fields.Char('Hausnummer')
@@ -37,8 +38,8 @@ class branch_branch(models.Model):
      
 class brach_contract(models.Model):
      _name="branch.contract"
-     name=fields.Many2one('branch.branch','Niederlassung Name')
-     chamber_id=fields.Char(related='name.branch_id',  string='Niederlassung ID')
+     #name=fields.Many2one('branch.branch','Niederlassung Name')
+     #chamber_id=fields.Char(related='name.branch_id',  string='Niederlassung ID')
      contract_from=fields.Date('Vertragsbegin')
      contract_date=fields.Date('Bertragsstart')
      fee=fields.Float('Preis')
@@ -61,6 +62,6 @@ class ticket_employee(models.Model):
      emp_editorial=fields.Char('Bemerkung')
      emp_customer_service=fields.Char('Kundenservice')
      emp_distribution=fields.Char('Vertrieb')
-     emp_client_list=fields.Many2many('res.partner', 'res_isssd', 'res_idssss')
+     #emp_client_list=fields.Many2many('res.partner', 'res_isssd', 'res_idssss')
      
      
