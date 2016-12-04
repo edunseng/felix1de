@@ -13,7 +13,7 @@ class backend_kontakte(models.Model):
     nachname=fields.Char("Nachname")
     anrede=fields.Selection(String="Anrede",selection=[(u"\u0020", 'kein'),('Herr', 'Herr'),('Frau','Frau')],default=u"\u0020")
     titel=fields.Selection(String="Titel", selection=[(u"\u0020", 'kein'),('Dr.', 'Dr.'),('Prof.','Prof.'),('Prof. Dr.','Prof. Dr.')],default=u"\u0020")
-    name=fields.Char('Nachname, Vorname')
+    nachnamevorname=fields.Char('Nachname, Vorname')
     vornamenachname=fields.Char('Vorname, Nachname')
     telefon1=fields.Char("Telefon1")
     telefon2=fields.Char("Telefon2")

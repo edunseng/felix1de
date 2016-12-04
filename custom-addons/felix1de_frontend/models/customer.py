@@ -3,9 +3,13 @@ from openerp import fields,models,api,_
 
 
 class ContactContacts(models.Model):
-	_name='contact.contacts'
+	#_name='contact.contacts'
+	_inherit='res.partner' 
+	_inherits={'backend.kontakte':'backendkontakt_id'}
+	backendkontakt_id=fields.Many2one('backend.kontakte', required=True, ondelete='cascade', index=True)
+	
 	image=fields.Binary(String="image")
-	name=fields.Char('name')
+	name=fields.Char('Name des Mandanten', invisible=True)
 	last_name=fields.Char('last name')
 	contact_id=fields.Char('Contact ID')
 	con_acquired_by=fields.Char('Acquired By')
@@ -22,7 +26,8 @@ class ContactContacts(models.Model):
 	zip=fields.Char('zip')
 	city=fields.Char('city')
 	state=fields.Char('state')
-	client_issue_date=fields.Date('Issue Date')
-	#country_id=fields.Many2one('res.country')
-	#ticket_id=fields.One2many('felix1.ticket', 'contact_id')
-	#client_id=fields.One2many('res.partner', 'contact_id')
+	kontakt_seit=fields.Date('Kontakt Seit')
+	country_id=fields.Many2one('res.country')
+	ticket_id=fields.One2many('felix1.ticket', 'contact_id')
+	client_id=fields.One2many('res.partner', 'contact_id')
+

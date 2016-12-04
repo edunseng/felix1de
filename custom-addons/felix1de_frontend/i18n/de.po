@@ -1856,7 +1856,7 @@ msgstr "Bietet die Möglichkeit Aufträge in der Projekt / Ticketprojekt Kanban 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project_sequence
 msgid "Gives the sequence order when displaying a list of Projects."
-msgstr "Anzeige der Reihenfolge bei Ausgabe der Liste von Projekten"
+msgstr "Anzeige der Reihenfolge bei Ausgabe der Liste von Ticketkathegorien"
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task_sequence
@@ -2435,7 +2435,7 @@ msgstr "Meine Tickets"
 #. module: project
 #: model:ir.ui.view,arch_db:project.view_task_history_search
 msgid "My Projects"
-msgstr "Meine Projekte"
+msgstr "Meine Ticketkathegorien"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.view_task_history_search
@@ -2602,7 +2602,7 @@ msgstr "Öffnen"
 #. module: project
 #: model:ir.actions.client,name:project.action_client_project_menu
 msgid "Open Project Menu"
-msgstr "Projektmenu öffnen"
+msgstr "Ticketmenu öffnen"
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project_alias_force_thread_id
@@ -2810,7 +2810,7 @@ msgstr "Projektalias"
 #: model:ir.ui.view,arch_db:project_issue.view_project_issue_report_graph
 #: model:ir.ui.view,arch_db:project_issue.view_project_issue_report_pivot
 msgid "Project Issue"
-msgstr "Projektproblem"
+msgstr "Projekt Ticket"
 
 #. module: project_issue
 #: model:ir.ui.view,arch_db:project_issue.project_issue_graph_view
@@ -2837,7 +2837,7 @@ msgstr "Projektmanager"
 #: model:ir.ui.view,arch_db:project.view_project
 #: model:ir.ui.view,arch_db:project.view_project_project_filter
 msgid "Project Name"
-msgstr "Projektbezeichnung"
+msgstr "Projektbezeichnung / Ticketkathegorie"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -3646,7 +3646,7 @@ msgstr "Die Zeiterfassung kann für verschiedene Zwecke genutzt werden:"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_config_settings_module_project_timesheet
 msgid "Timesheets on Project"
-msgstr "Stundenzettel auf Projekten"
+msgstr "Stundenzettel auf Ticketkathegorien"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -3964,12 +3964,12 @@ msgstr "Ihre Ziele"
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid "Your Projects"
-msgstr "Ihre Projekte"
+msgstr "Ihre Projekte und Tickets"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid "Your Projects:"
-msgstr "Ihre Projekte:"
+msgstr "Ihre Projekte und Kathegorien:"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner

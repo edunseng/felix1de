@@ -14,7 +14,7 @@ class branch_branch(models.Model):
      branch_phone=fields.Char('Telefon')#
      branch_email=fields.Char('Email')
      chamber_responsable=fields.Char('Kanzleiverantwortlicher')
-     #contract_person=fields.Many2one('res.partner', string='Kontaktperson')
+     contract_person=fields.Many2one('res.partner', string='Kontaktperson')
      contract_type=fields.Char('Vertragsart')
      differetation=fields.Char('Spezialisierung')
      start_of_contract=fields.Date('Vertragsbeginn')

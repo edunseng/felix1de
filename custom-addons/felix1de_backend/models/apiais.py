@@ -17,7 +17,7 @@ class backend_apiais_autoname(models.Model):
     @api.onchange('vorname', 'nachname','anrede','titel')
     def _auto_vornamename(self):
         self.vornamenachname =str (self.anrede)+" "+str(self.titel)+" "+ str(self.vorname) + " , " + str(self.nachname)
-        self.name =str(self.nachname) + " , " + str(self.vorname)
+        self.nachnamevorname =str(self.nachname) + " , " + str(self.vorname)
     
             
    #@api.onchange('plz')

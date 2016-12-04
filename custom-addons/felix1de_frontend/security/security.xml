@@ -16,6 +16,7 @@
         
         <record id="group_ticket_menu" model="res.groups">
         <field name="name">Ticket Menu</field>
+        <field name="comment">Schaltet das Tickettool an oder aus. Keine Unterscheidung in Lese- und Schreibrecht.</field>
         <field name="category_id" ref="kundenportal_menu_rights"/>
         </record>         
         <record id="group_backend_menu" model="res.groups">
@@ -35,10 +36,7 @@
         </record-->
 
 <data noupdate="0">     
-        <record id="group_felix1_user" model="res.groups">
-        <field name="name">Kundenportal user</field>
-        <field name="category_id" ref="kundenportal_user_rights"/>
-       </record>
+
         <record id="group_felix1_abteilungsleiter" model="res.groups">
         <field name="name">Abteilungsleiter</field>
         <field name="category_id" ref="kundenportal_user_rights"/>
@@ -47,13 +45,25 @@
         <field name="name">Mitarbeiter</field>
         <field name="category_id" ref="kundenportal_user_rights"/>
        </record>
-        <record id="group_felix1_kanzlei_niederlassung" model="res.groups">
-        <field name="name">Kanzlei/Niederlassung</field>
+        <record id="group_felix1_kanzlei_niederlassung_lesen" model="res.groups">
+        <field name="name">KanzleienLesen</field>
+        <field name="comment">Leserecht für alle Tabellen, welche mit Kanzleien und Ansprechpartnern zusammenhängen.</field>
+        <field name="category_id" ref="kundenportal_user_rights"/>
+       </record>
+        <record id="group_felix1_kanzlei_niederlassung_schreiben" model="res.groups">
+        <field name="name">KanzleienSchreiben</field>
+        <field name="comment">Lese- und Bearbeiten für alle Tabellen, welche mit Kanzleien und Ansprechpartnern zusammenhängen.</field>
         <field name="category_id" ref="kundenportal_user_rights"/>
        </record>
        
-        <record id="group_felix1_mandant" model="res.groups">
-        <field name="name">Mandant</field>
+        <record id="group_felix1_mandant_lesen" model="res.groups">
+        <field name="name">MandantenLesen</field>
+        <field name="comment">Leserechte für alle Tabellen, welche mit Kontakten, Mandanten und Aufträgen zusammenhängen.</field>
+        <field name="category_id" ref="kundenportal_user_rights"/>
+       </record>
+        <record id="group_felix1_mandant_schreiben" model="res.groups">
+        <field name="name">MandantenSchreiben</field>
+        <field name="comment">Lese- und Schreiberechte für alle Tabellen, welche mit Kontakten, Mandanten und Aufträgen zusammenhängen.</field>
         <field name="category_id" ref="kundenportal_user_rights"/>
        </record>
         <record id="group_felix1_steuerberater" model="res.groups">

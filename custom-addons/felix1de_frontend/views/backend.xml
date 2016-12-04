@@ -210,7 +210,7 @@
             <field name="model">backend.kontakte</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="name"/>
+                    <field name="nachname"/>
                     <field name="vip"/>
                 </search>
             </field>
@@ -221,7 +221,7 @@
             <field name="arch" type="xml">
                 <tree string="Course Tree">
                     <field name="accessid"/>
-                    <field name="name"/>
+                    <field name="vornamenachname"/>
                     <field name="vip"/>
                 </tree>
             </field>

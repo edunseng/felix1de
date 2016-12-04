@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//custom-addons/felix1de_backend/models/apiais.py=utf-8
 encoding//custom-addons/felix1de_backend/models/backend.py=utf-8
+encoding//custom-addons/felix1de_backend/models/kanzleien.py=utf-8
 encoding//custom-addons/felix1de_backend/models/kontakte.py=utf-8
 encoding//custom-addons/felix1de_backend/models/mandanten.py=utf-8
 encoding//custom-addons/felix1de_frontend/__init__.py=utf-8

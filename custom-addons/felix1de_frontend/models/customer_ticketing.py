@@ -44,7 +44,7 @@ class Felix1Ticket(models.Model):
         ticket_id_date=fields.Date('Ticket Erstellt Am') 
         #ticket_id=fields.Many2one('felix1.ticket')
        # backend_kontakte_id=fields.Many2one('backend.kontakte', string="kontakte")
-       # contact_id=fields.Many2one('contact.contacts')
+       	contact_id=fields.Many2one('res.partner')
        # project_issue_id=fields.Many2one('project.issue')
         @api.model
 	def _create_sequence(self, vals):

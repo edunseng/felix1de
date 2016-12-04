@@ -40,9 +40,7 @@
         'security/security.xml',
         # Model related views
         'views/backend.xml',
-        #'security/ir.model.access.csv',
-        #####'views/res_partner/kontakte_view.xml',
-        #####'views/res_partner/partner.xml',
+        'views/contact.xml',
         #'views/customer_form_view.xml',
         #'views/customer_ticketing_view.xml',
         #'views/branch_view.xml',

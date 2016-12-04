@@ -2,22 +2,33 @@
 <openerp>
 	<data>
 		<record id="contact_tree_view123" model="ir.ui.view">
-		    <field name="name">Contact</field>
-		    <field name="model">contact.contacts</field>
+		    <field name="name">Kontakte</field>
+		    <field name="model">res.partner</field>
+		    <field name="inherit_id" ref="base.view_partner_form"/>
 		    <field name="arch" type="xml">
-		        <tree string="Contact">   
-		          <field name="name" string="NAME"/>
-                  <field name="phone" string="PHONE"/>
-			      <field name="email" string="EMAIL"/>
-			     <field name="client_issue_date" string="Issue of date"/>
-		        </tree>
+		    
+		     <xpath expr="//field[@name='parent_id']" position="after">
+                 <field name="is_kontakt"/> 
+                 <field name="vorname"/>   
+             </xpath>
+
+		          <field name ="website" position="after">
+		              <field name="telefon1"/>
+		              <field name="telefon2"/>
+                      <field name="telefon3"/>
+			          <field name="email1"/>
+			          <field name="email2"/>
+			          <field name="email3"/>
+			          <field name="kontakt_seit"/>
+                  </field>
 		    </field>
 		</record>
+		
 		<record id="contact_form_view123" model="ir.ui.view">
-		    <field name="name">Contract</field>
-		    <field name="model">contact.contacts</field>
+		    <field name="name">Kontakt</field>
+		    <field name="model">res.partner</field>
 		    <field name="arch" type="xml">
-		        <form string="Contact">
+		        <form string="Kontakt">
 					
 		           <sheet>
 					    <field name="image" widget='image' class="oe_avatar" options='{"preview_image": "image_medium", "size": [90, 90]}'/>
@@ -92,14 +103,16 @@
 		  <record id="action_contact_system123" model="ir.actions.act_window">
 		    <field name="name">Contact</field>
 		    <field name="type">ir.actions.act_window</field>
-		    <field name="res_model">contact.contacts</field>
+		    <field name="res_model">res.partner</field>
 		    <field name="view_type">form</field>
 		    <field name="view_mode">tree,form</field>
 		   
 		</record>
-			<!--<menuitem id="menu_main" name="Contact" />
-			 <menuitem id="menu_contact" name="Contact" parent="menu_main"/>
-			<menuitem id="sub_menu" name="Contact" parent="menu_contact" action="action_contact_system123"/>-->
+
+		<menuitem id="menu_main" name="Kontake"
+		groups="group_felix1_mitarbeiter,group_felix1_mandant_lesen,group_felix1_mandant_schreiben,group_felix1_abteilungsleiter"/>
+		<menuitem id="menu_contact" name="Liste Kontakte" parent="menu_main"/>
+	    <menuitem id="sub_menu" name="Kontakte" parent="menu_contact" action="action_contact_system123"/>
 			
 			
    
