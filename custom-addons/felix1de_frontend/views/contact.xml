@@ -7,9 +7,11 @@
 		    <field name="inherit_id" ref="base.view_partner_form"/>
 		    <field name="arch" type="xml">
 		    
-		     <xpath expr="//field[@name='parent_id']" position="after">
-                 <field name="is_kontakt"/> 
-                 <field name="vorname"/>   
+		     <xpath expr="//field[@name='name']" position="replace">
+                <field name="name" placeholder="Name..." default_focus="1"/>
+                <field name="nachname" placeholder="Nachname..."/> 
+                <field name="vorname" placeholder="Vorname..." attrs="{'invisible': [('is_company','=', True)]}"/>
+                <field name="is_kontakt" attrs="{'invisible': [('is_company','=', True)]}"/>  
              </xpath>
 
 		          <field name ="website" position="after">

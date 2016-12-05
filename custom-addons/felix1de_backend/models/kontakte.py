@@ -7,6 +7,7 @@ class backend_kontakte(models.Model):
     _name='backend.kontakte'
     _inherit='backend.apiais.autoname','backend.apiais.accessid'
     
+
     accessid=fields.Char('ID', compute='_lookup_accessid')
     
     vorname=fields.Char("Vorname")
@@ -47,12 +48,5 @@ class backend_kontakte(models.Model):
     land=fields.Char("Land")
     addresse=fields.Char('Adresse')
     datenok=fields.Boolean("DatenOK", default=False)
-
-    #@api.onchange('name')
-    #def _auto_namename(self):
-     #   self.vorname=str(self.name) 
-
-    
-    
-
+    partner_id=fields.Many2one('res.partner', ondelete='cascade', index=True, String="Partner")
      

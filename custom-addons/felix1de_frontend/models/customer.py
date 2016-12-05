@@ -9,7 +9,7 @@ class ContactContacts(models.Model):
 	backendkontakt_id=fields.Many2one('backend.kontakte', required=True, ondelete='cascade', index=True)
 	
 	image=fields.Binary(String="image")
-	name=fields.Char('Name des Mandanten', invisible=True)
+	#name=fields.Char('Name des Mandanten', invisible=True)
 	last_name=fields.Char('last name')
 	contact_id=fields.Char('Contact ID')
 	con_acquired_by=fields.Char('Acquired By')
