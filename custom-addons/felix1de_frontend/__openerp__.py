@@ -25,7 +25,7 @@
 
     # any module necessary for this one to work correctly
     'depends': [
-        'openstow_backend_theme'
+        #'openstow_backend_theme'
         'project_issue','note','board','mail_tracking',
         'base','mail','hr','felix1de_backend','project',
     ],
@@ -40,7 +40,7 @@
         'security/security.xml',
         # Model related views
         'views/backend.xml',
-        'views/contact.xml',
+        #'views/contact.xml',
         #'views/customer_form_view.xml',
         #'views/customer_ticketing_view.xml',
         #'views/branch_view.xml',

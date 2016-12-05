@@ -6,9 +6,8 @@ import customer_mail_send
 #import customer
 import product
 import mandanten
-import customer
-import customer_mail_send
-import order
-import branch
-import res_partner
-import customer_ticketing
+import kontakte
+import kanzleien
+import project
+
+

@@ -10,7 +10,7 @@ class resPartnerKontakte(models.Model):
 #        _inherit='res.partner' 
 
     
-    is_kontakt=fields.Boolean('Ist Kontakt')
+    ist_kontakt=fields.Boolean('Ist Kontakt')
     #client_id=fields.One2many('backend.mandanten', 'contact_id')
     #ticket_id=fields.One2many('felix1.ticket', 'contact_id')
     #brach_contract=fields.Many2one('backend.kanzleien')
