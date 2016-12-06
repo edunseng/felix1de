@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
+<!-- TREE-->
+        <record id="customer_ticketing_system_tree_view" model="ir.ui.view">
+            <field name="name">Ticketsystem</field>
+            <field name="model">felix1.ticket</field>
+            <field name="arch" type="xml">
+                <tree colors="red:state == 'new';blue:state == 'progress';green:state == 'done';grey:state == 'cancel'" >   
+                  <!--field name="tikSenderID"/>
+                  <field name="tikSenderName"/>
+                  <field name="tikSenderDirectDial"/-->
+                   <!--field name="calFirstnameLastname"/-->
+                   <!--field name="cal_last_name"-->
+                   <field name="name"/>
+                   <field name="claticketname" required="1"/>
+                  
+                </tree>
+            </field>
+        </record>
+
 
 <!--TREE-->
         <record model="ir.ui.view" id="partner_instructor_tree_view"> 
@@ -39,19 +57,29 @@
                 <field name="type">ir.actions.act_window</field>
                 <field name="res_model">res.partner</field>
                 <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
-                <!--field name="view_id" ref="customer_ticketing_system_tree_view123"/-->
+                <field name="view_id" ref="partner_instructor_tree_view"/>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>          
+        </record>
+        <record id="action_client_form_view_start_menu1234" model="ir.actions.act_window">
+                <field name="name">Tickets List</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">res.partner</field>
+                <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
+                <field name="view_id" ref="customer_ticketing_system_form_view123"/>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>          
+        </record>
+        <record id="action_client_form_view_start_menu12345" model="ir.actions.act_window">
+                <field name="name">Tickets List</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">felix1.ticket</field>
+                <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
+                <field name="view_id" ref="customer_ticketing_system_tree_view"/>
                 <field name="view_type">form</field>
                 <field name="view_mode">tree,form</field>          
         </record>
         
-        <!--is to lnk action wirh a View-->
-        <record id="client_form_action2_start2_tic" model="ir.actions.act_window.view">
-            <field eval="2" name="sequence"/>
-            <field name="view_mode">tree</field>
-            <field name="view_id" ref="partner_instructor_tree_view"/>
-            <field name="act_window_id" ref="action_client_form_view_start_menu123"/>
-        </record>
-
 
             <!--menuitem id="client_root_menu" name="Mandant List" sequence="6"/> 
             <menuitem id="client_sub_menu" parent="client_root_menu" name="Mandant List"/> 
@@ -60,5 +88,8 @@
             <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter"/> 
             <menuitem id="start_sub_menu" parent="start_root_menu" name="List of Tickets"/> 
             <menuitem id="start_sub_menu_sub" parent="start_sub_menu" name="Tickets" action="action_client_form_view_start_menu123"/>
+            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Tickets2" action="action_client_form_view_start_menu1234"/>
+            <menuitem id="start_sub_menu_sub3" parent="start_sub_menu" name="Tickets3" action="action_client_form_view_start_menu12345"/>
+
 </data>
 </openerp> 
