@@ -11,5 +11,5 @@ Give Odoo 8.0 backend a v9 enterprise look&feel.
     'data':[
         'views.xml',
         ],
-    'installable': True
+    'installable': True,
 }

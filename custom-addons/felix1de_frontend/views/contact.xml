@@ -15,7 +15,7 @@
 
 		          <field name ="parent_id" position="before">
 		          <group>
-		              <field name="ist_kontakt" attrs="{'invisible': [('is_company','=', True)]}"/>
+		              <field name="ist_kontakt"/>
 		          </group>
                   </field>
              <xpath expr="//notebook" position="inside">
