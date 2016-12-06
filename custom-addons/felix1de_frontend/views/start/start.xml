@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-<!-- TREE-->
-        <record id="customer_ticketing_system_tree_view" model="ir.ui.view">
+<!-- felix1.ticket TREE VIEW-->
+        <record id="felix1_ticket_tree_view" model="ir.ui.view">
             <field name="name">Ticketsystem</field>
             <field name="model">felix1.ticket</field>
             <field name="arch" type="xml">
@@ -20,25 +20,8 @@
         </record>
 
 
-<!--TREE-->
-        <record model="ir.ui.view" id="partner_instructor_tree_view"> 
-            <field name="name">instructor</field> 
-            <field name="model">res.partner</field> 
-            <field name="inherit_id" ref="base.view_partner_tree"/>           
-            <field name="arch" type="xml"> 
-        
-            <xpath expr="//field[@name='phone']" position="replace">
-                <!--field name="partner_id"/-->
-            </xpath>
-                        <xpath expr="//field[@name='display_name']" position="replace">
-                <!--field name="partner_id"/-->
-            </xpath>
-                
-            </field> 
-        </record> 
-        
-<!--FORM-->
-        <record id="customer_ticketing_system_form_view123" model="ir.ui.view">
+<!--res.partner INHERIT VIEWS-->
+        <record id="respartner_mandanten_inherit_views" model="ir.ui.view">
             <field name="name">Ticketsystem</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
@@ -51,45 +34,47 @@
             </field>
 
         </record>
+<!-- res partner INHERIT ACTION-->   
+        <record id="action_respartner_mandanten_inherit_views_mandanten" model="ir.actions.act_window">
+                <field name="name">Tickets List</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">res.partner</field>
+                <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
+                <field name="view_id" ref="respartner_mandanten_inherit_views"/>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>          
+        </record>
         
-        <record id="action_client_form_view_start_menu123" model="ir.actions.act_window">
-                <field name="name">Tickets List</field>
-                <field name="type">ir.actions.act_window</field>
-                <field name="res_model">res.partner</field>
-                <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
-                <field name="view_id" ref="partner_instructor_tree_view"/>
-                <field name="view_type">form</field>
-                <field name="view_mode">tree,form</field>          
-        </record>
-        <record id="action_client_form_view_start_menu1234" model="ir.actions.act_window">
-                <field name="name">Tickets List</field>
-                <field name="type">ir.actions.act_window</field>
-                <field name="res_model">res.partner</field>
-                <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
-                <field name="view_id" ref="customer_ticketing_system_form_view123"/>
-                <field name="view_type">form</field>
-                <field name="view_mode">tree,form</field>          
-        </record>
-        <record id="action_client_form_view_start_menu12345" model="ir.actions.act_window">
+<!--felix1.ticket TREE ACTION-->
+        <record id="action_felix1_ticket_tree_view_eigene_tickets" model="ir.actions.act_window">
                 <field name="name">Tickets List</field>
                 <field name="type">ir.actions.act_window</field>
                 <field name="res_model">felix1.ticket</field>
                 <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
-                <field name="view_id" ref="customer_ticketing_system_tree_view"/>
+                <field name="view_id" ref="felix1_ticket_tree_view"/>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>          
+        </record>
+                <record id="action_felix1_ticket_tree_view_alle_tickets" model="ir.actions.act_window">
+                <field name="name">Tickets List</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">felix1.ticket</field>
+                <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
+                <field name="view_id" ref="felix1_ticket_tree_view"/>
                 <field name="view_type">form</field>
                 <field name="view_mode">tree,form</field>          
         </record>
         
 
-            <!--menuitem id="client_root_menu" name="Mandant List" sequence="6"/> 
-            <menuitem id="client_sub_menu" parent="client_root_menu" name="Mandant List"/> 
-            <menuitem id="client_sub_menu_sub" parent="client_sub_menu" name="Mandant Partner" action="action_client_form_view"/-->
-
+<!--START MENU (ticket)-->
             <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter"/> 
-            <menuitem id="start_sub_menu" parent="start_root_menu" name="List of Tickets"/> 
-            <menuitem id="start_sub_menu_sub" parent="start_sub_menu" name="Tickets" action="action_client_form_view_start_menu123"/>
-            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Tickets2" action="action_client_form_view_start_menu1234"/>
-            <menuitem id="start_sub_menu_sub3" parent="start_sub_menu" name="Tickets3" action="action_client_form_view_start_menu12345"/>
+            <menuitem id="start_sub_menu" parent="start_root_menu" name="Liste Tickets"/> 
+            <menuitem id="start_sub_menu_sub" parent="start_sub_menu" name="Eigene Tickets" action="action_felix1_ticket_tree_view_eigene_tickets"/>
+            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Alle Tickets" action="action_felix1_ticket_tree_view_alle_tickets"/>
+<!--START MENU (mandanten)-->          
+            <menuitem id="start_sub2_menu" parent="start_root_menu" name="Liste Mandanten"/> 
+            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Mandanten" action="action_respartner_mandanten_inherit_views_mandanten"/>
+
 
 </data>
 </openerp> 
