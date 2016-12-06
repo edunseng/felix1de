@@ -20,8 +20,22 @@
         </record>
 
 
-<!--res.partner INHERIT VIEWS-->
-        <record id="respartner_mandanten_inherit_views" model="ir.ui.view">
+<!--res.partner inherit TREE VIEW-->
+        <record id="respartner_mandanten_inherit_tree_view" model="ir.ui.view">
+            <field name="name">Ticketsystem</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+ 
+            <xpath expr="//field[@name='phone']" position="replace">
+                <!--field name="partner_id"/-->
+            </xpath>
+
+            </field>
+
+        </record>
+<!--res.partner inherit FORM VIEW-->
+        <record id="respartner_mandanten_inherit_form_view" model="ir.ui.view">
             <field name="name">Ticketsystem</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
@@ -34,15 +48,26 @@
             </field>
 
         </record>
-<!-- res partner INHERIT ACTION-->   
-        <record id="action_respartner_mandanten_inherit_views_mandanten" model="ir.actions.act_window">
+<!-- res partner INHERIT ACTIONs-->   
+<!-- tree-->
+        <record id="action_respartner_mandanten_inherit_tree_view_mandanten" model="ir.actions.act_window">
                 <field name="name">Tickets List</field>
                 <field name="type">ir.actions.act_window</field>
                 <field name="res_model">res.partner</field>
                 <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
-                <field name="view_id" ref="respartner_mandanten_inherit_views"/>
+                <field name="view_id" ref="respartner_mandanten_inherit_tree_view"/>
                 <field name="view_type">form</field>
                 <field name="view_mode">tree,form</field>          
+        </record>
+<!-- form-->
+        <record id="action_respartner_mandanten_inherit_form_view_mandanten" model="ir.actions.act_window">
+                <field name="name">Tickets List</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">res.partner</field>
+                <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
+                <field name="view_id" ref="respartner_mandanten_inherit_form_view"/>
+                <field name="view_type">form</field>
+                <field name="view_mode">form,tree</field>          
         </record>
         
 <!--felix1.ticket TREE ACTION-->
@@ -73,7 +98,7 @@
             <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Alle Tickets" action="action_felix1_ticket_tree_view_alle_tickets"/>
 <!--START MENU (mandanten)-->          
             <menuitem id="start_sub2_menu" parent="start_root_menu" name="Liste Mandanten"/> 
-            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Mandanten" action="action_respartner_mandanten_inherit_views_mandanten"/>
+            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Mandanten" action="action_respartner_mandanten_inherit_tree_view_mandanten"/>
 
 
 </data>
