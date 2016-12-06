@@ -1,4 +1,4 @@
-import customer_ticketing
+import ticket
 import res_partner
 import branch
 import order
