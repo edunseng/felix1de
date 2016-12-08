@@ -122,10 +122,10 @@
 		   
 		</record>
 
-		<menuitem id="menu_main" name="Kontake"
+		<!--menuitem id="menu_main" name="Kontake"
 		groups="group_felix1_mitarbeiter,group_felix1_mandant_lesen,group_felix1_mandant_schreiben,group_felix1_abteilungsleiter"/>
 		<menuitem id="menu_contact" name="Liste Kontakte" parent="menu_main"/>
-	    <menuitem id="sub_menu" name="Kontakte" parent="menu_contact" action="action_contact_system123"/>
+	    <menuitem id="sub_menu" name="Kontakte" parent="menu_contact" action="action_contact_system123"/-->
 			
 	    <record model="ir.actions.act_window" id="mail.action_contacts">
             <field name="domain">[('ist_kontakt', '=', True)]</field> 

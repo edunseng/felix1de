@@ -5,3 +5,6 @@ encoding//custom-addons/felix1de_frontend/__init__.py=utf-8
 encoding//custom-addons/felix1de_frontend/__openerp__.py=utf-8
 encoding//custom-addons/felix1de_frontend/models/kontakte.py=utf-8
 encoding//custom-addons/felix1de_frontend/models/mandanten.py=utf-8
+encoding//custom-addons/felix1de_frontend/models/refurb/customer.py=utf-8
+encoding//custom-addons/felix1de_frontend/models/res_partner.py=utf-8
+encoding//custom-addons/felix1de_frontend/models/ticket.py=utf-8
