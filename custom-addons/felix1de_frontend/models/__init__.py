@@ -9,5 +9,6 @@ import mandanten
 import kontakte
 import kanzleien
 import project
+import partner
 
 
