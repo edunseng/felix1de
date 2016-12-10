@@ -5,7 +5,7 @@ class BackendAuftraege(models.Model):
     _name='backend.auftraege'
     _inherit=['backend.auftraege','mail.thread']
     
-   # product_id=fields.One2many('backend.line', 'line')
+    product_id=fields.One2many('backend.line', 'line')
    # project_task_id=fields.Many2one('project.task')
     @api.model
     def _create_project_task(self, vals):
@@ -30,8 +30,7 @@ class BackendAuftraege(models.Model):
    
 class backend_auftraege(models.Model):
     _name='backend.line'
-    
-   # line=fields.Many2one('backend.auftraege')
+    line=fields.Many2one('backend.auftraege')
     name=fields.Char('Name')
     monatsgebuhr=fields.Float('Monatsgebuhr')
     einmalgebuhr=fields.Float('Einmalgebuhr')

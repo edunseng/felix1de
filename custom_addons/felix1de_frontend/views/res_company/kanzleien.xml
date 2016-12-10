@@ -26,7 +26,7 @@
 					
 		           <sheet>
                                  <h1> 
-                                   <field name="name" placeholder="Name Kanzlei" required="1"/>
+                                   <!-- <field name="name" placeholder="Name Kanzlei" required="1"/> -->
                                   </h1>
 					   <group>
 					      <group>
@@ -34,10 +34,9 @@
                                                           <field name="partner_id" string="Partner"/>
 						      <field name="scsbereich"/>
 						      <!--<field name="ETAXBeraternummer" string="F1-ETAXBeraternummer"/>-->
->
 		                      <field name="Lohnberaternummer"/>
 						      <field name="etlnummerstammkanzlei"/>
-		                      <field name="name"/>
+		                      <!-- <field name="name"/> -->
 						      <field name="f1kanzleinummer"/>
 						      <field name="bemerkung"/>
 						       
@@ -88,11 +87,11 @@
 					        <field name="contact_person_id">
 								 <tree editable="bottom">
 					               <field name="vorname" string="name"/>
-					               <field name="name" string="last name"/>
+					               <!-- <field name="name" string="last name"/> -->
 					              
 					               <field name="email1" string="email"/>
 					               <field name="telefon1" string="Phone"/>
-					               <field name="category_id"/>
+					               <!-- <field name="category_id"/> -->
 					               <field name="brach_contract" string="contact person"/>
 					               
 					            </tree>

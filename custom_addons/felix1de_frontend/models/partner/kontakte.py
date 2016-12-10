@@ -16,9 +16,9 @@ class resPartnerKontakte(models.Model):
     #brach_contract=fields.Many2one('backend.kanzleien')
     ##image=fields.Binary(String="image")
    ## contact_id=fields.Char(string="Contact Id")
-    ##remark=fields.Text('Remark')
+    remark=fields.Text('Remark')
     #category_id=fields.Many2one('res.partner.category',string='Tags')
-   ## con_acquired_by=fields.Char('Acquired By')
+   
    ## contact_since=fields.Char('Kontakt seit')
 
 

@@ -38,11 +38,12 @@
         # secutŕity
         'security/ir.model.access.csv',
         'security/security.xml',
+        'security/ticket_security.xml',
         # Model related views
         'views/own_menus/backend.xml',
         'views/res_partner/partner_kontakte.xml',
         'views/own_menus/start.xml',
-        #'views/res_partner/partner_mandanten.xml',
+        # 'views/res_partner/partner_mandanten.xml',
         #'views/project_issue/ticketsystem.xml',
         #'views/res_company/branch_view.xml',
         #'views/contract_view.xml',
@@ -54,9 +55,9 @@
         #'views/customer_mail_send_view.xml',
         #'views/res_partner/notebooks/product_view.xml',
         #'views/mandanten.xml',
-        #'views/kontakte_view.xml',
-        #'views/res_company/kanzleien.xml',
-        #'views/project_issue/project_view.xml',
+        'views/kontakte_view.xml',
+        'views/res_company/kanzleien.xml',
+        'views/res_partner/notebooks/project_issue/project_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

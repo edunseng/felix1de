@@ -5,7 +5,8 @@ import apiais
 
 class backend_kontakte(models.Model):
     _name='backend.kontakte'
-    _inherit='backend.apiais.autoname','backend.apiais.accessid'
+    _inherit=['backend.apiais.autoname','backend.apiais.accessid']
+
     
 
     accessid=fields.Char('ID', compute='_lookup_accessid')
@@ -49,4 +50,6 @@ class backend_kontakte(models.Model):
     addresse=fields.Char('Adresse')
     datenok=fields.Boolean("DatenOK", default=False)
     partner_id=fields.Many2one('res.partner', ondelete='cascade', index=True, String="Partner")
+    brach_contract=fields.Many2one('backend.kanzleien')
+    name = fields.Char("Name")
      

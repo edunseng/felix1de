@@ -82,10 +82,11 @@ class client_number(models.Model):
 
 class client_detail(models.Model):
 	_name='res.client'
-	# # name=fields.Many2one('res.partner', string="Name")
+	
+  #name=fields.Many2one('res.partner', string="Name")
 	# # partner_id=fields.Many2one('res.partner')
 	#client_number=fields.Char(related="name.client_number" , string='Client Number')
-    # # account_id=fields.Many2one('bank.detail', string='Accountant')
-	#branch_id=fields.Many2one('branch.branch', string='Branchs')
-	issue_date=fields.Date('Issued On')
+  #account_id=fields.Many2one('bank.detail', string='Accountant')
+  #branch_id=fields.Many2one('branch.branch', string='Branchs')
+  #issue_date=fields.Date('Issued On')
 	
