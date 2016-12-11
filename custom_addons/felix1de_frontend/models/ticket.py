@@ -32,7 +32,7 @@ class Felix1Ticket(models.Model):
 	#ChamBranch_rel=fields.Many2one('branch.branch', string="Kanzlei-Niederlassung")
 	#ChamMail=fields.Char('Email-Kanzlei', related='ChamBranch_rel.branch_mail')
 	ticketcalk=fields.Char(string="ticketingID",store=True, compute="ticketname")
-	#priPriority_id=fields.Many2one('backend.mandanten')
+	priPriority_id=fields.Many2one('backend.mandanten')
 
 		
 			

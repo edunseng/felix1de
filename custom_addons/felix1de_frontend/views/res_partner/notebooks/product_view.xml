@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
-		<menuitem id="order_sub_menu1" parent="client_root_menu1" name="Auftragsliste"/>
-		<menuitem id="product_sub_menu_sub9888" parent="customer_ticketing_system.order_sub_menu1" name="Auftrage" action="action_product_system"/> 
+
 		<record id="product_tree_view" model="ir.ui.view">
 		    <field name="name">Orders</field>
 		    <field name="model">backend.auftraege</field>
@@ -42,7 +41,7 @@
                                    
 					   <group>
 					      <group>
-						      <field name="mandant_id" string="client Name"/>
+						      <!-- <field name="mandant_id" string="client Name"/> -->
 						     <!-- <field name="DatenOK" string="date"/>
 		                                      <field name="Start1" string="start date"/>
                                                       <field name="Ende1" string="end date"/>-->
@@ -90,6 +89,8 @@
 <!--
 		 <menuitem id="order_sub_menu" parent="client_root_menu" name="Auftragsliste"/> 
 -->
+	<menuitem id="order_sub_menu1" parent="client_root_menu1" name="Auftragsliste"/>
+	<menuitem id="product_sub_menu_sub9888" parent="order_sub_menu1" name="Auftrage" action="action_product_system"/> 
                       
 	</data>
 </openerp>

@@ -62,6 +62,6 @@ class ticket_employee(models.Model):
      emp_editorial=fields.Char('Bemerkung')
      emp_customer_service=fields.Char('Kundenservice')
      emp_distribution=fields.Char('Vertrieb')
-     #emp_client_list=fields.Many2many('res.partner', 'res_isssd', 'res_idssss')
+     emp_client_list=fields.Many2many('res.partner', 'res_isssd', 'res_idssss')
      
      

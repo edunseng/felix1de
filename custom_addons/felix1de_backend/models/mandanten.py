@@ -5,7 +5,7 @@ import apiais
 
 class backend_mandanten(models.Model):
     _name='backend.mandanten'
-    _inherit='backend.apiais.accessid'
+    _inherit=['mail.thread','backend.apiais.accessid']
     
     accessid=fields.Char('ID', compute='_lookup_accessid')
     name=fields.Char(String="Mandant", help="Name des Mandanten", required=True)

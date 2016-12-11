@@ -63,10 +63,11 @@ class res_partner(models.Model):
   
 class res_bank_detial(models.Model):
    _name='bank.detail'
+   
    name=fields.Char()
-  # #client_id=fields.Many2one('res.partner')
-  # #mandant_id=fields.Many2one('backend.mandanten')
-   ##client_number=fields.Char(related='client_id.client_number')
+   client_id=fields.Many2one('res.partner')
+   mandant_id=fields.Many2one('backend.mandanten')
+   client_number=fields.Char(related='client_id.client_number')
    account_number=fields.Char('Account Number')
    iban=fields.Char('IBAN')
    bic=fields.Char('BIC')
@@ -74,9 +75,10 @@ class res_bank_detial(models.Model):
    valid_from=fields.Date('Valid From')
 class client_number(models.Model):
    _name="client.number"
-  # #name=fields.Many2one('backend.mandanten')
+
+   name=fields.Many2one('backend.mandanten')
   # #client_id=fields.Many2one('res.partner', 'Client')
-  # #branch_id=fields.Many2one('branch.brach', 'Branch')
+   branch_id=fields.Many2one('branch.brach', 'Branch')
   # #bank_id=fields.Many2one('bank.detail', 'Accountant')
    lohn_agent_no=fields.Char('Lohn AgentNumber')
 

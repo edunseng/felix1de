@@ -35,5 +35,5 @@ class backend_auftraege(models.Model):
     monatsgebuhr=fields.Float('Monatsgebuhr')
     einmalgebuhr=fields.Float('Einmalgebuhr')
     jahresgebuhr=fields.Float('Jahresgebuhr')
-    #order_id=fields.Many2one('client.order')
+    order_id=fields.Many2one('client.order')
     
