@@ -119,7 +119,7 @@
 		    <field name="view_mode">tree,form</field>
 		   
 		</record>
-		 <menuitem id="ticketing_root_menu" name="Ticketsystem" sequence="4" groups="customer_ticketing_system.group_ticket_menu"/> 
+		 <menuitem id="ticketing_root_menu" name="Ticketsystem" sequence="4" groups="group_ticket_menu"/> 
 		    <menuitem id="sub_menu_ticking" parent="ticketing_root_menu" name="Tickets List"/> 
 		    <menuitem id="sub_menu_ticking_sub" parent="sub_menu_ticking" name="Tickets" action="action_customer_ticketing_system"/> 
 	</data>

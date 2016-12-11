@@ -32,32 +32,30 @@
 
     # always loaded
     'data': [
-        # general view definitions
-        'views/views.xml',
-        'views/templates.xml',
         # secutŕity
         'security/ir.model.access.csv',
         'security/security.xml',
         'security/ticket_security.xml',
-        # Model related views
+     #   # Model related views
         'views/own_menus/backend.xml',
-        'views/res_partner/partner_kontakte.xml',
         'views/own_menus/start.xml',
+        'views/project_issue/ticketsystem.xml',
+     #   'views/res_partner/partner_kontakte.xml',
         # 'views/res_partner/partner_mandanten.xml',
-        #'views/project_issue/ticketsystem.xml',
+ 
         #'views/res_company/branch_view.xml',
         #'views/contract_view.xml',
         
-        'views/res_partner/notebooks/project_issue/project_view.xml',
-        'views/res_company/kanzleien.xml',
-        'views/kontakte_view.xml',
-        'views/mandanten.xml',
-        'views/res_partner/notebooks/product_view.xml',
-        'views/customer_mail_send_view.xml',
-        'views/res_partner/notebooks/number_view.xml',
-        'views/res_partner/notebooks/order_view.xml',
-        'views/ticket_employee_view.xml',
-        'views/res_partner/notebooks/bank_details_view.xml',
+     #   'views/res_partner/notebooks/project_issue/project_view.xml',
+     #v   'views/res_company/kanzleien.xml',
+     #   'views/kontakte_view.xml',
+      #  'views/mandanten.xml',
+     #   'views/res_partner/notebooks/product_view.xml',
+     #   'views/customer_mail_send_view.xml',
+     #   'views/res_partner/notebooks/number_view.xml',
+     #   'views/res_partner/notebooks/order_view.xml',
+     #   'views/ticket_employee_view.xml',
+     #v   'views/res_partner/notebooks/bank_details_view.xml',
         
         
         

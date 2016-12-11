@@ -57,7 +57,7 @@
                 <field name="type">ir.actions.act_window</field>
                 <field name="res_model">res.partner</field>
                 <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->
-                <field name="domain">[('ist_kontakt', '=',True)]</field>          
+                <!--field name="domain">[('ist_kontakt', '=',True)]</field-->          
                 <field name="view_id" ref="respartner_mandanten_inherit_tree_view"/>
                 <field name="view_type">form</field>
                 <field name="view_mode">tree,form</field>          
@@ -96,7 +96,7 @@
         
 
 <!--START MENU (ticket)-->
-            <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter"/> 
+            <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter"/> 
             
             <menuitem id="start_sub_menu" parent="start_root_menu" name="Liste Tickets"/> 
             <menuitem id="start_sub_menu_sub1" parent="start_sub_menu" name="Eigene Tickets" sequence="1" action="action_felix1_ticket_tree_view_eigene_tickets"/>
