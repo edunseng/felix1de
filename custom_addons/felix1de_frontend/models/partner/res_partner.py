@@ -40,16 +40,16 @@ class res_partner(models.Model):
    def client_list_view(self):
        for record in self:
            for  rec in record.client_detail_id:
-	       return {
-		      'name': _('Client Lists'),
-		       'view_type': 'form',
-			'view_mode': 'tree,form',
-			'res_model': 'res.client',
-			'view_id': False,
-			'type': 'ir.actions.act_window',
-			'domain': [('id', 'in', [rec.id for rec in record.client_detail_id])],
-		       }         #res.partner    #rec.client          #res.partner
-	
+               return {
+              'name': _('Client Lists'),
+               'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': 'res.client',
+            'view_id': False,
+            'type': 'ir.actions.act_window',
+            'domain': [('id', 'in', [rec.id for rec in record.client_detail_id])],
+               }         #res.partner    #rec.client          #res.partner
+    
    @api.multi
    @api.onchange('type_ext')
    def type_value(self):
@@ -73,22 +73,23 @@ class res_bank_detial(models.Model):
    bic=fields.Char('BIC')
    Payment_method=fields.Char('Payment Method')
    valid_from=fields.Date('Valid From')
+   
 class client_number(models.Model):
    _name="client.number"
 
    name=fields.Many2one('backend.mandanten')
   # #client_id=fields.Many2one('res.partner', 'Client')
-   branch_id=fields.Many2one('branch.brach', 'Branch')
+   branch_id=fields.Many2one('branch.branch', 'Branch')
   # #bank_id=fields.Many2one('bank.detail', 'Accountant')
    lohn_agent_no=fields.Char('Lohn AgentNumber')
 
 class client_detail(models.Model):
-	_name='res.client'
-	
-  #name=fields.Many2one('res.partner', string="Name")
-	# # partner_id=fields.Many2one('res.partner')
-	#client_number=fields.Char(related="name.client_number" , string='Client Number')
-  #account_id=fields.Many2one('bank.detail', string='Accountant')
-  #branch_id=fields.Many2one('branch.branch', string='Branchs')
-  #issue_date=fields.Date('Issued On')
-	
+    _name='res.client'
+    
+    name=fields.Many2one('res.partner', string="Name")
+    partner_id=fields.Many2one('res.partner')
+    client_number=fields.Char(related="name.client_number" , string='Client Number')
+    acc_id=fields.Many2one('bank.detail', string='Accountant')
+    branch_id=fields.Many2one('branch.branch', string='Branchs')
+    issued_on=fields.Date('Issued On')
+    

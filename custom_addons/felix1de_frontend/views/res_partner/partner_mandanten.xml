@@ -3,28 +3,28 @@
 <data>
 	<record id="client_detail_tree_view" model="ir.ui.view">
 	       <field name="name">Client List</field>
-		    <field name="model">res.client</field>
+		    <field name="model">res.partner</field>
 		    <field name="arch" type="xml"> 
 		      <tree string="CLient List">
 		        <field name="name"/>
-		        <field name="issue_date"/>
+		        <field name="issued_on"/>
 		      </tree>
 		    </field>
 	</record>
 	<record id="client_detail_form_view" model="ir.ui.view">
 	       <field name="name">Client List</field>
-		    <field name="model">res.client</field>
+		    <field name="model">res.partner</field>
 		    <field name="arch" type="xml"> 
 		      <form string="CLient List">
 				  <sheet>
 				   <group>
 				      <group>
 				        <field name="name"/>
-		                <field name="issue_date"/>
+		                <field name="issued_on"/>
 				      </group>
 				      <group>
 				         <field name="client_number" string="Client Number"/>
-                          <field name="account_id" string="Accountant"/>
+                          <field name="acc_id" string="Accountant"/>
                           <field name="branch_id" string="Branches"/>
 				      </group>
 				   </group>
@@ -131,9 +131,9 @@
                                   <tree editable="bottom">
                                    <field name="name"/>
                                    <field name="client_number" string="Client Number"/>
-                                   <field name="account_id" string="Accountant"/>
+                                   <field name="acc_id" string="Accountant"/>
                                    <field name="branch_id" string="Branches"/>
-                                   <field name="issue_date"/>
+                                   <field name="issued_on"/>
                                 </tree>
                                
                                </field>

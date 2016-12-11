@@ -10,9 +10,14 @@ class BackendMandanten(models.Model):
     ist_mandant=fields.Boolean('Ist Mandant')
     contact_id=fields.Many2one('backend.kontakte', string='Contact ID')
     bank_rel=fields.One2many('bank.detail', 'mandant_id')
-    order_id=fields.One2many('client.order', 'client_order_id')
+    order_id=fields.One2many('client.order', 'clientorder_id')
     number_id=fields.One2many('client.number', 'name')
     ticketing_rel=fields.One2many('felix1.ticket','priPriority_id')
-    branch_id=fields.One2many('backend.kanzleien','branch')
-    partner_id=fields.Many2one('res.partner')
+    branch_id=fields.One2many('backend.kanzleien','name')
+   # partner_id=fields.Many2one('res.partner')
+    
+    #client_number=fields.Char(related="name.client_number" , string='Client Number')
+    #acc_id=fields.Many2one('bank.detail', string='Accountant')
+    #branch_id=fields.Many2one('branch.branch', string='Branchs')
+    #issued_on=fields.Date('Issued On')
     
