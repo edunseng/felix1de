@@ -702,6 +702,7 @@
   <menuitem id="client_root_menu" name="Mandant List" sequence="6"/> 
              <menuitem id="client_sub_menu" parent="client_root_menu" name="Mandant List"/> 
             <menuitem id="client_sub_menu_sub" parent="client_sub_menu" name="Mandant Partner" action="action_client_form_view"/>
+            
              <menuitem id="start_root_menu" name="Start" sequence="3" groups="group_start_menu"/> 
              <menuitem id="start_sub_menu" parent="start_root_menu" name="List of Tickets"/> 
        <menuitem id="start_sub_menu1" parent="start_root_menu" name="List of Clients"/> 

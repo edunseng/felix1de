@@ -22,8 +22,8 @@ class branch_branch(models.Model):
      suspend_on=fields.Date('Ausgesetzt zum')
      suspended_untill=fields.Date('Ausgesetzt bis') 
      ###Relational Fields
-     #brach_contract_rel=fields.One2many('branch.contract', 'name')
-     #contact_person_id=fields.One2many('res.partner','branch_rel')
+     brach_contract_rel=fields.One2many('branch.contract', 'name')
+     contact_person_id=fields.One2many('res.partner','branch_rel')
      ######address fields
      branch_street=fields.Char('Str.')
      branch_street_no=fields.Char('Hausnummer')
@@ -38,7 +38,7 @@ class branch_branch(models.Model):
      
 class brach_contract(models.Model):
      _name="branch.contract"
-     #name=fields.Many2one('branch.branch','Niederlassung Name')
+     name=fields.Many2one('branch.branch','Niederlassung Name')
      #chamber_id=fields.Char(related='name.branch_id',  string='Niederlassung ID')
      contract_from=fields.Date('Vertragsbegin')
      contract_date=fields.Date('Bertragsstart')

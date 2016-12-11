@@ -17,7 +17,7 @@ class BackendMandanten(models.Model):
    # partner_id=fields.Many2one('res.partner')
     
     #client_number=fields.Char(related="name.client_number" , string='Client Number')
-    #acc_id=fields.Many2one('bank.detail', string='Accountant')
+    acc_id=fields.Many2one('bank.detail', string='Accountant')
     #branch_id=fields.Many2one('branch.branch', string='Branchs')
-    #issued_on=fields.Date('Issued On')
+    issued_on=fields.Date('Issued On')
     

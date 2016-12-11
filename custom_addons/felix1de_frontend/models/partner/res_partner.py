@@ -28,7 +28,7 @@ class res_partner(models.Model):
    etl_user_identification=fields.Char()
    house_contact_person=fields.Char('House Contact Person Chamber')
    client_issue_date=fields.Date('Issue Date')
-   #client_detail_id=fields.One2many('res.client', 'partner_id')
+   client_detail_id=fields.One2many('res.client', 'partner_id')
    #branch_id=fields.One2many('branch.branch','contract_person')
    type_ext= fields.Selection(
             [

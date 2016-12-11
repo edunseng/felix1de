@@ -1,5 +1,5 @@
 
-import branch
+import company
 import ticket
 import partner
 import project
