@@ -47,16 +47,26 @@
         #'views/project_issue/ticketsystem.xml',
         #'views/res_company/branch_view.xml',
         #'views/contract_view.xml',
-        'views/res_partner/notebooks/bank_details_view.xml',
-        'views/ticket_employee_view.xml',
-        'views/res_partner/notebooks/order_view.xml',
-        'views/res_partner/notebooks/number_view.xml',
-        'views/customer_mail_send_view.xml',
-        'views/res_partner/notebooks/product_view.xml',
-        'views/mandanten.xml',
-        'views/kontakte_view.xml',
-        'views/res_company/kanzleien.xml',
+        
         'views/res_partner/notebooks/project_issue/project_view.xml',
+        'views/res_company/kanzleien.xml',
+        'views/kontakte_view.xml',
+        'views/mandanten.xml',
+        'views/res_partner/notebooks/product_view.xml',
+        'views/customer_mail_send_view.xml',
+        'views/res_partner/notebooks/number_view.xml',
+        'views/res_partner/notebooks/order_view.xml',
+        'views/ticket_employee_view.xml',
+        'views/res_partner/notebooks/bank_details_view.xml',
+        
+        
+        
+        
+        
+        
+        
+        
+        
     ],
     # only loaded in demonstration mode
     'demo': [
