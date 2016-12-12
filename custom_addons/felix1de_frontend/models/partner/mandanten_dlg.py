@@ -13,7 +13,7 @@ class BackendMandanten(models.Model):
     order_id=fields.One2many('client.order', 'clientorder_id')
     number_id=fields.One2many('client.number', 'name')
     ticketing_rel=fields.One2many('felix1.ticket','priPriority_id')
-    branch_id=fields.One2many('backend.kanzleien','name')
+    # branch_id=fields.One2many('backend.kanzleien','name')
    # partner_id=fields.Many2one('res.partner')
     
     #client_number=fields.Char(related="name.client_number" , string='Client Number')

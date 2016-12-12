@@ -19,7 +19,7 @@ class res_partner(models.Model):
    con_acquired_by=fields.Char('Acquired By')
    contact_since=fields.Char('Contact Since')
    lagel_structure=fields.Char('Legal Structure')
-   client_id=fields.Char('Client ID')
+   clients_id=fields.Char('Client ID')
    #contact_id=fields.Many2one('contact.contacts', string='Contact ID')
    client_remark=fields.Text('Remark')
    client_status=fields.Char('Status')
@@ -29,7 +29,7 @@ class res_partner(models.Model):
    house_contact_person=fields.Char('House Contact Person Chamber')
    client_issue_date=fields.Date('Issue Date')
    client_detail_id=fields.One2many('res.client', 'partner_id')
-   #branch_id=fields.One2many('branch.branch','contract_person')
+   branch_id=fields.One2many('branch.branch','contract_person')
    type_ext= fields.Selection(
             [
              ('invoice', 'Rechnungsanschrift'),
