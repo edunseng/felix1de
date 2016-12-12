@@ -99,7 +99,7 @@
                              <page string="Tickets">
 								  <group>
 									   <div >
-										  <field name="ticketing_rel" nolable="1"/>
+										  <field name="ticketing_rel" nolable="1" string="test"/>
 									   </div>
 		                         </group>
 						     </page>
