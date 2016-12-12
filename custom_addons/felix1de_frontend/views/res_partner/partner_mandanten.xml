@@ -2,20 +2,20 @@
 <openerp>
 <data>
 	<record id="client_detail_tree_view" model="ir.ui.view">
-	       <field name="name">Client List</field>
+	       <field name="name">Mandantenliste</field>
 		    <field name="model">res.partner</field>
 		    <field name="arch" type="xml"> 
-		      <tree string="CLient List">
+		      <tree string="Mandantenliste">
 		        <field name="name"/>
 		        <field name="issued_on"/>
 		      </tree>
 		    </field>
 	</record>
 	<record id="client_detail_form_view" model="ir.ui.view">
-	       <field name="name">Client List</field>
+	       <field name="name">Mandantenliste</field>
 		    <field name="model">res.partner</field>
 		    <field name="arch" type="xml"> 
-		      <form string="CLient List">
+		      <form string="Mandantenliste">
 				  <sheet>
 				   <group>
 				      <group>
@@ -41,7 +41,7 @@
 		    <field name="arch" type="xml"> 
                       <field name="email" position="after">
 						
-                        <button name="client_list_view" string="Client List" type="object"/>
+                        <button name="client_list_view" string="Mandantenliste" type="object"/>
                      </field>
                      <field name="display_name" position="replace">
                        <field name="name" string="First Name"/>
@@ -699,14 +699,9 @@
         </record>
             
       <!--end-->
-  <menuitem id="client_root_menu" name="Mandant List" sequence="6"/> 
-             <menuitem id="client_sub_menu" parent="client_root_menu" name="Mandant List"/> 
+  <menuitem id="client_root_menu" name="Mandanten" sequence="6"/> 
+             <menuitem id="client_sub_menu" parent="client_root_menu" name="Mandantenliste"/> 
             <menuitem id="client_sub_menu_sub" parent="client_sub_menu" name="Mandant Partner" action="action_client_form_view"/>
-            
-             <menuitem id="start_root_menu" name="Start" sequence="3" groups="group_start_menu"/> 
-             <menuitem id="start_sub_menu" parent="start_root_menu" name="List of Tickets"/> 
-       <menuitem id="start_sub_menu1" parent="start_root_menu" name="List of Clients"/> 
-            <menuitem id="start_sub_menu_sub1" parent="start_sub_menu1" name="Clients" action="action_client_form_view_start_menu"/> 
  
 </data>
 </openerp> 

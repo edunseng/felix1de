@@ -115,7 +115,7 @@
 		    <field name="view_mode">tree,form</field>
 		   
 		</record>
-		 <menuitem id="kontakte_root_menu1" name="kontakte" sequence="4"   groups="group_kontakte_menu" /> 
+		 <menuitem id="kontakte_root_menu1" name="kontakt" sequence="4"   groups="group_kontakte_menu" /> 
 		    <menuitem id="sub_menu_kontakte1" parent="kontakte_root_menu1" name="kontakte List"/> 
 		    <menuitem id="sub_menu_kontakte_sub" parent="sub_menu_kontakte1" name="kontakte" action="action_kontakte_view"/> 
 		
