@@ -392,7 +392,8 @@
                   </form>
                  </field>
              </record>
-            <record id="action_client_form_view" model="ir.actions.act_window">
+          
+        <record id="action_client_form_view" model="ir.actions.act_window">
 		    <field name="name">Clients</field>
 		    <field name="type">ir.actions.act_window</field>
 		    <field name="res_model">res.partner</field>

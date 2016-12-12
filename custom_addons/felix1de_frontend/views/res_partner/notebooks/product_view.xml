@@ -89,8 +89,8 @@
 <!--
 		 <menuitem id="order_sub_menu" parent="client_root_menu" name="Auftragsliste"/> 
 -->
-	<menuitem id="order_sub_menu1" parent="client_root_menu1" name="Auftragsliste"/>
-	<menuitem id="product_sub_menu_sub9888" parent="order_sub_menu1" name="Auftrage" action="action_product_system"/> 
+<!-- 	<menuitem id="order_sub_menu1" parent="client_root_menu1" name="Auftragsliste"/>
+	<menuitem id="product_sub_menu_sub9888" parent="order_sub_menu1" name="Auftrage" action="action_product_system"/ -->> 
                       
 	</data>
 </openerp>
