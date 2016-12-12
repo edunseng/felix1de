@@ -15,6 +15,9 @@
                 <field name="name" placeholder="Name" invisible="1" attrs="{'required' : [('type', '=', 'contact')]}"/>
                 <field name="kontakte_id" default_focus="1"/>
             </field-->
+            <field name="mobile" position="after">
+                <field name="phone"/>
+            </field>
             <field name="name" position="after">
                 <field name="ist_kontakt"/>
             </field>
