@@ -13,5 +13,96 @@
     <menuitem id="start_sub_menu11234" parent="client_root_menu1" name="List of mandant"/> 
     <menuitem id="mandant_menu_sub123" parent="start_sub_menu11234" name="Mandant" action="action_mandant_system"/>  
 
+
+<!-- backend.mandanten View / own menus-->
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_backend_menu" name="Access Backend" groups="group_backend_menu"/>
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="backend_menu" name="Tabellen"
+                  parent="main_backend_menu"/>
+        <menuitem id="branchen" name="Branchen" parent="backend_menu"
+                  action="branchen_list_action" sequence="1"/>
+        <menuitem id="berater" name="Berater" parent="backend_menu"
+                  action="berater_list_action" sequence="2"/>
+        <menuitem id="kanzleien" name="Kanzleien" parent="backend_menu"
+                  action="kanzleien_list_action" sequence="3"/>
+        <menuitem id="mandantenstatus" name="Mandantenstatus" parent="backend_menu"
+                  action="mandantenstatus_list_action" sequence="4"/>
+        <menuitem id="unternehmensformen" name="Unternehmensformen" parent="backend_menu"
+                  action="unternehmensformen_list_action" sequence="5"/>        
+        <menuitem id="paket" name="Paket" parent="backend_menu"
+                  action="paket_list_action" sequence="6"/>
+        <menuitem id="paketkategorie" name="Paketkategorie" parent="backend_menu"
+                  action="paketkategorie_list_action" sequence="7"/>
+        <menuitem id="paketestatus" name="Paketestatus" parent="backend_menu"
+                  action="paketestatus_list_action" sequence="8"/>
+        <menuitem id="felix1gruppen" name="Felix1gruppen" parent="backend_menu"
+                  action="felix1gruppen_list_action" sequence="9"/>  
+        <menuitem id="checklistentypen" name="Checklistentypen" parent="backend_menu"
+                  action="checklistentypen_list_action" sequence="10"/>
+        <menuitem id="checklistenvorlagen" name="checklistenvorlagen" parent="backend_menu"
+                  action="checklistenvorlagen_list_action" sequence="11"/> 
+        <menuitem id="abrechnungszeitraeume" name="Abrechnungszeitraeume" parent="backend_menu"
+                  action="abrechnungszeitraeume_list_action" sequence="12"/>                           
+        <menuitem id="preiseschluessel" name="Preiseschluessel" parent="backend_menu"
+                  action="preiseschluessel_list_action" sequence="13"/>
+        <menuitem id="pakete" name="Pakete" parent="backend_menu"
+                  action="pakete_list_action" sequence="14"/>
+         <menuitem id="lohnpreiseartikel" name="Lohnpreiseartikel" parent="backend_menu"
+                  action="lohnpreiseartikel_list_action" sequence="15"/>
+        <menuitem id="lohnmandanten" name="Lohnmandanten" parent="backend_menu"
+                  action="lohnmandanten_list_action" sequence="16"/>
+        <menuitem id="ops" name="Ops" parent="backend_menu"
+                  action="ops_list_action" sequence="17"/>
+
+        
+        <menuitem id="mandanten" name="Mandanten" parent="backend_menu"
+                  action="mandanten_list_action" sequence="18"/>
+        <menuitem id="auftraege" name="Aufträge" parent="backend_menu"
+                  action="auftraege_list_action" sequence="19"/>
+        <menuitem id="kontakte" name="Kontakte" parent="backend_menu"
+                  action="kontakte_list_action" sequence="20"/>
+        
+        
+        <!--START MENU (ticket)-->
+        
+            <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter"/> 
+            
+            <menuitem id="start_sub_menu" parent="start_root_menu" name="Liste Tickets"/> 
+            <menuitem id="start_sub_menu_sub1" parent="start_sub_menu" name="Eigene Tickets" sequence="1" action="action_felix1_ticket_tree_view_eigene_tickets"/>
+            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Kündigungen" sequence="2" action="action_felix1_ticket_tree_view_kuendigungen_tickets"/>
+
+        <!--START MENU (mandanten)--> 
+                 
+            <menuitem id="start_sub2_menu" parent="start_root_menu" name="Liste Mandanten"/> 
+            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Mandanten" action="action_respartner_mandanten_inherit_tree_view_mandanten"/>
+
+        	 <menuitem id="ticketing_root_menu" name="Ticketsystem" sequence="4" groups="group_ticket_menu"/> 
+		    <menuitem id="sub_menu_ticking" parent="ticketing_root_menu" name="Tickets List"/> 
+		    <menuitem id="sub_menu_ticking_sub" parent="sub_menu_ticking" name="Tickets" action="action_customer_ticketing_system"/> 
+	 
+                  
+            <menuitem id="branch_root_menu" name="Niederlassungen" sequence="7"/> 
+		    <menuitem id="sub_menu_branch" parent="branch_root_menu" name="Liste Niederlassungen"/> 
+		    <menuitem id="sub_menu_bracnh_sub" parent="sub_menu_branch" name="Niederlassungen" action="action_branch_system"/> 
+
+      		<menuitem id="client_root_menu1" name="Mandant" sequence="6" groups="group_mandant_menu"/>
+		 	<menuitem id="number_sub_menu1" parent="client_root_menu1" name="Liste Nummern"/> 
+		    <menuitem id="number_sub_menu_sub" parent="number_sub_menu1" name="Nummern" action="number_order_system"/>  
+
+			<menuitem id="order_sub_menu1" parent="client_root_menu1" name="Auftragsliste"/>
+			<menuitem id="product_sub_menu_sub9888" parent="order_sub_menu1" name="Auftrage" action="action_product_system"/> 
+  
+   			<menuitem name="Contacts" id="menu_contacts" sequence="4" action="action_contacts" web_icon="mail,static/description/icon2.png"
+        		groups="base.group_user,base.group_partner_manager"/>
+            
+	
+       
+            <menuitem id="client_sub_menu12" parent="mail.menu_contacts" name="Mandantenliste"/> 
+            <menuitem id="client_sub_menu_sub21" parent="mail.menu_contacts" name="Mandant Partner" action="action_contacts"/>
+
+        
 </data>
 </openerp>
