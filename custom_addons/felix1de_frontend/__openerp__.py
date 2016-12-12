@@ -54,6 +54,7 @@
         'views/res_company/branch_view.xml',        
      
         'views/customer_mail_send_view.xml',
+        'views/menu_view.xml',
         
         
         

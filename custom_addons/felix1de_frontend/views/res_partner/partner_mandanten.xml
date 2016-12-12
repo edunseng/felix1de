@@ -697,11 +697,5 @@
               </p>
             </field>
         </record>
-            
-      <!--end-->
-  <menuitem id="client_root_menu" name="Mandanten" sequence="6"/> 
-             <menuitem id="client_sub_menu" parent="client_root_menu" name="Mandantenliste"/> 
-            <menuitem id="client_sub_menu_sub" parent="client_sub_menu" name="Mandant Partner" action="action_client_form_view"/>
- 
 </data>
 </openerp> 

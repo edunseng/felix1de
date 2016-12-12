@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<!-- Mandaten view / partner_mandanten-->
+    
+    <menuitem id="client_root_menu" name="Mandanten" sequence="6"/> 
+    <menuitem id="client_sub_menu" parent="client_root_menu" name="Mandantenliste"/> 
+    <menuitem id="client_sub_menu_sub" parent="client_sub_menu" name="Mandant Partner" action="action_client_form_view"/>
+
+<!-- Mandant View / backend_mandanten-->
+
+    <menuitem id="client_root_menu1" name="Mandant" sequence="6" groups="group_felix1_mitarbeiter"/>
+    <menuitem id="start_sub_menu11234" parent="client_root_menu1" name="List of mandant"/> 
+    <menuitem id="mandant_menu_sub123" parent="start_sub_menu11234" name="Mandant" action="action_mandant_system"/>  
+
+</data>
+</openerp>
