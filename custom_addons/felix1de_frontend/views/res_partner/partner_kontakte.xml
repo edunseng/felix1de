@@ -115,22 +115,6 @@
 		        </form>
 		    </field>
 		</record>
-		  
-		  <record id="action_contact_system123" model="ir.actions.act_window">
-		    <field name="name">Kontake</field>
-		    <field name="type">ir.actions.act_window</field>
-		    <field name="res_model">res.partner</field>
-		    <field name="domain">[('ist_kontakt', '=', True)]</field>
-		    <field name="view_type">form</field>
-		    <field name="view_mode">tree,form</field>
-		   
-		</record>
-
-		<menuitem id="menu_main" name="Kontake"
-		groups="group_felix1_mitarbeiter,group_felix1_mandant_lesen,group_felix1_mandant_schreiben,group_felix1_abteilungsleiter"/>
-		<menuitem id="menu_contact" name="Liste Kontakte" parent="menu_main"/>
-	    <menuitem id="sub_menu" name="Kontakte" parent="menu_contact" action="action_contact_system123"/>
-			
 
         <record id="view_partner_address_hide_form" model="ir.ui.view">
             <field name="name">partner.address.hide.form</field>
@@ -181,6 +165,15 @@
 		</field>
 	</record>
 	
+	<record id="action_contact_system123" model="ir.actions.act_window">
+            <field name="name">Kontake</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="domain">[('ist_kontakt', '=', True)]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+	
 	 <record id="action_contacts" model="ir.actions.act_window">
        <field name="name">Contacts</field>
         <field name="type">ir.actions.act_window</field>
@@ -206,18 +199,6 @@
         <field name="view_id" ref="base.view_partner_tree"/>
         <field name="act_window_id" ref="action_contacts"/>
     </record>
-    
-    <menuitem name="Contacts"
-        id="menu_contacts"
-        sequence="4"
-        action="action_contacts"
-        web_icon="mail,static/description/icon2.png"
-        groups="base.group_user,base.group_partner_manager"/>
-            
-	
-      <!--menuitem id="mail.menu_contacts" name="Mandanten Test" sequence="6"/--> 
-             <menuitem id="client_sub_menu12" parent="mail.menu_contacts" name="Mandantenliste"/> 
-            <menuitem id="client_sub_menu_sub21" parent="mail.menu_contacts" name="Mandant Partner" action="action_contacts"/>
 
 	</data>
 </openerp>

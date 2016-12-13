@@ -100,9 +100,7 @@
 		    <field name="view_type">form</field>
 		    <field name="view_mode">tree,form</field>
 		   
-		</record>
-		<menuitem id="order_sub_menu" parent="client_root_menu1" name="Auftragsliste"/> 
-		<menuitem id="order_sub_menu_sub" parent="order_sub_menu" name="Aufträge" action="action_order_system"/>  
+		</record> 
 	</data>
 </openerp>
 

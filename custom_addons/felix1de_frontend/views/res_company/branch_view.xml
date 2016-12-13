@@ -107,9 +107,6 @@
 		    <field name="view_mode">tree,form</field>
 		   
 		</record>
-		 <menuitem id="branch_root_menu" name="Niederlassungen" sequence="7"/> 
-		    <menuitem id="sub_menu_branch" parent="branch_root_menu" name="Liste Niederlassungen"/> 
-		    <menuitem id="sub_menu_bracnh_sub" parent="sub_menu_branch" name="Niederlassungen" action="action_branch_system"/> 
 	</data>
 </openerp>
 
