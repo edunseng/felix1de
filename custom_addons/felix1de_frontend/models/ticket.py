@@ -7,9 +7,7 @@ class mail_followers(models.Model):
 class Felix1Ticket(models.Model):
 	_name='felix1.ticket'
 	_inherit = ['mail.thread']
-	
-       
-            
+	         
 	prm_ticket_id=fields.Char('Ticket-ID',compute='creat_ticket_id')	
 	name=fields.Char('Ticket')
 	claticketname=fields.Char('claTicketName')

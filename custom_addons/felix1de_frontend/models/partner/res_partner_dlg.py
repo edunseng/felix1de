@@ -53,3 +53,4 @@ class resPartnerKontakte(models.Model):
         self.nachname=self.name
         self.telefon2=self.mobile
         #....
+        
