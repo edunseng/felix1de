@@ -77,6 +77,7 @@
                               <h1>
                                 <field name="name" default_focus="1" placeholder="Fisrt Name" attrs="{'required' : [('type', '=', 'contact')]}"/>
                                 <field name="lastname" placeholder="Last Name" />
+                                <field name="backendmandant_id" placeholder="Backendmandanten Name" />
                             </h1>
                       </xpath>
                       <field name="type" position="before">
