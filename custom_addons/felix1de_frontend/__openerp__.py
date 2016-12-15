@@ -44,11 +44,11 @@
         'views/project_issue/project_view.xml',
          # res.partner customasations
         'views/res_partner/notebooks/bank_details_view.xml',
-        'views/res_partner/mandanten_dlg.xml',
+        #'views/res_partner/mandanten_dlg.xml',
         'views/res_partner/notebooks/order_view.xml',
         'views/res_partner/notebooks/number_view.xml',
         'views/res_partner/notebooks/product_view.xml',
-        'views/res_partner/partner_kontakte.xml',
+        #'views/res_partner/partner_kontakte.xml',
         'views/res_partner/partner_mandanten.xml',
          # res.company customasations
         'views/res_company/branch_view.xml',        
