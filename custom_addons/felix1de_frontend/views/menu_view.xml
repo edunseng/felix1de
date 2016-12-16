@@ -168,7 +168,7 @@
 <!-- TICKETSYSTEM (project_issue/ticketsystem)-->
             <menuitem id="ticketing_root_menu" name="Ticketsystem" sequence="8" groups="group_ticket_menu"/> 
             <menuitem id="sub_menu_ticking" parent="ticketing_root_menu" name="Tickets List"/> 
-            <menuitem id="sub_menu_ticking_sub" parent="sub_menu_ticking" name="Tickets" action="action_customer_ticketing_system"/> 
+            <menuitem id="sub_menu_ticking_sub" parent="sub_menu_ticking" name="Tickets" action="action_ticket_project_ussue_form"/> 
 
 </data>
 </openerp>
