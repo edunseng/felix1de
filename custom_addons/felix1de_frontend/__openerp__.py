@@ -71,5 +71,9 @@
     ],
     'application': True,
     'installable': True,
-    'auto_install': True
+    'auto_install': True,
+    'qweb': [
+        'static/src/xml/client_action.xml',],
+    
+    
 }

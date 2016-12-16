@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
+              <record id="view_mandanten_tree" model="ir.ui.view">
+                <field name="name">Clients</field>
+                <field name="model">res.partner</field>
+                <field name="arch" type="xml">
+                    <tree string="Mandanten">
+                        <field name="name"/>
+                        <field name="branch_rel" string="Branch"/>
+                        <field name="client_number" string="Client Number"/>
+                        <field name="contact_id" string="Contact"/>
+                    </tree>
+                </field>
+               </record>
+
+
         <record id="respartner_mandanten_inherit_form_view" model="ir.ui.view">
             <field name="name">Ticketsystem</field>
             <field name="model">res.partner</field>
@@ -9,14 +23,16 @@
  
                 <xpath expr="//page[1]" position="attributes">
                      <attribute name="autofocus">0</attribute>
-                     <attribute name="invisible">1</attribute>
+                     <attribute name="invisible">0</attribute>
                 </xpath>                               
                 <xpath expr="//page[2]" position="attributes">
-                     <attribute name="invisible">True</attribute>
+                     <attribute name="invisible">0</attribute>
                 </xpath>
                 <xpath expr="//page[3]" position="attributes">
-                     <attribute name="invisible">True</attribute>
+                     <attribute name="invisible">0</attribute>
                 </xpath>
+                
+                
                 <xpath expr="//div[@class='o_address_format']" position="attributes">
                    <attribute name="invisible">True</attribute>
                 </xpath>
@@ -29,27 +45,42 @@
                 <xpath expr="//field[@name='lang']" position="attributes">
                    <attribute name="invisible">True</attribute>
                 </xpath>
-                
-                <xpath expr="//h1" position="replace">
-                              <h1>
-                                <field name="name" default_focus="1" placeholder="Fisrt Name" attrs="{'required' : [('type', '=', 'contact')]}"/>
-                                <field name="lastname" placeholder="Last Name" />
-                                <field name="backendmandant_id" placeholder="Backendmandanten Name" />
-                            </h1>
-                </xpath>
+
                 <field name ="parent_id" position="after">
                             <group colspan="2">
                                 <group>
-                                   <field name="ist_mandant"/> 
-                                   <field name="ist_kontakt"/>
+                                   <field name="ist_mandant" attrs="{'readonly': ['|', ('ist_kontakt', '=', True)]}"/> 
+                                   <field name="ist_kontakt" attrs="{'readonly': ['|', ('ist_mandant', '=', True)]}"/>
                                 </group>
                             </group>
                 </field>
-                <xpath expr="//field[@name='website']" position="after">
-                    <field name="con_acquired_by" string="Acquired By(Dstribution Agent)"/>
-                    <field name="contact_since" string="Client Since(Created On)"/>
-                    <field name="comment" string="Remark"/>
+                
+                
+                <xpath expr="//h1" position="replace">
+                    <h1>
+                        <field name="name" default_focus="1" placeholder="Fisrt Name" attrs="{'required' : [('type', '=', 'contact')]}"/>
+                        <field name="lastname" placeholder="Last Name" />
+                        <field name="backendmandant_id" placeholder="Backendmandanten Name" />
+                    </h1>
                 </xpath>
+                <xpath expr="//field[@name='website']" position="after">
+
+                            <!--field name="mandantennummer"/-->
+                            <field name="client_value" invisible="1"/>
+                            <field name="lagel_structure"/>
+                            <field name="parent_id" string="Contact"/>
+                            <field name="type" attrs="{'invisible': [('parent_id','=', False)]}" invisible="1" groups="base.group_no_one"/>                            
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="acquired_by"/>
+                            <field name="client_since"/>
+                            <field name="client_remark"/>               
+                            <field name="con_acquired_by" string="Acquired By(Dstribution Agent)"/>
+                            <field name="contact_since" string="Client Since(Created On)"/>
+                            <field name="comment" string="Remark"/>
+
+                </xpath>
+
                 <notebook position="inside">
                     <page string="Addresse">
                                  <group>
@@ -90,23 +121,14 @@
                        </div>
                      </group>
                   </page>
-                      
-                          <page string="Mandanten">
-                               <field name="client_detail_id">
-                                  <tree editable="bottom">
-                                   <field name="name"/>
-                                   <field name="client_number" string="Mandantennummer"/>
-                                   <field name="acc_id" string="Steuerberater"/>
-                                   <field name="branch_id" string="Niederlassung"/>
-                                   <field name="issued_on" string="Erstellt Am"/>
-                                </tree>
-                               
-                               </field>
-                          </page>
-                          
-                          
+                    <page string="internal_notes">
+                        <field name="message_ids"/>    
+                    </page>
+                        
                 </notebook>
-                
+
+
+  
             </field>
 
         </record>
@@ -116,7 +138,8 @@
        <field name="name">Contacts</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
-        <!--field name="domain">[('ist_kontakt', '=', True)]</field-->        
+        <!--field name="domain">[('ist_kontakt', '=', True)]</field-->   
+        <field name="context">{'default_ist_mandant':1,'default_customer':1}</field> 
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="base.view_res_partner_filter"/>
@@ -133,7 +156,7 @@
 <record id="action_mandanten_view_tree" model="ir.actions.act_window.view">
        <field name="sequence" eval="1"/>
         <field name="view_mode">tree</field>
-        <field name="view_id" ref="base.view_partner_tree"/>
+        <field name="view_id" ref="view_mandanten_tree"/>
         <field name="act_window_id" ref="action_mandanten_form_view"/>
 </record>
     <record id="action_mandanten_view_form" model="ir.actions.act_window.view">

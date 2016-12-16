@@ -17,12 +17,27 @@
     <delete model="ir.ui.menu" search="[('id', '=',
      ref('mail.mail_channel_menu_root_chat'))]" />     
        
+    <record id="mail_channel_action_client_starred" model="ir.actions.client">
+            <field name="name">Chat</field>
+            <field name="tag">mail.chat.instant_messaging</field>
+            <field name="res_model">mail.channel</field>
+            <field name="params" eval="&quot;{
+                'default_active_id': 'channel_inbox'
+            }&quot;"/>
+    </record>
+    
+    
+    
+    
+    
+    
+    
             <menuitem id="start_sub3_menu" parent="start_root_menu" name="Mailbox"/> 
             <!--original-->
             <menuitem
             id="mail.mail_channel_menu_root_chat"
             name="Email/Chat"
-            action="mail.mail_channel_action_client_chat"
+            action="mail_channel_action_client_starred"
             icon="fa-envelope"
             web_icon="mail,static/description/icon.png"
             groups="base.group_user"
@@ -31,6 +46,10 @@
             
             
     
+
+
+        <!--menuitem name="Channels/Partner" id="start_mail_channel_partner_menu" parent="start_sub3_menu"
+            action="mail_channel_partner_action" sequence="92" groups="base.group_no_one"/-->
 
 
 
@@ -71,12 +90,6 @@
         
 <!-- Liste Nummern (notebooks/bank_details)--> 
         <menuitem id="number_sub_menu_sub2" parent="number_sub_menu1" name="Bank" action="action_bank_system"/>
-
-    
-
-
-
-
 
 
 <!--KONTAKTE (res_partner/partner_kontakte)--> 
