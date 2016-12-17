@@ -35,7 +35,6 @@
         # secutŕity
         'security/ir.model.access.csv',
         'security/security.xml',
-        'security/ticket_security.xml',
         ## Model related views
         'views/own_menus/backend.xml',
         'views/own_menus/start.xml',

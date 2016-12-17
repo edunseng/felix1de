@@ -2,27 +2,7 @@
 <openerp>
 <data>
   <!--START MENU (ticket) (own_menus/start)-->
-            <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter" sequence="1"/> 
-            
-            <menuitem id="start_sub_menu" parent="start_root_menu" name="Tickets"/> 
-            <menuitem id="start_sub_menu_sub1" parent="start_sub_menu" name="Eigene Tickets" sequence="1" action="action_felix1_ticket_tree_view_eigene_tickets"/>
-            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Kündigungen" sequence="2" action="action_felix1_ticket_tree_view_kuendigungen_tickets"/>
-            <menuitem
-            id="mail.mail_channel_menu_root_todo"
-            name="Favoriten"
-            action="mail_channel_action_client_todo"
-            icon="fa-envelope"
-            web_icon="mail,static/description/icon.png"
-            groups="base.group_user"
-            parent="start_sub_menu"
-            sequence="3"/>
-            <!--(mandanten) -->          
-            <menuitem id="start_sub2_menu" parent="start_root_menu" name="Mandanten"/> 
-            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Alle Mandanten" action="action_respartner_mandanten_inherit_tree_view_mandanten"/>
-            
-<!--START MENU (Discuss) (odoo/addons/mail/views/mail_channel_views)-->
-
-    <delete model="ir.ui.menu" search="[('id', '=',
+      <delete model="ir.ui.menu" search="[('id', '=',
      ref('mail.mail_channel_menu_root_chat'))]" />     
        
     <record id="mail_channel_action_client_todo" model="ir.actions.client">
@@ -43,6 +23,27 @@
                 
             }&quot;"/>
     </record>
+            <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter" sequence="1"/> 
+            
+            <menuitem id="start_sub_menu" parent="start_root_menu" name="Tickets"/> 
+            <menuitem id="start_sub_menu_sub1" parent="start_sub_menu" name="Eigene Tickets" sequence="1" action="action_felix1_ticket_tree_view_eigene_tickets"/>
+            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Kündigungen" sequence="2" action="action_felix1_ticket_tree_view_kuendigungen_tickets"/>
+            <menuitem
+            id="mail.mail_channel_menu_root_todo"
+            name="Favoriten"
+            action="mail_channel_action_client_todo"
+            icon="fa-envelope"
+            web_icon="mail,static/description/icon.png"
+            groups="base.group_user"
+            parent="start_sub_menu"
+            sequence="3"/>
+            <!--(mandanten) -->          
+            <menuitem id="start_sub2_menu" parent="start_root_menu" name="Mandanten"/> 
+            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Alle Mandanten" action="action_respartner_mandanten_inherit_tree_view_mandanten"/>
+            
+<!--START MENU (Discuss) (odoo/addons/mail/views/mail_channel_views)-->
+
+
     
 <!--Mailbox(Discuss) (odoo/addons/mail/static/src/xml/client_action)-->
 <!--Mailbox(Discuss) (odoo/addons/mail/static/src/less/client_action.less)-->
