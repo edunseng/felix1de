@@ -27,12 +27,12 @@
 		    <field name="arch" type="xml">
 		        <form string="Ticketsystem" >
 					<header>
-					    <button name="progress_value" string="Fortschritt" type="object" states="new" />
+					    <button name="progress_value"  confirm="Weiter?" class="oe_stat_button" icon="fa-archive" string="Fortschritt" type="object" states="new"/>
 					    
 					     <button name="cancel_value" string="Abbrechen"  type="object" states="progress,done"/>
 					     <button name="done_value" string="Erledigt"  type="object"  states="progress"/>
                 
-					     <field name="state" widget="statusbar" statusbar_visible="new,progress,done,cancel"/>
+					     <field name="state" widget="statusbar"/>
 					</header>
 		           <sheet>
 					    <h2>
@@ -111,6 +111,7 @@
 		        </form>
 		    </field>
 		</record>
+
 		  <record id="action_customer_ticketing_system" model="ir.actions.act_window">
 		    <field name="name">Ticketsystem</field>
 		    <field name="type">ir.actions.act_window</field>

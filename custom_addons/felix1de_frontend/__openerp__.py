@@ -35,13 +35,12 @@
         # secutŕity
         'security/ir.model.access.csv',
         'security/security.xml',
-        'security/ticket_security.xml',
         ## Model related views
         'views/own_menus/backend.xml',
         'views/own_menus/start.xml',
         # project.issue customasations
         'views/project_issue/ticketsystem.xml',
-        'views/project_issue/project_view.xml',
+        #'views/project_issue/project_view.xml',
          # res.partner customasations
         'views/res_partner/notebooks/bank_details_view.xml',
         #'views/res_partner/mandanten_dlg.xml',

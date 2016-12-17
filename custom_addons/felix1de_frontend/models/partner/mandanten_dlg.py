@@ -5,7 +5,7 @@ class BackendMandanten(models.Model):
     _name='res.partner'
     _inherit=['res.partner','mail.thread']
     _inherits={'backend.mandanten':'backendmandant_id'}
-    backendmandant_id=fields.Many2one('backend.mandanten', required=True, ondelete='cascade', index=True)
+    backendmandant_id=fields.Many2one('backend.mandanten', required=True, ondelete='cascade', index=True, auto_join=True)
  
     ist_mandant=fields.Boolean('Ist Mandant')
     contact_id=fields.Many2one('backend.kontakte', string='Contact ID')
