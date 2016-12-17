@@ -21,7 +21,7 @@ body {
 /* Menubar enterprise makeover */
 
 #oe_main_menu_navbar {
-    background: #05d305 none repeat scroll 0 0 !important;
+    background: #05d305  none repeat scroll 0 0 !important;
     border-radius: 0;
     box-shadow: 0 0 8px #666666;
     z-index: 1001;
@@ -29,13 +29,13 @@ body {
 
 
 #oe_main_menu_navbar li a, #oe_main_menu_navbar li button {
-    font-size: 17px !important ;
+    font-size: 13px !important ;
     margin-top: 0 !important;
     padding: 11px 10px !important;
 }
 
 .navbar-inverse {
-    background-color: #ffab07;
+    background-color: #05d305;
     border-color: #A24689;
 }
 
@@ -45,13 +45,13 @@ body {
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    background-color: #ffab07;
+    background-color: #05d305;
     color: #fff;
 }
 
 .navbar-inner
 {
-	background-color: #ffab07;
+	background-color: #05d305;
 	background-image: none;
 	color: #ffffff;
 }	
@@ -59,7 +59,7 @@ body {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-	background-color: #ffab07;
+	background-color: #05d305;
 	color: #ffffff;
 }
 
@@ -67,7 +67,7 @@ body {
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
 
-	background-color: #ffab07;
+	background-color: #05d305;
 	color: #ffffff;
 }
 
