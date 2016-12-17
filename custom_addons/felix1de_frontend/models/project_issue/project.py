@@ -15,6 +15,8 @@ class ProjectIssue(models.Model):
     tikStartDate=fields.Date('Erstellt Am')
     tikCloseDate=fields.Date('Geschlossen Am')
     ticket_id=fields.Many2one('felix1.ticket', string="Ticket")
+    priority = fields.Selection([('0','Low'), ('1','Normal'),('2','Intermediate'),('3','High')], 'Priority', select=True) 
+
 
     
 class ProjectTask(models.Model):
