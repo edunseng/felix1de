@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="mail assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+            
+                <script type="text/javascript" src="/felix1de_frontend/static/src/js/todo_action.js"></script>
+
+                <link rel="stylesheet" href="/felix1de_frontend/static/src/less/todo_action.less" type="text/less"/>
+                
+            </xpath>
+        </template>
+    </data>
+</openerp>

@@ -51,8 +51,9 @@
         'views/res_partner/partner_mandanten.xml',
          # res.company customasations
         'views/res_company/branch_view.xml',        
-     
+        # Email send function in Ticketform
         'views/customer_mail_send_view.xml',
+        # Menu
         'views/menu_view.xml',
         
         
@@ -70,5 +71,8 @@
     ],
     'application': True,
     'installable': True,
-    'auto_install': True
+    'auto_install': True,
+    'qweb': [
+        'static/src/xml/todo_action.xml',],
+    
 }

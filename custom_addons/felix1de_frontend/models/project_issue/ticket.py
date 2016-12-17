@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import fields, models, api
+
+
 class mail_followers(models.Model):
 	_inherit='mail.followers'
 	#ticket_id=fields.Many2one('felix1.ticket')
