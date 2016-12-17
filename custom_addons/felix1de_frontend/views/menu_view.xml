@@ -2,9 +2,19 @@
 <openerp>
 <data>
   <!--START MENU (ticket) (own_menus/start)-->
-      <delete model="ir.ui.menu" search="[('id', '=',
-     ref('mail.mail_channel_menu_root_chat'))]" />     
        
+       
+<!--deleting the discuss menu -->
+          <delete model="ir.ui.menu" search="[('id', '=',
+     ref('mail.mail_channel_menu_root_chat'))]" /> 
+<!--empty action to avoid error-->     
+         <record id="mail.mail_channel_menu_root_chat" model="ir.actions.client">
+        <field name="name">Chat</field>
+            <field name="tag">mail.chat.instant_messaging</field>
+            <field name="res_model">mail.channel</field>
+    </record>
+    
+<!--Action for Favorieten and Inbox-->
     <record id="mail_channel_action_client_todo" model="ir.actions.client">
             <field name="name">Chat</field>
             <field name="tag">mail.chat.instant_messaging</field>
@@ -23,11 +33,14 @@
                 
             }&quot;"/>
     </record>
+    
+    <!-- building the start menu-->
             <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter" sequence="1"/> 
             
             <menuitem id="start_sub_menu" parent="start_root_menu" name="Tickets"/> 
             <menuitem id="start_sub_menu_sub1" parent="start_sub_menu" name="Eigene Tickets" sequence="1" action="action_felix1_ticket_tree_view_eigene_tickets"/>
             <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Kündigungen" sequence="2" action="action_felix1_ticket_tree_view_kuendigungen_tickets"/>
+<!--favoriten -->
             <menuitem
             id="mail.mail_channel_menu_root_todo"
             name="Favoriten"
@@ -37,16 +50,15 @@
             groups="base.group_user"
             parent="start_sub_menu"
             sequence="3"/>
-            <!--(mandanten) -->          
+<!--(mandanten) -->          
             <menuitem id="start_sub2_menu" parent="start_root_menu" name="Mandanten"/> 
             <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Alle Mandanten" action="action_respartner_mandanten_inherit_tree_view_mandanten"/>
             
-<!--START MENU (Discuss) (odoo/addons/mail/views/mail_channel_views)-->
+<!--(inbox) 
 
-
-    
-<!--Mailbox(Discuss) (odoo/addons/mail/static/src/xml/client_action)-->
-<!--Mailbox(Discuss) (odoo/addons/mail/static/src/less/client_action.less)-->
+(odoo/addons/mail/views/mail_channel_views)-->
+<!--(odoo/addons/mail/static/src/xml/client_action)-->
+<!--(odoo/addons/mail/static/src/less/client_action.less)-->
 
             <menuitem id="start_sub3_menu" parent="start_root_menu" name="Mailbox"/> 
 
