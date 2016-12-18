@@ -72,7 +72,15 @@
             parent="start_sub3_menu"
             sequence="1"/>
             
+            
+    <!-- Menu item to open To-do workflow list -->
+    <menuitem id="menu_todo_workflow"
+      name="To-Do Workflow"
+      parent="start_sub3_menu"
+      sequence="20"
+      action="action_ticket_view" />
 
+            
         <!--menuitem name="Channels/Partner" id="start_mail_channel_partner_menu" parent="start_sub3_menu"
             action="mail_channel_partner_action" sequence="92" groups="base.group_no_one"/-->
 

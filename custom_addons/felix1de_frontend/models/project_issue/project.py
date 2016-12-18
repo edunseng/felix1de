@@ -16,7 +16,12 @@ class ProjectIssue(models.Model):
     tikCloseDate=fields.Date('Geschlossen Am')
     ticket_id=fields.Many2one('felix1.ticket', string="Ticket")
     priority = fields.Selection([('0','Low'), ('1','Normal'),('2','Intermediate'),('3','High')], 'Priority', select=True) 
+    tikmarkopen=fields.Boolean('In Todo-List?')
 
+    @api.one
+    def do_toggle_mode(self):
+        self.tikmarkopen = not self.tikmarkopen
+        return True
 
     
 class ProjectTask(models.Model):
