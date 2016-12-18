@@ -78,7 +78,7 @@
       name="To-Do Workflow"
       parent="start_sub3_menu"
       sequence="20"
-      action="action_view_issues" />
+      action="action_ticket_view" />
 
             
         <!--menuitem name="Channels/Partner" id="start_mail_channel_partner_menu" parent="start_sub3_menu"
