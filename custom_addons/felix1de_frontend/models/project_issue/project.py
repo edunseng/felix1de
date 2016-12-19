@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from openerp import fields, models, api
 class ProjectIssue(models.Model):
-    _inherit=['project.issue']
+    _name='project.issue'
+    _inherit=['project.task','project.issue']
     prm_ticket_id=fields.Char('Ticket-ID')
     mitarbeiter_id=fields.Many2one('felix1.employees',"Zugewiesener Mitarbeiter")
     backend_kontakte_id=fields.Many2one('backend.kontakte', string="kontakte")
@@ -17,14 +18,27 @@ class ProjectIssue(models.Model):
     ticket_id=fields.Many2one('felix1.ticket', string="Ticket")
     priority = fields.Selection([('0','Low'), ('1','Normal'),('2','Intermediate'),('3','High')], 'Priority', select=True) 
     tikmarkopen=fields.Boolean('Vormerken')
-    state=fields.Selection([('new', 'Neu'),('progress','In Bearbeitung..'),('done', 'Bearbeitet'),('cancel', 'Abgebrochen')], string='Status',  default='new')
-    checkliste=fields.Char('Checkliste')
+    status=fields.Selection([('new', 'Neu'),('progress','In Bearbeitung..'),('done', 'Bearbeitet'),('cancel', 'Abgebrochen')], string='Status',  default='new')
+    #relinputfeld=fields.Many2one('project.task.type')
+    #state=fields.Selection(
+    #    related='relinputfeld.inputfeld', store=True, readonly=True)
+
+
 
     @api.one
     def do_toggle_mode(self):
         self.tikmarkopen = not self.tikmarkopen
         return True
-
+    
+    @api.multi
+    def progress_value(self):
+        self.write({'status':'progress'})
+    @api.multi
+    def cancel_value(self):
+        self.write({'status':'open'})
+    @api.multi
+    def done_value(self):
+        self.write({'status':'done'})
     
 class ProjectTask(models.Model):
     _inherit='project.task'
