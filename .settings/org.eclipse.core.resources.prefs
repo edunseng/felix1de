@@ -26,3 +26,6 @@ encoding//custom_addons/felix1de_frontend/models/partner/res_partner_dlg.py=utf-
 encoding//custom_addons/felix1de_frontend/models/project_issue/project.py=utf-8
 encoding//custom_addons/felix1de_frontend/models/project_issue/ticket.py=utf-8
 encoding//custom_addons/felix1de_frontend/models/project_issue/todo.py=utf-8
+encoding//custom_addons/project_stage_state/__init__.py=utf-8
+encoding//custom_addons/project_stage_state/__openerp__.py=utf-8
+encoding//custom_addons/project_stage_state/project.py=utf-8

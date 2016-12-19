@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import fields, models, api
 class ProjectIssue(models.Model):
-    _inherit='project.issue'
+    _inherit=['project.issue']
     prm_ticket_id=fields.Char('Ticket-ID')
     mitarbeiter_id=fields.Many2one('felix1.employees',"Zugewiesener Mitarbeiter")
     backend_kontakte_id=fields.Many2one('backend.kontakte', string="kontakte")
@@ -17,6 +17,8 @@ class ProjectIssue(models.Model):
     ticket_id=fields.Many2one('felix1.ticket', string="Ticket")
     priority = fields.Selection([('0','Low'), ('1','Normal'),('2','Intermediate'),('3','High')], 'Priority', select=True) 
     tikmarkopen=fields.Boolean('Vormerken')
+    state=fields.Selection([('new', 'Neu'),('progress','In Bearbeitung..'),('done', 'Bearbeitet'),('cancel', 'Abgebrochen')], string='Status',  default='new')
+    checkliste=fields.Char('Checkliste')
 
     @api.one
     def do_toggle_mode(self):

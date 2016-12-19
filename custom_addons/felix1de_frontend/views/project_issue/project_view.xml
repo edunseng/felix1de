@@ -67,7 +67,6 @@
                     <field name="user_id"/>                        
                     <field name="stage_id" widget="selection" readonly="1"/>
                     <field name="tag_ids" invisible="1"/>
-                    <field name="task_id"/>
                 </tree>
             </field>
         </record> 
@@ -103,9 +102,6 @@
                     <field name="user_id"/>                        
                     <field name="stage_id" widget="selection" readonly="1"/>
                     <field name="tag_ids" invisible="1"/>
-                    <field name="task_id" invisible="1"/>
-      
-                   
                 </tree>
             </field>
         </record>
@@ -130,7 +126,12 @@
                             <field name="active" widget="boolean_button"
                                 options='{"terminology": "archive"}'/>
                         </button>
+
+                        
+                        
+                        
                     </div>
+                    
                     <field name="kanban_state" class="oe_inline" widget="kanban_state_selection"/>
                     <div class="oe_title">
                         <h1><field name="name" placeholder="Issue Summary..."/></h1>
@@ -157,6 +158,7 @@
                         <page string="Extra Info" name="extra_info" groups="project.group_project_manager,project.group_project_user">
                             <group>
                                 <group>
+                                
                                     <field name="id"/>
                                     <field name="day_open"/>
                                     <field name="day_close"/>
