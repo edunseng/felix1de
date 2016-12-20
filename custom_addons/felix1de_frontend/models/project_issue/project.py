@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 from openerp import fields, models, api
-
+_KATEGORY_LIST = [
+    ('einkommensteuer', 'Einkommensteuer-FB'),
+    ('gruendung', 'Gruendung'),
+    ('onoarding', 'Onoarding'),
+    ('ordentliche_kuendigung', 'ordentliche Kuendigung'),
+    ('umsatzanpassung', 'Umsatzanpassung'),
+    ('umzug', 'Umzug')]
 
 _EKS_LIST = [
     ('1', 'Prüfung: Eingang Einkommensteuer-FB'),
