@@ -105,6 +105,29 @@ class StatusChange(models.Model):
 class ProjectIssue(models.Model):
     _name='project.issue'
     _inherit=['project.task','project.issue','project.states']
+
+    # @api.model
+    # @api.onchange('category')
+    # def _get_selection(self):
+    #     print self.status
+    #     choise = []
+    #     if self.category == 'einkommensteuer':
+    #         self.status = self.statusbar_einkommensteuer
+    #     if self.category == 'gruendung':
+    #         self.status = self.statusbar_gruendung
+    #     if self.category == 'onoarding':
+    #         self.status = self.statusbar_onoarding
+    #     if self.category == 'ordentliche_kuendigung':
+    #         self.status = self.statusbar_ordentliche_kuendigung
+    #     if self.category == 'umsatzanpassung':
+    #         self.status = self.statusbar_umsatzanpassung
+    #     if self.category == 'umzug':
+    #         self.status = self.statusbar_umzug
+    #     print self.status
+    #     return self.status
+
+  
+
     prm_ticket_id=fields.Char('Ticket-ID')
     mitarbeiter_id=fields.Many2one('felix1.employees',"Zugewiesener Mitarbeiter")
     backend_kontakte_id=fields.Many2one('backend.kontakte', string="kontakte")
@@ -120,9 +143,9 @@ class ProjectIssue(models.Model):
     ticket_id=fields.Many2one('felix1.ticket', string="Ticket")
     priority = fields.Selection([('0','Low'), ('1','Normal'),('2','Intermediate'),('3','High')], 'Priority', select=True) 
     tikmarkopen=fields.Boolean('Vormerken')
-    #status=fields.Char('Status',compute='_show_status',store=True)  #SHIVAM
-    
-    #status bar state fields
+    status=fields.Char('Status')  #SHIVAM
+
+    # status bar state fields
     statusbar_einkommensteuer=fields.Selection([
         _EKS_LIST[0],_EKS_LIST[1],_EKS_LIST[2],_EKS_LIST[3],_EKS_LIST[4],
         _EKS_LIST[5],_EKS_LIST[6],_EKS_LIST[7]],
@@ -161,7 +184,50 @@ class ProjectIssue(models.Model):
 #        self.status = "statusbar_einkommensteuer"
 #    if category == "gruendung":
 #        self.status = "statusbar_gruendung"
+    @api.model
+    def create(self,vals):
+        print "Calling Create Method"
+        print vals
+        print self
+        # print dict(_EKS_LIST)[self.statusbar_einkommensteuer]
+        if vals['category'] == 'einkommensteuer':
+            vals['status'] = vals['statusbar_einkommensteuer']
+        if vals['category'] == 'gruendung':
+            vals['status'] = vals['statusbar_gruendung']
+        if vals['category'] =='onoarding':
+            self.status = self.statusbar_onoarding
+        if vals['category'] == 'ordentliche_kuendigung':
+            vals['status'] = vals['statusbar_ordentliche_kuendigung']
+        if vals['category'] == 'umsatzanpassung':
+            vals['status'] = vals['statusbar_umsatzanpassung']
+        if vals['category'] == 'umzug':
+            vals['status'] = vals['statusbar_umzug']
+        # vals['status']=dict(self.fields_get(allfields=[statusbar_einkommensteuer], context=context)[statusbar_einkommensteuer]['selection'])[vals['statusbar_einkommensteuer']]
         
+        return super(ProjectIssue,self).create(vals)
+
+    # @api.multi
+    # def write(self,vals):
+    #     print "Calling Write Method"
+        # if vals['category']:
+        #     if vals['category'] == 'einkommensteuer':
+        #         vals['status'] = vals['statusbar_einkommensteuer']
+        #     if vals['category'] == 'gruendung':
+        #         vals['status'] = vals['statusbar_gruendung']
+        #     if vals['category'] =='onoarding':
+        #         self.status = self.statusbar_onoarding
+        #     if vals['category'] == 'ordentliche_kuendigung':
+        #         vals['status'] = vals['statusbar_ordentliche_kuendigung']
+        #     if vals['category'] == 'umsatzanpassung':
+        #         vals['status'] = vals['statusbar_umsatzanpassung']
+        #     if vals['category'] == 'umzug':
+        #         vals['status'] = vals['statusbar_umzug']
+        # vals['status']=dict(self.fields_get(allfields=[statusbar_einkommensteuer], context=context)[statusbar_einkommensteuer]['selection'])[vals['statusbar_einkommensteuer']]
+        
+        # return super(ProjectIssue,self).write(vals={})
+
+
+
 
     
 
@@ -235,4 +301,11 @@ class ProjectTask(models.Model):
 #        """ On module install initialize fold_statusbar values """
 #        for rec in self.search([]):
 #            rec.fold_statusbar = rec.fold
+
+class project_project(models.Model):
+    _inherit = 'project.project'
+    _defaults = {
+        'use_tasks': False
+    }
+
 

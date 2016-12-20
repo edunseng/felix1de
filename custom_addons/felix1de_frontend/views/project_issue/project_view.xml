@@ -323,7 +323,16 @@
     </record>
 
 
-            
+          <record id="view_project_task_hide_form_inherit_account" model="ir.ui.view">
+          <field name="name">project.project.task.form.inherit.account</field>
+          <field name="model">project.project</field>
+          <field name="inherit_id" ref="project.edit_project"/> 
+          <field name="arch" type="xml">
+          <field name="use_tasks" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </field> 
+      </field>
+      </record>      
 
 
   </data>
