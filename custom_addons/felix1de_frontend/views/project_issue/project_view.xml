@@ -111,11 +111,29 @@
                 <header>
                 
 
+
+
                     <field name="statusbar_einkommensteuer" widget="statusbar" attrs="{'invisible': [('category', '!=', 'einkommensteuer')]}"/>
                       <button name="EKS_progress_value" string="weiter" type="object" attrs="{'invisible': [('category', '!=', 'einkommensteuer')]}"/>
+                      
                     <field name="statusbar_gruendung" widget="statusbar" attrs="{'invisible': [('category', '!=', 'gruendung')]}"/>
                       <button name="GRUENDUNG_progress_value" string="weiter" type="object" attrs="{'invisible': [('category', '!=', 'gruendung')]}"/>
+                      
+                    <field name="statusbar_onoarding" widget="statusbar" attrs="{'invisible': [('category', '!=', 'onoarding')]}"/>
+                      <button name="ONBOARDING_progress_value" string="weiter" type="object" attrs="{'invisible': [('category', '!=', 'onoarding')]}"/>
+                      
+                    <field name="statusbar_ordentliche_kuendigung" widget="statusbar" attrs="{'invisible': [('category', '!=', 'ordentliche_kuendigung')]}"/>
+                      <button name="ORDENTLICHE_KUENDIGUNG_progress_value" string="weiter" type="object" attrs="{'invisible': [('category', '!=', 'ordentliche_kuendigung')]}"/>
+                    
+                    <field name="statusbar_umzug" widget="statusbar" attrs="{'invisible': [('category', '!=', 'umzug')]}"/>
+                      <button name="UMZUG_progress_value" string="weiter" type="object" attrs="{'invisible': [('category', '!=', 'umzug')]}"/>
+                      
+                    <field name="statusbar_umsatzanpassung" widget="statusbar" attrs="{'invisible': [('category', '!=', 'umsatzanpassung')]}"/>
+                      <button name="UMSATZANPASSUNG_progress_value" string="weiter" type="object" attrs="{'invisible': [('category', '!=', 'umsatzanpassung')]}"/>
+                      
 
+
+                    
 
                     <field name="stage_id" widget="statusbar" clickable="True"
                         options="{'fold_field': 'fold'}" attrs="{'invisible': [('hidestage', '=', True)]}"/>
