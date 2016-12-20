@@ -28,6 +28,7 @@
         'openstow_backend_theme',
         'project_issue','note','board','mail_tracking',
         'base','mail','hr','felix1de_backend','project',
+        'project_stage_state'
     ],
 
     # always loaded

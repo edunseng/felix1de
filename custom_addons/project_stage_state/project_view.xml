@@ -1,8 +1,54 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
+    
+<!-- deleting unneccessary Menues & actions -->        
+        <delete model="ir.ui.view" search="[('id', '=', ref('project_issue.project_feature_tree_view'))]" /> 
+        <delete model="ir.ui.view" search="[('id', '=', ref('project_issue.project_issue_tree_view'))]" /> 
+        <delete model="ir.ui.view" search="[('id', '=', ref('project_issue.project_issue_form_view'))]" />
+        <delete model="ir.ui.menu" search="[('id', '=', ref('project.menu_action_view_task'))]" />
+    
+        <!--delete model="ir.ui.view" search="[('id', '=', ref('project_issue.view_project_issue_filter'))]" /-->
+        <!--delete model="ir.actions.act_window" search="[('id', '=', ref('project_issue.action_view_issues'))]"/-->
+        <record model="ir.ui.view" id="project_issue.project_feature_tree_view">
+             <field name="name">Ticket Tree View</field>
+            <field name="model">project.issue</field>
+            <field name="arch" type="xml">
+                <tree> <field name="task_id"/></tree>
+            </field>
+        </record>
+        
+        <record id="project_issue.action_view_issues" model="ir.actions.act_window">
+            <field name="view_mode">tree,form,calendar,graph</field>
+        </record>
+        <record id="project_issue.act_project_project_2_project_issue_all" model="ir.actions.act_window">
+            <field name="view_mode">tree,form,calendar,graph,pivot</field>
+        </record>
+        <record id="project_issue.project_issue_categ_act0" model="ir.actions.act_window">
+            <field name="view_mode">tree,form,calendar,graph,pivot</field>
+        </record>
+        
+        <!--delete model="ir.actions.act_window" search="[('id', '=', ref('project_issue.project_issue_categ_act0'))]" /-->
+        <record model="ir.actions.act_window" id="project_issue.project_issue_categ_act0">
+                <field name="view_mode">tree,calendar,form,pivot,graph</field>
+        </record>
+        
+        
+        <delete model="ir.actions.act_window.view" search="[('id', '=', ref('project_issue.action_crm_tag_kanban_view0'))]" />
+        <record model="ir.actions.act_window.view" id="project_issue.action_crm_tag_kanban_view0">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="felix1de_frontend.action_ticket_view"/>
+            <field name="act_window_id" ref="felix1de_frontend.action_ticket_view"/>
+        </record>
+    
+    
+    
+    
 
-        <record id="task_type_edit_state" model="ir.ui.view">
+
+<!---customizing-->
+        <!--record id="task_type_edit_state" model="ir.ui.view">
             <field name="name">task_type_edit_state</field>
             <field name="model">project.task.type</field>
             <field name="inherit_id" ref="project.task_type_edit"/>
@@ -24,10 +70,10 @@
                     <field name="state" />
                 </field>
             </field>
-        </record>
+        </record-->
 
         <!-- Project Task form -->
-        <record id="project_task_form_stage" model="ir.ui.view">
+        <!--record id="project_task_form_stage" model="ir.ui.view">
             <field name="name">project_task_form_stage</field>
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
@@ -42,7 +88,7 @@
                 </field>
 
             </field>
-        </record>
+        </record-->
 
     </data>
 </openerp>
