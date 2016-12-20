@@ -120,7 +120,7 @@ class ProjectIssue(models.Model):
     ticket_id=fields.Many2one('felix1.ticket', string="Ticket")
     priority = fields.Selection([('0','Low'), ('1','Normal'),('2','Intermediate'),('3','High')], 'Priority', select=True) 
     tikmarkopen=fields.Boolean('Vormerken')
-    #status=fields.Char('Status',compute='_show_status')  #SHIVAM
+    #status=fields.Char('Status',compute='_show_status',store=True)  #SHIVAM
     
     #status bar state fields
     statusbar_einkommensteuer=fields.Selection([
@@ -157,6 +157,11 @@ class ProjectIssue(models.Model):
 #    @api.one                        #SHIVAM
 #    @api.depends(category)
 #    def _show_status(self,category):
+#   if category == "einkommensteuer":
+#        self.status = "statusbar_einkommensteuer"
+#    if category == "gruendung":
+#        self.status = "statusbar_gruendung"
+        
 
     
 
