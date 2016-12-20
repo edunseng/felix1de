@@ -95,8 +95,6 @@ class StatusChange(models.Model):
     category=fields.Selection(selection=_KATEGORY_LIST,string='Kateghorie', default=_KATEGORY_LIST[0][0], store=True)
     descriotion=fields.Html('Beschreibung')
     
-#    @api.depends(category)
-
  #   def on_category_change(category):
  #       if self.category in 
  #           self.categoryrint 'Hello'
@@ -122,6 +120,7 @@ class ProjectIssue(models.Model):
     ticket_id=fields.Many2one('felix1.ticket', string="Ticket")
     priority = fields.Selection([('0','Low'), ('1','Normal'),('2','Intermediate'),('3','High')], 'Priority', select=True) 
     tikmarkopen=fields.Boolean('Vormerken')
+    #status=fields.Char('Status',compute='_show_status')  #SHIVAM
     
     #status bar state fields
     statusbar_einkommensteuer=fields.Selection([
@@ -154,9 +153,11 @@ class ProjectIssue(models.Model):
                                           string='Status', default=_UMZUG_LIST[0][0],track_visibility = 'onchange')#allways
     hidestage=fields.Boolean(default=True)
     
-    #relinputfeld=fields.Many2one('project.task.type')
-    #state=fields.Selection(
-    #    related='relinputfeld.inputfeld', store=True, readonly=True)
+
+#    @api.one                        #SHIVAM
+#    @api.depends(category)
+#    def _show_status(self,category):
+
     
 
     @api.one

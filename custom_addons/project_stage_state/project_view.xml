@@ -20,7 +20,7 @@
         
         <record id="project_issue.action_view_issues" model="ir.actions.act_window">
             <field name="view_mode">tree,form,calendar,graph</field>
-        </record>
+        </record> 
         <record id="project_issue.act_project_project_2_project_issue_all" model="ir.actions.act_window">
             <field name="view_mode">tree,form,calendar,graph,pivot</field>
         </record>
@@ -32,6 +32,7 @@
         <record model="ir.actions.act_window" id="project_issue.project_issue_categ_act0">
                 <field name="view_mode">tree,calendar,form,pivot,graph</field>
         </record>
+
         
         
         <delete model="ir.actions.act_window.view" search="[('id', '=', ref('project_issue.action_crm_tag_kanban_view0'))]" />
