@@ -10,7 +10,6 @@
      
 
 <!-- Mandanten-->
-
     <record id="mail.action_mandanten" model="ir.actions.act_window">
        <field name="name">Mandanten</field>
         <field name="type">ir.actions.act_window</field>
@@ -26,7 +25,6 @@
           </p>
         </field>
 </record>
-    
     
     
     <!--record id="action_contacts_view_kanban" model="ir.actions.act_window.view">
@@ -49,8 +47,9 @@
         <field name="act_window_id" ref="mail.action_mandanten"/>
     </record>
     
+    
+    
     <!-- Cotacts-->
-
     <record id="mail.action_contacts" model="ir.actions.act_window">
        <field name="name">Kontakte</field>
         <field name="type">ir.actions.act_window</field>
