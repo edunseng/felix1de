@@ -58,9 +58,8 @@
                 
                 <xpath expr="//h1" position="replace">
                     <h1>
-                        <field name="name" default_focus="1" placeholder="Fisrt Name" attrs="{'required' : [('type', '=', 'contact')]}"/>
-                        <field name="lastname" placeholder="Last Name" />
-                        <field name="backendmandant_id" placeholder="Backendmandanten Name" />
+                        <field name="name" default_focus="1" placeholder="Vorname" attrs="{'required' : [('type', '=', 'contact')]}"/>
+                        <field name="lastname" placeholder="Nachname" />
                     </h1>
                 </xpath>
                 <xpath expr="//field[@name='website']" position="after">
