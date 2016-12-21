@@ -50,7 +50,7 @@
             sequence="3"/>
 <!--(mandanten) -->          
             <menuitem id="start_sub2_menu" parent="start_root_menu" name="Mandanten"/> 
-            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Alle Mandanten" action="mail.action_contacts"/>
+            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Mandanten" action="mail.action_mandanten"/>
 
 <!--(inbox) 
 

@@ -91,6 +91,17 @@
         <field name="view_id" ref="base.view_partner_form"/><!-- respartner_mandanten_inherit_form_view-->
         <field name="act_window_id" ref="mail.action_contacts"/>
     </record>
+    
+
+<!-- Action fur alle Mandanten-->
+    <act_window 
+    id="action_alle_mandanten" 
+    name="Alle Mandanden" 
+    res_model="res.partner" 
+    view_mode="tree,form"
+    view_id="mail.action_mandanten"
+    domain="[('ist_mandant','=','True')]"
+/> 
 
     
     
