@@ -29,8 +29,7 @@
             <field name="arch" type="xml">
  
                 <xpath expr="//page[1]" position="attributes">
-                     <attribute name="autofocus">0</attribute>
-                     <attribute name="invisible">1</attribute>
+                     <attribute name="string">Mandanten &amp; Addressen</attribute>
                 </xpath>                               
                 <xpath expr="//page[2]" position="attributes">
                      <attribute name="invisible">1</attribute>
@@ -134,9 +133,19 @@
                        </div>
                      </group>
                   </page>
-                    <page string="internal_notes">
-                        <field name="message_ids"/>    
-                    </page>
+
+                    
+                    
+                    <!--page string="Mandanten" attrs="{'invisible' : [('ist_kontakt', '=', 'True')]}" >
+                        <field name="child_ids" mode="kanban" >
+                            <tree editable="bottom">
+                                   <field name="street" string="Mandantennummer"/-->
+                                   <!--field name="account_id" string="Steuerberater"/-->
+                                   <!--field name="name" string="Niederlassung"/-->
+                                   <!--field name="issue_date"/-->
+                                <!--</tree>
+                        </field>    
+                    </page-->
                         
                 </notebook>
 

@@ -44,7 +44,7 @@
                     <field name="name"/>
                     <field name="branch_rel"/>
                     <field name="client_number"/>
-                    <field name="client_id" groups="base.group_user"/>
+                    <field name="child_ids" groups="base.group_user"/>
                     <field name="ticketing_rel" string="Tickets" groups="base.group_user"/>                       
                     <!--field name="stage_id" widget="selection" readonly="1"/-->
                     <!--field name="tag_ids" invisible="1"/-->
@@ -83,7 +83,7 @@
                     <field name="name"/>
                     <field name="branch_rel"/>
                     <field name="client_number"/>
-                    <field name="client_id" groups="base.group_user"/>
+                    <field name="child_ids" groups="base.group_user"/>
                     <field name="ticketing_rel" string="Tickets" groups="base.group_user"/>                       
 
                     <!--field name="partner_id"/-->
