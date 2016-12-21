@@ -35,13 +35,13 @@
 
         
         
-        <delete model="ir.actions.act_window.view" search="[('id', '=', ref('project_issue.action_crm_tag_kanban_view0'))]" />
+        <!--delete model="ir.actions.act_window.view" search="[('id', '=', ref('project_issue.action_crm_tag_kanban_view0'))]" />
         <record model="ir.actions.act_window.view" id="project_issue.action_crm_tag_kanban_view0">
             <field name="sequence" eval="0"/>
             <field name="view_mode">kanban</field>
             <field name="view_id" ref="felix1de_frontend.action_ticket_view"/>
             <field name="act_window_id" ref="felix1de_frontend.action_ticket_view"/>
-        </record>
+        </record-->
     
     
     
