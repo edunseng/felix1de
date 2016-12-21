@@ -45,6 +45,7 @@ class resPartnerKontakte(models.Model):
     country_id=fields.Many2one('res.country')
     ticket_id=fields.One2many('felix1.ticket', 'contact_id')
     client_id=fields.One2many('res.partner', 'contact_id')
+    partner_id=fields.Many2one('res.partner')
     
     
         
