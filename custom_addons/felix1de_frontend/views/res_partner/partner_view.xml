@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
-   <record id="felix1_partner_base_view_form" model="ir.ui.view">
-            <field name="name">Partner</field>
+<data>
+              
+              
+              <record id="view_mandanten_tree" model="ir.ui.view">
+                <field name="name">Partner</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.view_partner_tree"/>
+                <field name="arch" type="xml">
+                    <field name="display_name" position="before">
+                                        <field name="id"/>
+                    </field>
+                    <field name="display_name" position="after">
+                        <field name="client_number" string="Mandantennummer" attrs="{'invisible' : [('ist_kontakt', '=', 'True')]}"/>
+                        <field name="client_number" string="Kontaktnummer" attrs="{'invisible' : [('ist_mandant', '=', 'True')]}"/>
+
+                        <field name="email" string="Email"/>
+                        <field name="contact_id" string="Kontakt"/>
+                    </field>
+                </field>
+               </record>
+
+
+        <record id="respartner_mandanten_inherit_form_view" model="ir.ui.view">
+            <field name="name">Ticketsystem</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
+ 
                 <xpath expr="//page[1]" position="attributes">
-                     <attribute name="invisible">True</attribute>
+                     <attribute name="autofocus">0</attribute>
+                     <attribute name="invisible">0</attribute>
+                </xpath>                               
+                <xpath expr="//page[2]" position="attributes">
+                     <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//page[3]" position="attributes">
+                     <attribute name="invisible">0</attribute>
                 </xpath>
                 
                 
@@ -23,12 +52,93 @@
                 <xpath expr="//field[@name='lang']" position="attributes">
                    <attribute name="invisible">True</attribute>
                 </xpath>
+
+                <field name ="parent_id" position="after">
+                            <group colspan="2">
+                                <group>
+                                   <field name="ist_mandant" attrs="{'readonly': ['|', ('ist_kontakt', '=', True)]}"/> 
+                                   <field name="ist_kontakt" attrs="{'readonly': ['|', ('ist_mandant', '=', True)]}"/>
+                                </group>
+                            </group>
+                </field>
                 
-                <xpath expr="//field[@name='website']" position="attributes">
-                     <attribute name="invisible">True</attribute>
+                
+                <xpath expr="//h1" position="replace">
+                    <h1>
+                        <field name="name" default_focus="1" placeholder="Vorname" attrs="{'required' : [('type', '=', 'contact')]}"/>
+                        <field name="lastname" placeholder="Nachname" />
+                    </h1>
                 </xpath>
-                
+                <xpath expr="//field[@name='website']" position="after">
+
+                            <!--field name="mandantennummer"/-->
+                            <field name="client_value" invisible="1"/>
+                            <field name="lagel_structure"/>
+                            <field name="parent_id" string="Contact"/>
+                            <field name="type" attrs="{'invisible': [('parent_id','=', False)]}" invisible="1" groups="base.group_no_one"/>                            
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="acquired_by"/>
+                            <field name="client_since"/>
+                            <field name="client_remark"/>               
+                            <field name="con_acquired_by" string="Acquired By(Dstribution Agent)"/>
+                            <field name="contact_since" string="Client Since(Created On)"/>
+                            <field name="comment" string="Remark"/>
+
+                </xpath>
+
+                <notebook position="inside">
+                    <page string="Addresse">
+                                 <group>
+                                   <group>
+                                       <label for="street" string="Addresse"/>
+                                            <div class="o_address_format">
+                                                <div class="oe_edit_only">
+                                                    <button name="open_parent" type="object" string="(edit)" class="oe_link"
+                                                        attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}"/>
+                                                </div>
+                                                
+                                                <field name="street" placeholder="Street..." class="o_address_street"
+                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                                <field name="house_no" placeholder="House No..." class="o_address_street"
+                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                                <field name="street2" placeholder="Street 2..." class="o_address_street"
+                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                                    
+                                                <field name="city" placeholder="City" class="o_address_city"
+                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                                <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}' on_change="onchange_state(state_id)"
+                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'zip': zip}"/>
+                                                <field name="zip" placeholder="ZIP" class="o_address_zip"
+                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                                <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'
+                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                            </div>
+                                   </group>
+                                   <group>
+                                   
+                                   </group>
+                                 </group>
+                             </page>
+                  <page string="Tickets">
+                     <group>
+                       <div >
+                          <field name="ticketing_rel" nolable="1"/>
+                       </div>
+                     </group>
+                  </page>
+                    <page string="internal_notes">
+                        <field name="message_ids"/>    
+                    </page>
+                        
+                </notebook>
+
+
+  
             </field>
-    </record>
+
+        </record>
+
+ 
 </data>
-</openerp>
+</openerp> 

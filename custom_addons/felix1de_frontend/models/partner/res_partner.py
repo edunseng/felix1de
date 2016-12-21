@@ -2,8 +2,7 @@
 from openerp import fields,models,api,_
 class res_partner(models.Model):
    _inherit='res.partner'
-   is_mandant=fields.Boolean('Is Mandant')
-   is_kontact=fields.Boolean('Is Kontact')
+  
    lastname=fields.Char()
    client_value=fields.Boolean('Client',)
    client_number=fields.Char('Clientnumber')
@@ -30,6 +29,8 @@ class res_partner(models.Model):
    client_issue_date=fields.Date('Issue Date')
    client_detail_id=fields.One2many('res.client', 'partner_id')
    branch_id=fields.One2many('branch.branch','contract_person')
+   tikmarkopen=fields.Boolean('Vormerken')
+
    type_ext= fields.Selection(
             [
              ('invoice', 'Rechnungsanschrift'),
@@ -60,6 +61,12 @@ class res_partner(models.Model):
               record.type='delivery'
            if record.type_ext == 'other':
               record.type='other'
+    
+    
+   @api.one
+   def do_toggle_mode(self):
+        self.tikmarkopen = not self.tikmarkopen
+        return True
   
 class res_bank_detial(models.Model):
    _name='bank.detail'

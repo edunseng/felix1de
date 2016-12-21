@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+
+    <!-- Action to open To-do Task list -->
+    <!--act_window 
+    id="action_todo_workflow" 
+    name="To-do Workflow" 
+    res_model="project.issue" 
+    view_mode="tree,form"
+    domain = "['|', ('id', '=', [active_id]), ('tikmarkopen','=','True')]"
+    context="{'id':active_id}"       
+/-->  
+
+<!--button name="%(action_todo_workflow)d" type="action" icon="fa-folder-open-o" groups="base.group_no_one" class="oe_stat_button" help="Todo-List oeffnen"/-->
+<!--button name="%(action_switch_multi_mode)d" type="action" icon="fa-circle-o" groups="base.group_no_one" class="oe_stat_button" help="In den Einzelarbeitsmodus schalten"/-->
+<!--button name="do_toggle_mode" type="object" icon="fa-hand-o-up" groups="base.group_no_one" class="oe_highlight" help="Zur Todo-List hinzufuegen"/-->
+
+
+<!--search view--> 
+
+<!-- Action to switch Mode single -->
+    <act_window 
+    id="action_switch_single_mode" 
+    name="Einzellmodus" 
+    res_model="res.partner" 
+    view_mode="tree,form"
+    view_id="base.partner_single_tree_view"
+    domain = "['|', ('id', 'in', [active_id]), ('tikmarkopen','=','True')]"
+    context="{'id':active_id}"
+/> 
+<!--tree view multimode-->
+ <record model="ir.ui.view" id="base.partner_tree_view">
+            <field name="name">Tickets </field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <button name="do_toggle_mode" type="object" icon="fa-paperclip fa-2x" class="oe_stat_button" help="In die Todolist eintragen"/>
+                    <button name="%(action_switch_single_mode)d" type="action" icon="fa-file-o fa-2x" class="oe_stat_button" help="aktueller Modus: Einzellansicht"/>
+
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <!--field name="partner_id"/>
+                    <field name="category"/>
+                    <field name="project_id" groups="base.group_user"/>
+                    <field name="priority" string="Priority" groups="base.group_user"/>
+                    <field name="create_date"/>
+                    <field name="user_id"/-->                        
+                    <!--field name="stage_id" widget="selection" readonly="1"/-->
+                    <!--field name="tag_ids" invisible="1"/-->
+                    <!--field name="status" invisible="0"/-->
+                    <field name="tikmarkopen" readonly="1"/> 
+                    <button name="%(action_switch_multi_mode)d" type="action" icon="fa-refresh fa-2x" class="oe_stat_button" help="Todoliste filtern"/>
+               </tree>
+            </field>
+        </record>
+
+
+<!-- Action to switch Mode single -->
+    <act_window 
+    id="action_switch_multi_mode" 
+    name="Schnellmodus" 
+    res_model="res.partner" 
+    view_mode="tree,form"
+    domain = "['|', ('id', 'in', [active_id]), ('tikmarkopen','=','True')]"
+    context="{'id':active_id}"
+    view_id="base.partner_tree_view"
+
+/> 
+
+
+<!--tree view singlemode-->
+ <record model="ir.ui.view" id="base.partner_single_tree_view">
+            <field name="name">Ticket Tree View</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree  editable="top">
+                    <button name="do_toggle_mode" type="object" icon="fa-paperclip fa-2x" class="oe_stat_button" help="In die Todoliste aufnehmen"/> 
+                    <button name="%(action_switch_multi_mode)d" type="action" icon="fa-files-o fa-2x" class="oe_stat_button" help="aktueller Modus: Schnellansicht"/>
+
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <!--field name="partner_id"/-->
+                    <!--field name="category"/-->
+                    <!--field name="project_id" groups="base.group_user"/-->
+                    <!--field name="priority" string="Priority" groups="base.group_user"/-->
+                    <!--field name="create_date"/-->
+                    <field name="user_id"/>                        
+                    <!--field name="stage_id" widget="selection" readonly="1"/-->
+                    <!--field name="tag_ids" invisible="1"/-->
+                    <!--field name="status" invisible="0"/-->
+                    <field name="tikmarkopen" readonly="1"/>  
+                    <button name="%(action_switch_multi_mode)d" type="action" icon="fa-refresh fa-2x" class="oe_stat_button" help="Todoliste filtern" style="color:green"/>
+             
+
+
+                </tree>
+            </field>
+        </record> 
+
+
+        
+
+
+        
+        
+
+
+<!-- Action for Eigene Tickets-->
+    <!--act_window 
+    id="action_eigene_tickets" 
+    name="Eigene Tickets" 
+    res_model="project.issue" 
+    view_mode="tree,form"
+    view_id="res_partner.partner_tree_view"
+    domain="[('user_id','in',[uid,False])]"
+/--> 
+<!-- Action for Kuendigungen-->
+    <!--act_window 
+    id="action_kuendigungen" 
+    name="Kuendigungen" 
+    res_model="project.issue" 
+    view_mode="tree,form"
+    view_id="res_partner.partner_tree_view"
+    domain="[('category','=','ordentliche_kuendigung')]"
+/--> 
+
+<!--    domain = "['|', ('id', 'in', [active_id]), ('tikmarkopen','=','True')]"
+    context="{'id':active_id}" -->
+  </data>
+</openerp>

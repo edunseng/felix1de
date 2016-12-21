@@ -22,7 +22,7 @@ class resPartnerKontakte(models.Model):
    ## contact_since=fields.Char('Kontakt seit')
 
 
-    
+    ist_kontakt=fields.Boolean()
     image=fields.Binary(String="image")
     #name=fields.Char('Name des Mandanten', invisible=True)
     last_name=fields.Char('last name')
