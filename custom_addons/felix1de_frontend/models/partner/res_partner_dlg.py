@@ -4,8 +4,8 @@ from openerp import models, fields, api,_
 class resPartnerKontakte(models.Model):
     _name='res.partner'
     _inherit=['res.partner','mail.thread']
-    _inherits={'backend.kontakte':'backendkontakt_id'}
-    backendkontakt_id=fields.Many2one('backend.kontakte', required=True, ondelete='cascade', index=True, auto_join=True)
+   # _inherits={'backend.kontakte':'backendkontakt_id'}
+    backendkontakt_id=fields.Many2one('backend.kontakte', ondelete='cascade', index=True, auto_join=True)
     
 #        _inherit='res.partner' 
 
