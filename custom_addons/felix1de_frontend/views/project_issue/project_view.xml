@@ -324,7 +324,7 @@
 
 <!-- Action for Eigene Tickets-->
     <act_window 
-    id="action_eigene_tickets" 
+    id="base.action_eigene_tickets" 
     name="Eigene Tickets" 
     res_model="project.issue" 
     view_mode="tree,form"
@@ -333,7 +333,7 @@
 /> 
 <!-- Action for Kuendigungen-->
     <act_window 
-    id="action_kuendigungen" 
+    id="base.action_kuendigungen" 
     name="Kuendigungen" 
     res_model="project.issue" 
     view_mode="tree,form"

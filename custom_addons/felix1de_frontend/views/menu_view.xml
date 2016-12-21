@@ -34,10 +34,12 @@
     
     <!-- start-->
             <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter" sequence="1"/> 
+            <menuitem id="schnellerfassung_menu" name="Schnell" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter" sequence="1"/> 
+
     <!--                Tickets -->       
             <menuitem id="start_sub_menu" parent="start_root_menu" name="Tickets"/> 
-            <menuitem id="start_sub_menu_sub1" parent="start_sub_menu" name="Eigene Tickets" sequence="1" action="action_eigene_tickets"/>
-            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Kündigungen" sequence="2" action="action_kuendigungen"/>
+            <menuitem id="start_sub_menu_sub1" parent="start_sub_menu" name="Eigene Tickets" sequence="1" action="base.action_eigene_tickets"/>
+            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Kündigungen" sequence="2" action="base.action_kuendigungen"/>
     <!--                favoriten -->
             <menuitem
             id="mail.mail_channel_menu_root_todo"
@@ -143,10 +145,10 @@
 <!-- ACCESS BACKEND (own_menus / backend) -->
 
         <!-- top level menu: no parent -->
-        <menuitem id="main_backend_menu" name="Access Backend" groups="group_backend_menu" sequence="6"/>
+        <!--menuitem id="main_backend_menu" name="Access Backend" groups="group_backend_menu" sequence="6"/-->
         <!-- A first level in the left side menu is needed
              before using action= attribute -->
-        <menuitem id="backend_menu" name="Tabellen"
+        <!--menuitem id="backend_menu" name="Tabellen"
                   parent="main_backend_menu"/>
         <menuitem id="branchen" name="Branchen" parent="backend_menu"
                   action="branchen_list_action" sequence="1"/>
@@ -189,7 +191,7 @@
         <menuitem id="auftraege" name="Aufträge" parent="backend_menu"
                   action="auftraege_list_action" sequence="19"/>
         <menuitem id="kontakte" name="Kontakte" parent="backend_menu"
-                  action="kontakte_list_action" sequence="20"/>
+                  action="kontakte_list_action" sequence="20"/-->
             
                  
 

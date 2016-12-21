@@ -3,7 +3,7 @@
 <data>
               
               
-              <record id="view_mandanten_tree" model="ir.ui.view">
+              <!--record id="view_mandanten_tree" model="ir.ui.view">
                 <field name="name">Partner</field>
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.view_partner_tree"/>
@@ -19,7 +19,7 @@
                         <field name="contact_id" string="Kontakt"/>
                     </field>
                 </field>
-               </record>
+               </record-->
 
 
         <record id="respartner_mandanten_inherit_form_view" model="ir.ui.view">
@@ -30,19 +30,22 @@
  
                 <xpath expr="//page[1]" position="attributes">
                      <attribute name="autofocus">0</attribute>
-                     <attribute name="invisible">0</attribute>
+                     <attribute name="invisible">1</attribute>
                 </xpath>                               
                 <xpath expr="//page[2]" position="attributes">
-                     <attribute name="invisible">0</attribute>
+                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//page[3]" position="attributes">
-                     <attribute name="invisible">0</attribute>
+                     <attribute name="invisible">1</attribute>
                 </xpath>
                 
                 
                 <xpath expr="//div[@class='o_address_format']" position="attributes">
                    <attribute name="invisible">True</attribute>
                 </xpath>
+                <!--xpath expr="//field[@name='parent_id']" position="replace">
+                   <filed name="niederlassung_id"/>
+                </xpath-->
                 <xpath expr="//label[@for='street']" position="attributes">
                    <attribute name="invisible">True</attribute>
                 </xpath>
@@ -58,6 +61,8 @@
                                 <group>
                                    <field name="ist_mandant" attrs="{'readonly': ['|', ('ist_kontakt', '=', True)]}"/> 
                                    <field name="ist_kontakt" attrs="{'readonly': ['|', ('ist_mandant', '=', True)]}"/>
+                                   <field name="client_number_spcl" attrs="{'invisible': ['|', ('ist_mandant', '=', True)]}"/>
+                                   <field name="client_number" attrs="{'invisible': ['|', ('ist_kontakt', '=', True)]}"/>
                                 </group>
                             </group>
                 </field>
@@ -70,6 +75,7 @@
                     </h1>
                 </xpath>
                 <xpath expr="//field[@name='website']" position="after">
+                
 
                             <!--field name="mandantennummer"/-->
                             <field name="client_value" invisible="1"/>
@@ -81,14 +87,15 @@
                             <field name="acquired_by"/>
                             <field name="client_since"/>
                             <field name="client_remark"/>               
-                            <field name="con_acquired_by" string="Acquired By(Dstribution Agent)"/>
-                            <field name="contact_since" string="Client Since(Created On)"/>
-                            <field name="comment" string="Remark"/>
+                            <field name="con_acquired_by"/>
+                            <field name="contact_since"/>
+                            <field name="comment"/>
 
                 </xpath>
+                <xpath expr="//field[@name='website']" position="replace"></xpath>
 
                 <notebook position="inside">
-                    <page string="Addresse">
+                    <page string="Addresse" autofocus="1">
                                  <group>
                                    <group>
                                        <label for="street" string="Addresse"/>
@@ -98,20 +105,20 @@
                                                         attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}"/>
                                                 </div>
                                                 
-                                                <field name="street" placeholder="Street..." class="o_address_street"
+                                                <field name="street" placeholder="Strasse..." class="o_address_street"
                                                     attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                                <field name="house_no" placeholder="House No..." class="o_address_street"
+                                                <field name="house_no" placeholder="Haus Nr...." class="o_address_street"
                                                     attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                                <field name="street2" placeholder="Street 2..." class="o_address_street"
+                                                <field name="street2" placeholder="Str 2..." class="o_address_street"
                                                     attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
                                                     
-                                                <field name="city" placeholder="City" class="o_address_city"
+                                                <field name="city" placeholder="Stadt" class="o_address_city"
                                                     attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                                <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}' on_change="onchange_state(state_id)"
+                                                <field name="state_id" class="o_address_state" placeholder="Bundesland" options='{"no_open": True}' on_change="onchange_state(state_id)"
                                                     attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'zip': zip}"/>
                                                 <field name="zip" placeholder="ZIP" class="o_address_zip"
                                                     attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                                <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'
+                                                <field name="country_id" placeholder="Budesland" class="o_address_country" options='{"no_open": True, "no_create": True}'
                                                     attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
                                             </div>
                                    </group>
