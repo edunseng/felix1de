@@ -19,7 +19,7 @@
                     
                     <field name="display_name" position="before">
                         <button name="do_toggle_mode" type="object" icon="fa-paperclip fa-2x" class="oe_stat_button" help="In die Todolist eintragen"/>
-                        <button name="%(action_switch_single_mode)d" type="action" icon="fa-file-o fa-2x" class="oe_stat_button" help="aktueller Modus: Einzellansicht"/>
+                        <button name="%(action_switch_multi_mode)d" type="action" icon="fa-file-o fa-2x" class="oe_stat_button" help="aktueller Modus: Einzellansicht"/>
                     </field>
                     <field name="display_name" position="after">
                         <field name="id"/>
@@ -27,12 +27,12 @@
                         <field name="branch_rel"/>
                         <field name="client_number"/>
                         <field name="child_ids" groups="base.group_user"/>
-                        <field name="ticketing_rel" string="Tickets" groups="base.group_user"/>                       
+                        <field name="ticketing_rel" string="Tickets" groups="base.group_user"/> 
                         <!--field name="stage_id" widget="selection" readonly="1"/-->
                         <!--field name="tag_ids" invisible="1"/-->
                         <!--field name="status" invisible="0"/-->
                         <field name="tikmarkopen" readonly="1"/> 
-                        <button name="%(action_switch_multi_mode)d" type="action" icon="fa-refresh fa-2x" class="oe_stat_button" help="Todoliste filtern"/>
+                        <button name="%(action_switch_single_mode)d" type="action" icon="fa-refresh fa-2x" class="oe_stat_button" help="Todoliste filtern"/>
                     </field>
             </field>
         </record>
@@ -66,7 +66,7 @@
     <record id="mail.action_mandanten_view_tree" model="ir.actions.act_window.view">
        <field name="sequence" eval="1"/>
         <field name="view_mode">tree</field>
-        <field name="view_id" ref="base.partner_tree_view"/><!-- base.view_partner_tree-->
+        <field name="view_id" ref="base.view_partner_tree"/><!-- base.partner_tree_view-->
         <field name="act_window_id" ref="mail.action_mandanten"/>
     </record>
     <record id="mail.action_mandanten_view_form" model="ir.actions.act_window.view">
@@ -111,7 +111,7 @@
     <record id="mail.action_contacts_view_tree" model="ir.actions.act_window.view">
        <field name="sequence" eval="1"/>
         <field name="view_mode">tree</field>
-        <field name="view_id" ref="base.respartner_tree_view"/>
+        <field name="view_id" ref="base.view_partner_tree"/><!-- base.respartner_tree_view-->
         <field name="act_window_id" ref="mail.action_contacts"/>
     </record>
     <record id="mail.action_contacts_view_form" model="ir.actions.act_window.view">

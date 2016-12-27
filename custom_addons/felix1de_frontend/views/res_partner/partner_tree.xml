@@ -34,7 +34,7 @@
         
         
 <!--tree view multimode-->
- <record model="ir.ui.view" id="base.respartner_tree_view">
+ <!--record model="ir.ui.view" id="base.respartner_tree_view">
             <field name="name">Tickets </field>
             <field name="model">res.partner</field>
             <field name="arch" type="xml">
@@ -48,38 +48,38 @@
                     <field name="branch_rel"/>
                     <field name="client_number"/>
                     <field name="child_ids" groups="base.group_user"/>
-                    <field name="ticketing_rel" string="Tickets" groups="base.group_user"/>                       
+                    <field name="ticketing_rel" string="Tickets" groups="base.group_user"/-->                       
                     <!--field name="stage_id" widget="selection" readonly="1"/-->
                     <!--field name="tag_ids" invisible="1"/-->
                     <!--field name="status" invisible="0"/-->
-                    <field name="tikmarkopen" readonly="1"/> 
+                    <!--field name="tikmarkopen" readonly="1"/> 
                     <button name="%(action_switch_multi_mode)d" type="action" icon="fa-refresh fa-2x" class="oe_stat_button" help="Todoliste filtern"/>
                </tree>
             </field>
-        </record>
+        </record-->
 
 
 <!-- Action to switch Mode single -->
     <act_window 
     id="action_switch_multi_mode" 
-    name="Schnellmodus" 
+    name="Multimodus" 
     res_model="res.partner" 
     view_mode="tree,form"
     domain = "['|', ('id', 'in', [active_id]), ('tikmarkopen','=','True')]"
     context="{'id':active_id}"
-    view_id="base.respartner_tree_view"
+    view_id="base.respartner_multi_tree_view"
 
 /> 
 
 
 <!--tree view singlemode-->
- <record model="ir.ui.view" id="base.respartner_single_tree_view">
+ <record model="ir.ui.view" id="base.respartner_multi_tree_view">
             <field name="name">Ticket Tree View</field>
             <field name="model">res.partner</field>
             <field name="arch" type="xml">
                 <tree  editable="top">
                     <button name="do_toggle_mode" type="object" icon="fa-paperclip fa-2x" class="oe_stat_button" help="In die Todoliste aufnehmen"/> 
-                    <button name="%(action_switch_multi_mode)d" type="action" icon="fa-files-o fa-2x" class="oe_stat_button" help="aktueller Modus: Schnellansicht"/>
+                    <button name="%(action_switch_single_mode)d" type="action" icon="fa-files-o fa-2x" class="oe_stat_button" help="aktueller Modus: Multimodus"/>
 
                     <field name="message_needaction" invisible="1"/>
                     <field name="id"/>
@@ -98,7 +98,7 @@
                     <!--field name="tag_ids" invisible="1"/-->
                     <!--field name="status" invisible="0"/-->
                     <field name="tikmarkopen" readonly="1"/>  
-                    <button name="%(action_switch_multi_mode)d" type="action" icon="fa-refresh fa-2x" class="oe_stat_button" help="Todoliste filtern" style="color:green"/>
+                    <button name="%(action_switch_single_mode)d" type="action" icon="fa-refresh fa-2x" class="oe_stat_button" help="Todoliste filtern" style="color:green"/>
              
 
 
