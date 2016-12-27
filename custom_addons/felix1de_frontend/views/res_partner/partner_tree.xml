@@ -20,18 +20,21 @@
 
 <!--search view--> 
 
-<!-- Action to switch Mode single -->
+
+<!-- Action to switch Mode single respartner_single_tree_view-->
     <act_window 
     id="action_switch_single_mode" 
     name="Einzellmodus" 
     res_model="res.partner" 
     view_mode="tree,form"
-    view_id="base.partner_single_tree_view"
+    view_id="base.view_partner_tree"
     domain = "['|', ('id', 'in', [active_id]), ('tikmarkopen','=','True')]"
     context="{'id':active_id}"
 /> 
+        
+        
 <!--tree view multimode-->
- <record model="ir.ui.view" id="base.partner_tree_view">
+ <record model="ir.ui.view" id="base.respartner_tree_view">
             <field name="name">Tickets </field>
             <field name="model">res.partner</field>
             <field name="arch" type="xml">
@@ -64,13 +67,13 @@
     view_mode="tree,form"
     domain = "['|', ('id', 'in', [active_id]), ('tikmarkopen','=','True')]"
     context="{'id':active_id}"
-    view_id="base.partner_tree_view"
+    view_id="base.respartner_tree_view"
 
 /> 
 
 
 <!--tree view singlemode-->
- <record model="ir.ui.view" id="base.partner_single_tree_view">
+ <record model="ir.ui.view" id="base.respartner_single_tree_view">
             <field name="name">Ticket Tree View</field>
             <field name="model">res.partner</field>
             <field name="arch" type="xml">
