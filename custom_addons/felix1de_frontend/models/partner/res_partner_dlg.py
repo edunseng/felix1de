@@ -4,8 +4,8 @@ from openerp import models, fields, api,_
 class resPartnerKontakte(models.Model):
     _name='res.partner'
     _inherit=['res.partner','mail.thread']
-    _inherits={'backend.kontakte':'backendkontakt_id'}
-    backendkontakt_id=fields.Many2one('backend.kontakte', required=True, ondelete='cascade', index=True)
+   # _inherits={'backend.kontakte':'backendkontakt_id'}
+    backendkontakt_id=fields.Many2one('backend.kontakte', ondelete='cascade', index=True, auto_join=True)
     
 #        _inherit='res.partner' 
 
@@ -16,35 +16,36 @@ class resPartnerKontakte(models.Model):
     #brach_contract=fields.Many2one('backend.kanzleien')
     ##image=fields.Binary(String="image")
    ## contact_id=fields.Char(string="Contact Id")
-    remark=fields.Text('Remark')
+    remark=fields.Text('Bemerkung')
     #category_id=fields.Many2one('res.partner.category',string='Tags')
    
    ## contact_since=fields.Char('Kontakt seit')
 
 
-    
-    image=fields.Binary(String="image")
+    ist_kontakt=fields.Boolean('Ist Kontakt')
+    image=fields.Binary(String="Bild")
     #name=fields.Char('Name des Mandanten', invisible=True)
-    last_name=fields.Char('last name')
-    contact_id=fields.Char('Contact ID')
-    con_acquired_by=fields.Char('Acquired By')
+    last_name=fields.Char('Nachname')
+    contact_id=fields.Char('Kontakt ID')
+    con_acquired_by=fields.Char('vermittelt durch')
     contact_since=fields.Char('Kontakt seit')
-    phone=fields.Char('phone')
-    mobile=fields.Char('mobile')
-    fax=fields.Char('fax')
+    phone=fields.Char('Telefon')
+    mobile=fields.Char('Handy')
+    fax=fields.Char('Fax')
     email=fields.Char('email')
-    comment=fields.Char('comment')
-    title=fields.Char('title')
-    house_no=fields.Char('house_no')
-    street=fields.Char('street')
-    street2=fields.Char('street2')
-    zip=fields.Char('zip')
-    city=fields.Char('city')
-    state=fields.Char('state')
+    comment=fields.Char('Bemerkung')
+    title=fields.Char('Titel')
+    house_no=fields.Char('Hausnummer')
+    street=fields.Char('Strasse')
+    street2=fields.Char('Strase2')
+    zip=fields.Char('PLZ')
+    city=fields.Char('Stadt')
+    state=fields.Char('Bundesland')
     kontakt_seit=fields.Date('Kontakt Seit')
     country_id=fields.Many2one('res.country')
     ticket_id=fields.One2many('felix1.ticket', 'contact_id')
     client_id=fields.One2many('res.partner', 'contact_id')
+    partner_id=fields.Many2one('res.partner')
     
     
         
@@ -53,3 +54,4 @@ class resPartnerKontakte(models.Model):
         self.nachname=self.name
         self.telefon2=self.mobile
         #....
+        

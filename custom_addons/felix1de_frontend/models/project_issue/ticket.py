@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import fields, models, api
+
+
 class mail_followers(models.Model):
 	_inherit='mail.followers'
 	#ticket_id=fields.Many2one('felix1.ticket')
@@ -7,9 +9,7 @@ class mail_followers(models.Model):
 class Felix1Ticket(models.Model):
 	_name='felix1.ticket'
 	_inherit = ['mail.thread']
-	
-       
-            
+	         
 	prm_ticket_id=fields.Char('Ticket-ID',compute='creat_ticket_id')	
 	name=fields.Char('Ticket')
 	claticketname=fields.Char('claTicketName')

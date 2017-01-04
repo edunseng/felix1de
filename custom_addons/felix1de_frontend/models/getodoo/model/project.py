@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from openerp import fields, models, api
 class ProjectIssue(models.Model):
     _inherit='project.issue'
@@ -15,23 +14,15 @@ class ProjectIssue(models.Model):
     tikStartDate=fields.Date('Erstellt Am')
     tikCloseDate=fields.Date('Geschlossen Am')
     ticket_id=fields.Many2one('felix1.ticket', string="Ticket")
-
-    
 class ProjectTask(models.Model):
     _inherit='project.task'
-
-    # Fields were not in the model so copied from project.task.line to get them in the view
-    monatsgebuhr=fields.Float('Monatsgebuhr')
-    einmalgebuhr=fields.Float('Einmalgebuhr')
-    jahresgebuhr=fields.Float('Jahresgebuhr')
     product_id=fields.One2many('prject.task.line', 'line')
-
 class BackendLine(models.Model):
     _name='prject.task.line'
-
+    
     line=fields.Many2one('project.task')
     name=fields.Char('Name')
     monatsgebuhr=fields.Float('Monatsgebuhr')
     einmalgebuhr=fields.Float('Einmalgebuhr')
     jahresgebuhr=fields.Float('Jahresgebuhr')
-    #order_id=fields.Many2one('client.order')
+    order_id=fields.Many2one('client.order')

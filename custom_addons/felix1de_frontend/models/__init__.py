@@ -1,8 +1,7 @@
 
 import company
-import ticket
 import partner
-import project
+import project_issue
 
 #import order
 #import customer_mail_send

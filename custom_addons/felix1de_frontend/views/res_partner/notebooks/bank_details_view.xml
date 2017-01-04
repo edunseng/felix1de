@@ -53,8 +53,7 @@
 		    <field name="view_mode">tree,form</field>
 		   
 		</record>
-		 
-		<!--    <menuitem id="sub_menu_bracnh_sub123123" parent="client_sub_menu" name="Accountant" action="action_bank_system"/> -->
+
 	</data>
 </openerp>
 

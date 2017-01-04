@@ -26,8 +26,9 @@
     # any module necessary for this one to work correctly
     'depends': [        
         'openstow_backend_theme',
-        'project_issue','note','board','mail_tracking',
+        'project_issue','note','mail_tracking',
         'base','mail','hr','felix1de_backend','project',
+        'project_stage_state'
     ],
 
     # always loaded
@@ -35,25 +36,33 @@
         # secutŕity
         'security/ir.model.access.csv',
         'security/security.xml',
-        'security/ticket_security.xml',
-        # Model related views
+        ## Model related views
         'views/own_menus/backend.xml',
         'views/own_menus/start.xml',
         # project.issue customasations
         'views/project_issue/ticketsystem.xml',
         'views/project_issue/project_view.xml',
+        
          # res.partner customasations
+        'views/res_partner/partner_tree.xml',
+        'views/res_partner/partner_menu.xml',
+        'views/res_partner/partner_view.xml',
+
         'views/res_partner/notebooks/bank_details_view.xml',
+        #'views/res_partner/mandanten_dlg.xml',
         'views/res_partner/notebooks/order_view.xml',
         'views/res_partner/notebooks/number_view.xml',
-        'views/res_partner/notebooks/product_view.xml',
-        'views/res_partner/mandanten_dlg.xml',
-        'views/res_partner/partner_kontakte.xml',
-        'views/res_partner/partner_mandanten.xml',
+        #'views/res_partner/notebooks/product_view.xml',
+        #'views/res_partner/partner_kontakte.xml',
+        #'views/res_partner/partner_mandanten.xml',
+        
+        
          # res.company customasations
         'views/res_company/branch_view.xml',        
-     
+        # Email send function in Ticketform
         'views/customer_mail_send_view.xml',
+        # Menu
+        'views/menu_view.xml',
         
         
         
@@ -70,5 +79,8 @@
     ],
     'application': True,
     'installable': True,
-    'auto_install': True
+    'auto_install': True,
+    'qweb': [
+        'static/src/xml/todo_action.xml',],
+    
 }

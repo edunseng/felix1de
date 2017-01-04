@@ -92,20 +92,6 @@
                 <field name="view_type">form</field>
                 <field name="view_mode">tree,form</field>          
         </record>
-        
-        
-
-<!--START MENU (ticket)-->
-            <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter"/> 
-            
-            <menuitem id="start_sub_menu" parent="start_root_menu" name="Liste Tickets"/> 
-            <menuitem id="start_sub_menu_sub1" parent="start_sub_menu" name="Eigene Tickets" sequence="1" action="action_felix1_ticket_tree_view_eigene_tickets"/>
-            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Kündigungen" sequence="2" action="action_felix1_ticket_tree_view_kuendigungen_tickets"/>
-
-<!--START MENU (mandanten)-->          
-            <menuitem id="start_sub2_menu" parent="start_root_menu" name="Liste Mandanten"/> 
-            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Mandanten" action="action_respartner_mandanten_inherit_tree_view_mandanten"/>
-
 
 </data>
 </openerp> 

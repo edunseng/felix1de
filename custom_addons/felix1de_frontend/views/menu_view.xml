@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+  <!--START MENU (ticket) (own_menus/start)-->
+       
+       
+    <!--discuss -->
+    <delete model="ir.ui.menu" search="[('id', '=', ref('mail.mail_channel_menu_root_chat'))]" /> 
+
+    <record id="mail.mail_channel_menu_root_chat" model="ir.actions.client">
+        <field name="name">Chat</field>
+        <field name="tag">mail.chat.instant_messaging</field>
+        <field name="res_model">mail.channel</field>
+    </record>
+    
+    <!--              actionn  Favorieten-->
+    <record id="mail_channel_action_client_todo" model="ir.actions.client">
+        <field name="name">Chat</field>
+        <field name="tag">mail.chat.instant_messaging</field>
+        <field name="res_model">mail.channel</field>
+        <field name="params" eval="&quot;{
+        'default_active_id': 'channel_starred'
+        }&quot;"/>
+    </record>
+    <!--                action  Inbox-->
+    <record id="mail_channel_action_client_inbox" model="ir.actions.client">
+        <field name="name">Chat</field>
+        <field name="tag">mail.chat.instant_messaging</field>
+        <field name="res_model">mail.channel</field>
+        <field name="params" eval="&quot;{
+        'default_active_id': 'channel_inbox'           
+        }&quot;"/>
+    </record>
+    
+    <!-- start-->
+            <menuitem id="start_root_menu" name="Start" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter" sequence="1"/> 
+            <menuitem id="schnellerfassung_menu" name="Schnell" groups="group_felix1_abteilungsleiter,group_felix1_mitarbeiter" sequence="1"/> 
+
+    <!--                Tickets -->       
+            <menuitem id="start_sub_menu" parent="start_root_menu" name="Tickets"/> 
+            <menuitem id="start_sub_menu_sub1" parent="start_sub_menu" name="Eigene Tickets" sequence="1" action="base.action_eigene_tickets"/>
+            <menuitem id="start_sub_menu_sub2" parent="start_sub_menu" name="Kündigungen" sequence="2" action="base.action_kuendigungen"/>
+    <!--                favoriten -->
+            <menuitem
+            id="mail.mail_channel_menu_root_todo"
+            name="Favoriten"
+            action="mail_channel_action_client_todo"
+            icon="fa-envelope"
+            web_icon="mail,static/description/icon.png"
+            groups="base.group_user"
+            parent="start_sub_menu"
+            sequence="3"/>
+<!--(mandanten) -->          
+            <menuitem id="start_sub2_menu" parent="start_root_menu" name="Mandanten"/> 
+            <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Mandanten" action="mail.action_mandanten"/>
+
+<!--(inbox) 
+
+(odoo/addons/mail/views/mail_channel_views)-->
+<!--(odoo/addons/mail/static/src/xml/client_action)-->
+<!--(odoo/addons/mail/static/src/less/client_action.less)-->
+
+            <menuitem id="start_sub3_menu" parent="start_root_menu" name="Mailbox"/> 
+
+            <menuitem
+            id="mail.mail_channel_menu_root_inbox"
+            name="Inbox"
+            action="mail_channel_action_client_inbox"
+            icon="fa-envelope"
+            web_icon="mail,static/description/icon.png"
+            groups="base.group_user"
+            parent="start_sub3_menu"
+            sequence="1"/>
+            
+
+
+            
+        <!--menuitem name="Channels/Partner" id="start_mail_channel_partner_menu" parent="start_sub3_menu"
+            action="mail_channel_partner_action" sequence="92" groups="base.group_no_one"/-->
+
+
+
+<!--NOTES (odoo/addons/note/note_view) -->    
+    <record id="note.menu_note_notes" model="ir.ui.menu">
+    <field name="sequence">2</field>
+    </record>
+    <!-- original record-->
+    <!--menuitem name="Notes" id="menu_note_notes" sequence="3" action="note.action_note_note" web_icon="note,static/description/icon.png"/>
+    <menuitem name="Configuration" id="menu_note_configuration" sequence="100" parent="menu_note_notes" groups="base.group_no_one"/>
+    <menuitem name="Stages" id="menu_notes_stage" parent="menu_note_configuration" action="note.action_note_stage" sequence="21" /-->            
+            
+
+
+
+
+
+<!-- MANDANTEN (res_partner/partner_mandanten   res_partner/mandanten_dlg) -->   
+  
+    <menuitem id="mandanten_root_menu" name="Mandanten" sequence="4" groups="group_felix1_mitarbeiter"/> 
+    <menuitem id="mandanten_sub_menu" parent="mandanten_root_menu" name="Liste Mandanten"/> 
+    
+    <menuitem name="Mandanten"
+    id="menu_mandanten"
+    sequence="1"
+    action="mail.action_mandanten"
+    web_icon="mail,static/description/icon2.png"
+    groups="base.group_user,base.group_partner_manager"
+    parent="mandanten_sub_menu"/> 
+
+<!--Auftragsliste (res_partner/notebooks/order_view)-->
+            <menuitem id="order_sub_menu" parent="mandanten_root_menu" name="Auftragsliste"/> 
+            <menuitem id="order_sub_menu_sub" parent="order_sub_menu" name="Aufträge" action="action_order_system"/> 
+            
+<!--Liste Nummern (res_partner/notebooks/number_view)--> 
+        <menuitem id="number_sub_menu1" parent="mandanten_root_menu" name="Liste Nummern" sequence="20"/> 
+        <menuitem id="number_sub_menu_sub" parent="number_sub_menu1" name="Nummern" action="number_order_system"/>  
+        
+<!-- Liste Nummern (notebooks/bank_details)--> 
+        <menuitem id="number_sub_menu_sub2" parent="number_sub_menu1" name="Bank" action="action_bank_system"/>
+
+
+<!--KONTAKTE (res_partner/partner_kontakte)--> 
+<!--original odoo/addons/mail/views/contact_views-->  
+
+ <delete model="ir.ui.menu" search="[('id', '=',
+     ref('mail.menu_contacts'))]" />  
+     
+     
+    <menuitem name="Kontakte"
+        id="mail.menu_contacts"
+        sequence="4"
+        action="mail.action_contacts"
+        web_icon="mail,static/description/icon2.png"
+        groups="base.group_user,base.group_partner_manager"/>  
+           
+        <!--menuitem id="menu_contact" name="Liste Kontakte" parent="mail.menu_contacts" groups="group_felix1_mitarbeiter,group_felix1_mandant_lesen,group_felix1_mandant_schreiben,group_felix1_abteilungsleiter"/>
+        <menuitem id="sub_menu" name="Kontakte" parent="menu_contact" action="mail.action_contacts"/--> 
+
+            
+
+
+
+
+
+<!-- ACCESS BACKEND (own_menus / backend) -->
+
+        <!-- top level menu: no parent -->
+        <!--menuitem id="main_backend_menu" name="Access Backend" groups="group_backend_menu" sequence="6"/-->
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <!--menuitem id="backend_menu" name="Tabellen"
+                  parent="main_backend_menu"/>
+        <menuitem id="branchen" name="Branchen" parent="backend_menu"
+                  action="branchen_list_action" sequence="1"/>
+        <menuitem id="berater" name="Berater" parent="backend_menu"
+                  action="berater_list_action" sequence="2"/>
+        <menuitem id="kanzleien" name="Kanzleien" parent="backend_menu"
+                  action="kanzleien_list_action" sequence="3"/>
+        <menuitem id="mandantenstatus" name="Mandantenstatus" parent="backend_menu"
+                  action="mandantenstatus_list_action" sequence="4"/>
+        <menuitem id="unternehmensformen" name="Unternehmensformen" parent="backend_menu"
+                  action="unternehmensformen_list_action" sequence="5"/>        
+        <menuitem id="paket" name="Paket" parent="backend_menu"
+                  action="paket_list_action" sequence="6"/>
+        <menuitem id="paketkategorie" name="Paketkategorie" parent="backend_menu"
+                  action="paketkategorie_list_action" sequence="7"/>
+        <menuitem id="paketestatus" name="Paketestatus" parent="backend_menu"
+                  action="paketestatus_list_action" sequence="8"/>
+        <menuitem id="felix1gruppen" name="Felix1gruppen" parent="backend_menu"
+                  action="felix1gruppen_list_action" sequence="9"/>  
+        <menuitem id="checklistentypen" name="Checklistentypen" parent="backend_menu"
+                  action="checklistentypen_list_action" sequence="10"/>
+        <menuitem id="checklistenvorlagen" name="checklistenvorlagen" parent="backend_menu"
+                  action="checklistenvorlagen_list_action" sequence="11"/> 
+        <menuitem id="abrechnungszeitraeume" name="Abrechnungszeitraeume" parent="backend_menu"
+                  action="abrechnungszeitraeume_list_action" sequence="12"/>                           
+        <menuitem id="preiseschluessel" name="Preiseschluessel" parent="backend_menu"
+                  action="preiseschluessel_list_action" sequence="13"/>
+        <menuitem id="pakete" name="Pakete" parent="backend_menu"
+                  action="pakete_list_action" sequence="14"/>
+         <menuitem id="lohnpreiseartikel" name="Lohnpreiseartikel" parent="backend_menu"
+                  action="lohnpreiseartikel_list_action" sequence="15"/>
+        <menuitem id="lohnmandanten" name="Lohnmandanten" parent="backend_menu"
+                  action="lohnmandanten_list_action" sequence="16"/>
+        <menuitem id="ops" name="Ops" parent="backend_menu"
+                  action="ops_list_action" sequence="17"/>
+
+        
+        <menuitem id="mandanten" name="Mandanten" parent="backend_menu"
+                  action="mandanten_list_action" sequence="18"/>
+        <menuitem id="auftraege" name="Aufträge" parent="backend_menu"
+                  action="auftraege_list_action" sequence="19"/>
+        <menuitem id="kontakte" name="Kontakte" parent="backend_menu"
+                  action="kontakte_list_action" sequence="20"/-->
+            
+                 
+
+
+
+
+
+
+<!-- NIEDERLASSUNGEN (res_company/branch_view)-->
+            <menuitem id="branch_root_menu" name="Niederlassungen" sequence="7"/> 
+            <menuitem id="sub_menu_branch" parent="branch_root_menu" name="Liste Niederlassungen"/> 
+            <menuitem id="sub_menu_bracnh_sub" parent="sub_menu_branch" name="Niederlassungen" action="action_branch_system"/> 
+
+<!-- TICKETSYSTEM (project_issue/ticketsystem)-->
+            <menuitem id="ticketing_root_menu" name="Ticketsystem" sequence="8" groups="group_ticket_menu"/> 
+            <menuitem id="sub_menu_ticking" parent="ticketing_root_menu" name="Tickets List"/> 
+            <menuitem id="sub_menu_ticking_sub" parent="sub_menu_ticking" name="Tickets" action="action_customer_ticketing_system"/> 
+
+</data>
+</openerp>
