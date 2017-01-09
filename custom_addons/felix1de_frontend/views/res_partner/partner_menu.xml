@@ -25,6 +25,8 @@
                         <field name="id"/>
                         <field name="name"/>
                         <field name="branch_rel"/>
+                        <field name="ist_kontakt"/>
+                        <field name="ist_mandant"/>
                         <field name="client_number"/>
                         <field name="child_ids" groups="base.group_user"/>
                         <field name="ticketing_rel" string="Tickets" groups="base.group_user"/> 
@@ -43,7 +45,7 @@
        <field name="name">Mandanten</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
-        <field name="domain">[('ist_mandant', '=', True)]</field>  
+        <!--field name="domain">[('ist_mandant', '=', True)]</field-->  
         <field name="context">{'default_ist_mandant':1}</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
