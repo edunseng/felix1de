@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import fields, models, api
+
+
 _KATEGORY_LIST = [
     ('einkommensteuer', 'Einkommensteuer-FB'),
     ('gruendung', 'Gruendung'),
@@ -101,16 +103,11 @@ class StatusChange(models.Model):
     category=fields.Selection(selection=_KATEGORY_LIST,string='Kateghorie', default=_KATEGORY_LIST[0][0], store=True)
     descriotion=fields.Html('Beschreibung')
     
- #   def on_category_change(category):
- #       if self.category in 
- #           self.categoryrint 'Hello'
-#           status=fields.Selection([_GRUENDUNG_LIST[0],_GRUENDUNG_LIST[1],_GRUENDUNG_LIST[2],
- #                            _GRUENDUNG_LIST[3],_GRUENDUNG_LIST[4]], string='Status2',  
- #                            default=_GRUENDUNG_LIST[0][0],track_visibility = 'onchange')#allways
  
 class ProjectIssue(models.Model):
     _name='project.issue'
-    _inherit=['project.task','project.issue','project.states']
+    _inherit=['project.task','project.states','project.issue']
+    
     prm_ticket_id=fields.Char('Ticket-ID')
     mitarbeiter_id=fields.Many2one('felix1.employees',"Zugewiesener Mitarbeiter")
     backend_kontakte_id=fields.Many2one('backend.kontakte', string="kontakte")
@@ -129,35 +126,36 @@ class ProjectIssue(models.Model):
     #status=fields.Char('Status',compute='_show_status',store=True)  #SHIVAM
     
     #status bar state fields
-    statusbar_einkommensteuer=fields.Selection([
-        _EKS_LIST[0],_EKS_LIST[1],_EKS_LIST[2],_EKS_LIST[3],_EKS_LIST[4],
-        _EKS_LIST[5],_EKS_LIST[6],_EKS_LIST[7]],
-                                               string='Status', default=_EKS_LIST[0][0],track_visibility = 'onchange')#allways
-    statusbar_gruendung=fields.Selection([
-        _GRUENDUNG_LIST[0],_GRUENDUNG_LIST[1],_GRUENDUNG_LIST[2], _GRUENDUNG_LIST[3],_GRUENDUNG_LIST[4],
-        _GRUENDUNG_LIST[5],_GRUENDUNG_LIST[6],_GRUENDUNG_LIST[7], _GRUENDUNG_LIST[8],_GRUENDUNG_LIST[9],
-        _GRUENDUNG_LIST[10],_GRUENDUNG_LIST[11],_GRUENDUNG_LIST[12]],                                         
-                                          string='Status', default=_GRUENDUNG_LIST[0][0],track_visibility = 'onchange')#allways
-    statusbar_onoarding=fields.Selection([
-        _ONBOARDING_LIST[0],_ONBOARDING_LIST[1],_ONBOARDING_LIST[2], _ONBOARDING_LIST[3],_ONBOARDING_LIST[4],
-        _ONBOARDING_LIST[5],_ONBOARDING_LIST[6],_ONBOARDING_LIST[7],_ONBOARDING_LIST[8],_ONBOARDING_LIST[9],
-        _ONBOARDING_LIST[10],_ONBOARDING_LIST[11],_ONBOARDING_LIST[12],_ONBOARDING_LIST[13],_ONBOARDING_LIST[14],
-        _ONBOARDING_LIST[15],_ONBOARDING_LIST[16],_ONBOARDING_LIST[17]], 
-                                         string='Status', default=_ONBOARDING_LIST[0][0],track_visibility = 'onchange')#allways
-    statusbar_ordentliche_kuendigung=fields.Selection([
-        _ORDENTLICHE_KUENDIGUNG_LIST[0],_ORDENTLICHE_KUENDIGUNG_LIST[1],_ORDENTLICHE_KUENDIGUNG_LIST[2], _ORDENTLICHE_KUENDIGUNG_LIST[3],_ORDENTLICHE_KUENDIGUNG_LIST[4],
-        _ORDENTLICHE_KUENDIGUNG_LIST[5],_ORDENTLICHE_KUENDIGUNG_LIST[6],_ORDENTLICHE_KUENDIGUNG_LIST[7], _ORDENTLICHE_KUENDIGUNG_LIST[8],_ORDENTLICHE_KUENDIGUNG_LIST[9],
-        _ORDENTLICHE_KUENDIGUNG_LIST[10]],
-                                                       string='Status', default=_ORDENTLICHE_KUENDIGUNG_LIST[0][0],track_visibility = 'onchange')#allways
-    statusbar_umsatzanpassung=fields.Selection([
-        _UMSATZANPASSUNG_LIST[0],_UMSATZANPASSUNG_LIST[1],_UMSATZANPASSUNG_LIST[2], _UMSATZANPASSUNG_LIST[3],_UMSATZANPASSUNG_LIST[4]],
-                                                       string='Status', default=_UMSATZANPASSUNG_LIST[0][0],track_visibility = 'onchange')#allways
+    statusbar_einkommensteuer=fields.Selection(_EKS_LIST,
+        string='Status',
+        default='1',
+        track_visibility = 'onchange')#allways
     
-    statusbar_umzug=fields.Selection([
-        _UMZUG_LIST[0],_UMZUG_LIST[1],_UMZUG_LIST[2], _UMZUG_LIST[3],_UMZUG_LIST[4],
-        _UMZUG_LIST[5],_UMZUG_LIST[6],_UMZUG_LIST[7], _UMZUG_LIST[8],_UMZUG_LIST[9]],                                         
-                                          string='Status', default=_UMZUG_LIST[0][0],track_visibility = 'onchange')#allways
+    statusbar_gruendung=fields.Selection(_GRUENDUNG_LIST,                                         
+                                          string='Status', 
+                                          default='1',
+                                          track_visibility = 'onchange')#allways
+    statusbar_onoarding=fields.Selection(_ONBOARDING_LIST, 
+                                         string='Status', 
+                                         default='1',
+                                         track_visibility = 'onchange')#allways
+    statusbar_ordentliche_kuendigung=fields.Selection(_ORDENTLICHE_KUENDIGUNG_LIST,
+                                                       string='Status',
+                                                        default='1',
+                                                        track_visibility = 'onchange')#allways
+    statusbar_umsatzanpassung=fields.Selection(_UMSATZANPASSUNG_LIST,
+                                                       string='Status', 
+                                                       default='1',
+                                                       track_visibility = 'onchange')#allways
+    statusbar_umzug=fields.Selection(_UMZUG_LIST,                                         
+                                          string='Status', default='1',track_visibility = 'onchange')#allways
     hidestage=fields.Boolean(default=True)
+    #category_id  = fields.many2one('project.states','Kateghorie')
+        
+    
+    
+
+    
     
 
 #    @api.one                        #SHIVAM
@@ -179,28 +177,160 @@ class ProjectIssue(models.Model):
  # progress to FIRST STATE
     @api.multi
     def EKS_progress_value(self):
-        self.write({'statusbar_einkommensteuer':'2'})
+        status = str(self.statusbar_einkommensteuer)
+        if status == '1':
+            self.write({'statusbar_einkommensteuer':'2'})
+        if status == '2':
+            self.write({'statusbar_einkommensteuer':'3'})
+        if status == '3':
+            self.write({'statusbar_einkommensteuer':'4'})
+        if status == '4':
+            self.write({'statusbar_einkommensteuer':'5'})
+        if status == '5':
+            self.write({'statusbar_einkommensteuer':'6'})
+        if status == '6':
+            self.write({'statusbar_einkommensteuer':'7'})
+        if status == '7':
+            self.write({'statusbar_einkommensteuer':'8'})
+        return True
+        
+        
     @api.multi
     def GRUENDUNG_progress_value(self):
-        self.write({'statusbar_gruendung':'2'})    
+        status = str(self.statusbar_gruendung)
+        if status == '1':
+            self.write({'statusbar_gruendung':'2'})
+        if status == '2':
+            self.write({'statusbar_gruendung':'3'})
+        if status == '3':
+            self.write({'statusbar_gruendung':'4'})
+        if status == '4':
+            self.write({'statusbar_gruendung':'5'})
+        if status == '5':
+            self.write({'statusbar_gruendung':'6'})
+        if status == '6':
+            self.write({'statusbar_gruendung':'7'})
+        if status == '7':
+            self.write({'statusbar_gruendung':'8'})
+        if status == '8':
+            self.write({'statusbar_gruendung':'9'})
+        if status == '9':
+            self.write({'statusbar_gruendung':'10'})
+        if status == '10':
+            self.write({'statusbar_gruendung':'11'})
+        if status == '11':
+            self.write({'statusbar_gruendung':'12'})
+        if status == '12':
+            self.write({'statusbar_gruendung':'13'})
+        return True
+
     @api.multi
     def ONBOARDING_progress_value(self):
-        self.write({'statusbar_onoarding':'2'})
+        status = str(self.statusbar_onoarding)
+        if status == '1':
+            self.write({'statusbar_onoarding':'2'})
+        if status == '2':
+            self.write({'statusbar_onoarding':'3'})
+        if status == '3':
+            self.write({'statusbar_onoarding':'4'})
+        if status == '4':
+            self.write({'statusbar_onoarding':'5'})
+        if status == '5':
+            self.write({'statusbar_onoarding':'6'})
+        if status == '6':
+            self.write({'statusbar_onoarding':'7'})
+        if status == '7':
+            self.write({'statusbar_onoarding':'8'})
+        if status == '8':
+            self.write({'statusbar_onoarding':'9'})
+        if status == '9':
+            self.write({'statusbar_onoarding':'10'})
+        if status == '10':
+            self.write({'statusbar_onoarding':'11'})
+        if status == '11':
+            self.write({'statusbar_onoarding':'12'})
+        if status == '12':
+            self.write({'statusbar_onoarding':'13'})
+        if status == '13':
+            self.write({'statusbar_onoarding':'14'})
+        if status == '14':
+            self.write({'statusbar_onoarding':'15'})
+        if status == '15':
+            self.write({'statusbar_onoarding':'16'})
+        if status == '16':
+            self.write({'statusbar_onoarding':'17'})
+        return True
+        
     @api.multi
     def ORDENTLICHE_KUENDIGUNG_progress_value(self):
-        self.write({'statusbar_ordentliche_kuendigung':'2'})
+        status = str(self.statusbar_ordentliche_kuendigung)
+        if status == '1':
+            self.write({'statusbar_ordentliche_kuendigung':'2'})
+        if status == '2':
+            self.write({'statusbar_ordentliche_kuendigung':'3'})
+        if status == '3':
+            self.write({'statusbar_ordentliche_kuendigung':'4'})
+        if status == '4':
+            self.write({'statusbar_ordentliche_kuendigung':'5'})
+        if status == '5':
+            self.write({'statusbar_ordentliche_kuendigung':'6'})
+        if status == '6':
+            self.write({'statusbar_ordentliche_kuendigung':'7'})
+        if status == '7':
+            self.write({'statusbar_ordentliche_kuendigung':'8'})
+        if status == '8':
+            self.write({'statusbar_ordentliche_kuendigung':'9'})
+        if status == '9':
+            self.write({'statusbar_ordentliche_kuendigung':'10'})
+        if status == '10':
+            self.write({'statusbar_ordentliche_kuendigung':'11'})
+        
+        return True
+    
+    
     @api.multi
     def UMZUG_progress_value(self):
-        self.write({'statusbar_umzug':'2'})
+        status = str(self.statusbar_umzug)
+        if status == '1':
+            self.write({'statusbar_umzug':'2'})
+        if status == '2':
+            self.write({'statusbar_umzug':'3'})
+        if status == '3':
+            self.write({'statusbar_umzug':'4'})
+        if status == '4':
+            self.write({'statusbar_umzug':'5'})
+        if status == '5':
+            self.write({'statusbar_umzug':'6'})
+        if status == '6':
+            self.write({'statusbar_umzug':'7'})
+        if status == '7':
+            self.write({'statusbar_umzug':'8'})
+        if status == '8':
+            self.write({'statusbar_umzug':'9'})
+        if status == '9':
+            self.write({'statusbar_umzug':'10'})
+        if status == '10':
+            self.write({'statusbar_umzug':'11'})
+        return True
+        
     @api.multi
     def UMSATZANPASSUNG_progress_value(self):
-        self.write({'statusbar_umsatzanpassung':'2'})
-
+        status = str(self.statusbar_umsatzanpassung)
+        if status == '1':
+            self.write({'statusbar_umsatzanpassung':'2'})
+        if status == '2':
+            self.write({'statusbar_umsatzanpassung':'3'})
+        if status == '3':
+            self.write({'statusbar_umsatzanpassung':'4'})
+        if status == '4':
+            self.write({'statusbar_umsatzanpassung':'5'})
+        return True
         
         
     @api.multi
     def cancel_value(self):
         self.write({'status':'cancelled'})
+    
     @api.multi
     def done_value(self):
         self.write({'status':'done'})
