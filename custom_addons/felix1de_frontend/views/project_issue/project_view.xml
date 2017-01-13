@@ -51,7 +51,7 @@
                     <field name="user_id"/>                        
                     <!--field name="stage_id" widget="selection" readonly="1"/-->
                     <field name="tag_ids" invisible="1"/>
-                    <!--field name="status" invisible="0"/-->
+                    <field name="statusbar_gruendung" invisible="0"/>
                     <field name="tikmarkopen" readonly="1"/>  
                     <button name="%(action_switch_multi_mode)d" type="action" icon="fa-refresh fa-2x" class="oe_stat_button" help="Todoliste filtern" style="color:green"/>
              
