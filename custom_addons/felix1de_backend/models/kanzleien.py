@@ -4,7 +4,7 @@ from openerp import models, fields, api,_
 from datetime import time, datetime
 import apiais
 
-class backend_kanzleien(models.Model):
+class backend_kanzleien(models.Model): #Companies 
     _name='backend.kanzleien'
     _inherit='backend.apiais.accessid'
     

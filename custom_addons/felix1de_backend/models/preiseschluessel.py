@@ -7,6 +7,7 @@ class backend_preiseschluessel(models.Model):
     _name='backend.preiseschluessel'
     _inherit='backend.apiais.accessid'
     
+    
     accessid=fields.Char('ID', compute='_lookup_accessid')
     
     beschreibung=fields.Text('Beschreibung')

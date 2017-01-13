@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+#RES.PARTNER
 from openerp import models, fields, api,_
 import apiais
 

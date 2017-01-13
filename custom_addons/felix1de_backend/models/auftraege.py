@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
+#SALES.ORDER
 from openerp import models, fields, api,_
 import apiais
 
 class backend_auftraege(models.Model):
     _name='backend.auftraege'
     _inherit='backend.apiais.accessid'
+    
     
     accessid=fields.Char('ID', compute='_lookup_accessid')
     

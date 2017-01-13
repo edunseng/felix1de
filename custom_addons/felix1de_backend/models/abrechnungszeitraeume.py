@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+#SALES.ORDER
 from openerp import models, fields, api,_
 import apiais
 

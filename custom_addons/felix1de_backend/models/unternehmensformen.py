@@ -3,7 +3,7 @@
 from openerp import models, fields, api,_
 import apiais
 
-class backend_unternehmensformen(models.Model):
+class backend_unternehmensformen(models.Model): #Companytype
     _name='backend.unternehmensformen'
     _inherit='backend.apiais.accessid'
     
