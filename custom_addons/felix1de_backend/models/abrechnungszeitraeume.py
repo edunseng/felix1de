@@ -2,14 +2,14 @@
 
 #SALES.ORDER
 from openerp import models, fields, api,_
-import apiais
+import methods
 
 class backend_abrechnungszeitraeume(models.Model):
     _name='backend.abrechnungszeitraeume'
     _rec_name = 'abr_accperiod'  # the default
     _order = 'abr_accperiod,id'
     _description = "Accounting Periods"
-    _inherit=['backend.apiais.accessid']   
+    _inherit=['backend.methods.accessid']   
 
     abr_accessid=fields.Char('ID', compute='_lookup_accessid')
     abr_accperiod=fields.Char('Abrechnungszeitraum') #Accounting Period

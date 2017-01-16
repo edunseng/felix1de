@@ -2,11 +2,11 @@
 
 #SALES.ORDER
 from openerp import models, fields, api,_
-import apiais
+import methods
 
 class backend_auftraege(models.Model):
     _name='backend.auftraege'
-    _inherit='backend.apiais.accessid'
+    _inherit='backend.methods.accessid'
     
     
     accessid=fields.Char('ID', compute='_lookup_accessid')

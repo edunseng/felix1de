@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 #RES.COMPANY
 from openerp import models, fields, api,_
-import apiais
+import methods
 
 class backend_branchen(models.Model):
     _name='backend.branchen'
-    _inherit='backend.apiais.accessid'
+    _inherit='backend.methods.accessid'
     
     accessid=fields.Char('ID', compute='_lookup_accessid')
     

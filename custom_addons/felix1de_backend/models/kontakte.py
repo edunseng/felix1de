@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api,_
-import apiais
+import methods
 
 class backend_kontakte(models.Model):
     _name='backend.kontakte'
-    _inherit=['backend.apiais.autoname','backend.apiais.accessid']
+    _inherit=['backend.methods.autoname','backend.methods.accessid']
 
     
 

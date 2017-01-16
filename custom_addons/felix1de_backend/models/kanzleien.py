@@ -2,11 +2,11 @@
 
 from openerp import models, fields, api,_
 from datetime import time, datetime
-import apiais
+import methods
 
 class backend_kanzleien(models.Model): #Companies 
     _name='backend.kanzleien'
-    _inherit='backend.apiais.accessid'
+    _inherit='backend.methods.accessid'
     
     accessid=fields.Char('ID', compute='_lookup_accessid')
     

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 #RES.PARTNER
 from openerp import models, fields, api,_
-import apiais
+import methods
 
 
 class backend_berater(models.Model):
     _name='backend.berater'
-    _inherit='backend.apiais.autoname','backend.apiais.accessid'
+    _inherit='backend.methods.autoname','backend.methods.accessid'
     
     accessid=fields.Char('ID', compute='_lookup_accessid')
     

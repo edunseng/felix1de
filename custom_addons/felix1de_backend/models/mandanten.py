@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api,_
-import apiais
+import methods
 
 class backend_mandanten(models.Model):
     _name='backend.mandanten'
-    _inherit=['mail.thread','backend.apiais.accessid']
+    _inherit=['mail.thread','backend.methods.accessid']
     
     accessid=fields.Char('ID', compute='_lookup_accessid')
     name=fields.Char(String="Mandant", help="Name des Mandanten", required=True)
