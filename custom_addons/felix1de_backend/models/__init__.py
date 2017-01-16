@@ -23,5 +23,5 @@ import branchen
 import mandantenstatus
 import jahresplan
 import backend
-import apiais
+import methods
 import mapping_kontakte_mandanten

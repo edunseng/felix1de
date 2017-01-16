@@ -411,7 +411,7 @@
                     <group>       
                         <field name="name"/>
                     </group>
-                    <field name="abrechnungszeitraum"/>
+                        <field name="abrechnungszeitraum"/>
                 </search>
             </field>
     </record>
