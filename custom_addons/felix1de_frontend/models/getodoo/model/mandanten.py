@@ -12,6 +12,7 @@ class BackendMandanten(models.Model):
     branch_id=fields.One2many('backend.kanzleien','branch')
     partner_id=fields.Many2one('res.partner')
     image=fields.Binary(String="image")
+    
     @api.model
     def _create_res_partner_from_mandant(self, vals):
 	""" Create new Partner"""

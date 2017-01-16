@@ -34,7 +34,13 @@
                      
                      
                      <page string="Mandanten &amp; Addresses" autofocus="autofocus">
-                            <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_supplier': supplier, 'default_customer': customer, 'default_lang': lang,}">
+                            <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id,
+                             'default_street': street, 'default_street2': street2, 
+                             'default_city': city, 'default_state_id': state_id, 
+                             'default_zip': zip, 'default_country_id': country_id, 
+                             'default_supplier': supplier, 'default_customer': customer,
+                              'default_lang': lang,'default_ist_mandant': ist_mandant,
+                              'default_ist_kontakt': ist_kontakt}">
                                 <kanban>
                                     <field name="color"/>
                                     <field name="name"/>
@@ -110,7 +116,8 @@
                                                 </div>
                                             </group>
                                             <group>
-                                                <field name="partner_id" string="Contact Name" attrs="{'required' : [('type', '=', 'contact')]}"/>
+                                                <field name="partner_id" string="Contact Name" 
+                                                />
                                                 <field name="title" placeholder="e.g. Mr."
                                                     attrs="{'invisible': [('type','&lt;&gt;', 'contact')]}"/>
                                                 <field name="function" placeholder="e.g. Sales Director"

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<!--  Import Partner Data -->
+			
+
+		<record id="view_partner_data_import_wiz" model="ir.ui.view">
+			<field name="name">Partner Import</field>
+			<field name="model">res.partner.import</field>
+			<field name="arch" type="xml">
+				<form string="Partner Import">
+					<group>
+						<group>
+							<field name="partner_type" />
+							<field name="data"/>
+						</group>
+					</group>
+			<footer>
+                <button string='Import Partner' name="import_partner_data" type="object" class="btn-primary"/>
+                <button string="Cancel" class="btn-default" special="cancel"/>
+            </footer>
+            </form>
+			</field>
+		</record>
+		
+		<record id="action_partner_data_import" model="ir.actions.act_window">
+            <field name="name">Import Partner Data</field>
+            <field name="res_model">res.partner.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_partner_data_import_wiz"/>
+           <field name="target">new</field>
+        </record>
+	</data>
+</openerp> 

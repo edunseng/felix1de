@@ -53,6 +53,7 @@
 <!--(mandanten) -->          
             <menuitem id="start_sub2_menu" parent="start_root_menu" name="Mandanten"/> 
             <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Mandanten" action="mail.action_mandanten"/>
+  			<menuitem id="import_partner_data_import" parent="start_sub2_menu" name="Import Partner Data" action="action_partner_data_import"/>
 
 <!--(inbox) 
 

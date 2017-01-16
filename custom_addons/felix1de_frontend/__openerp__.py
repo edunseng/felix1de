@@ -60,6 +60,7 @@
          # res.company customasations
         'views/res_company/branch_view.xml',        
         # Email send function in Ticketform
+         'wizard/partner_view.xml',
         'views/customer_mail_send_view.xml',
         # Menu
         'views/menu_view.xml',
