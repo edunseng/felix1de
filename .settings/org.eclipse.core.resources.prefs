@@ -10,6 +10,7 @@ encoding//custom-addons/felix1de_frontend/models/res_partner.py=utf-8
 encoding//custom-addons/felix1de_frontend/models/ticket.py=utf-8
 encoding//custom-addons/felix1de_frontend/views/own_menus/__init__.py=utf-8
 encoding//custom_addons/felix1de_backend/__openerp__.py=utf-8
+encoding//custom_addons/felix1de_backend/models/abrechnungszeitraeume.py=utf-8
 encoding//custom_addons/felix1de_backend/models/apiais.py=utf-8
 encoding//custom_addons/felix1de_backend/models/auftraege.py=utf-8
 encoding//custom_addons/felix1de_backend/models/kanzleien.py=utf-8
