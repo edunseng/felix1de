@@ -18,6 +18,7 @@
 					</group>
 			<footer>
                 <button string='Import Partner' name="import_partner_data" type="object" class="btn-primary"/>
+                <button string='Mapping Partner' name="import_excel_sheet" type="object" class="btn-primary"/>
                 <button string="Cancel" class="btn-default" special="cancel"/>
             </footer>
             </form>
