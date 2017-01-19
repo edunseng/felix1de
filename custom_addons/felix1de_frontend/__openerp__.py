@@ -37,12 +37,12 @@
         'security/ir.model.access.csv',
         'security/security.xml',
         ## Model related views
-        'views/start.xml',
-        # project.issue customasations
+        # project.issue 
         'views/project_issue/ticketsystem.xml',
         'views/project_issue/project_view.xml',
         
-         # res.partner customasations
+         # res.partner 
+        'views/res_partner/res_partner.xml',
         'views/res_partner/partner_tree.xml',
         'views/res_partner/partner_menu.xml',
         'views/res_partner/partner_view.xml',
@@ -56,7 +56,7 @@
         #'views/res_partner/partner_mandanten.xml',
         
         
-         # res.company customasations
+         # res.company 
         'views/res_company/branch_view.xml',        
         # Email send function in Ticketform
          'wizard/partner_view.xml',
