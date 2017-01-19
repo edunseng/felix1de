@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
   <data>
-   <!--Mandanten-->
+  <!--Mandanten-->
    <record model="ir.ui.view" id="mandanten_search_view">
             <field name="name">mandanten.search</field>
             <field name="model">backend.mandanten</field>
@@ -210,7 +210,7 @@
             <field name="model">backend.kontakte</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="nachname"/>
+                    <field name="name"/>
                     <field name="vip"/>
                 </search>
             </field>
@@ -221,7 +221,7 @@
             <field name="arch" type="xml">
                 <tree string="Course Tree">
                     <field name="accessid"/>
-                    <field name="vornamenachname"/>
+                    <field name="name"/>
                     <field name="vip"/>
                 </tree>
             </field>
@@ -411,7 +411,7 @@
                     <group>       
                         <field name="name"/>
                     </group>
-                        <field name="abrechnungszeitraum"/>
+                    <field name="abrechnungszeitraum"/>
                 </search>
             </field>
     </record>
@@ -444,19 +444,6 @@
                 <tree string="Course Tree">
                     <field name="accessid"/>
                     <field name="name"/>
-                </tree>
-            </field>
-    </record>
-<!--mapping kontakte mandaten-->
-    <record model="ir.ui.view" id="mapping_kontakte_mandanten_tree_view">
-            <field name="name">mapping_kontakte_mandanten.tree</field>
-            <field name="model">backend.mapping.kontakte.mandanten</field>
-            <field name="arch" type="xml">
-                <tree string="Mapping Kontakte Mandanten">
-                    <field name="accessid"/>
-                    <field name="kontakt"/>
-                    <field name="mandant"/>
-                    <field name="funktion"/>        
                 </tree>
             </field>
     </record>
@@ -666,17 +653,6 @@
                 </p>
             </field>
         </record>
-        <record model="ir.actions.act_window" id="mapping_kontakte_mandanten_list_action">
-            <field name="name">mapping kontakte mandanten_</field>
-            <field name="res_model">backend.mapping.kontakte.mandanten</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
-                </p>
-            </field>
-        </record>
-
 
   </data>
 </openerp>

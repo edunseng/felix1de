@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <search>
                     <group>
-                        <field name="abrechnungszeitraum"/>
+                        <field name="abr_accperiod"/>
                     </group>
                 </search>
             </field>
@@ -20,7 +20,7 @@
             <field name="arch" type="xml">
                 <tree string="Abrechnungszeitraeume Tree">
                     <field name="abr_accessid"/>
-                    <field name="abr_name"/>
+                    <field name="abr_accperiod"/>
                 </tree>
             </field>
     </record>
@@ -37,13 +37,26 @@
                             <field name="abr_accessid"/>                                                                       
                         </group> 
                         <group>
-                            <field name="abrechnungszeitraum"/>
-                            <field name="abr_faelligkeit"/>
-                            <field name="abr_beschreibung"/> 
+                            <field name="abr_accperiod"/>
+                            <field name="abr_duedate"/>
+                            <field name="abr_description"/> 
                         </group>
                     </sheet>
                 </form>
             </field>
     </record>
+    
+    
+    
+    <record model="ir.actions.act_window" id="felix1de_backend.abrechnungszeitraeume_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.abrechnungszeitraeume</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
 </data>
 </openerp>

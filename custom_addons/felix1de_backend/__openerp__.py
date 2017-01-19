@@ -26,6 +26,8 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/backend.xml',
+        'views/abrechnungsyeitraeume.xml',
        # 'views/templates.xml',
         
     ],

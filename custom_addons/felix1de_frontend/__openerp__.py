@@ -37,8 +37,7 @@
         'security/ir.model.access.csv',
         'security/security.xml',
         ## Model related views
-        'views/own_menus/backend.xml',
-        'views/own_menus/start.xml',
+        'views/start.xml',
         # project.issue customasations
         'views/project_issue/ticketsystem.xml',
         'views/project_issue/project_view.xml',
