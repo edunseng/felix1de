@@ -1,140 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
   <data>
-   <!--Mandanten-->
-   <record model="ir.ui.view" id="mandanten_search_view">
-            <field name="name">mandanten.search</field>
-            <field name="model">backend.mandanten</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="mandantennummer"/>
-                    <field name="name"/>
-                </search>
-            </field>
-    </record>
-    <record model="ir.ui.view" id="mandanten_tree_view">
-            <field name="name">mandanten.tree</field>
-            <field name="model">backend.mandanten</field>
-            <field name="arch" type="xml">
-                <tree string="Course Tree">
-                    <field name="accessid"/>
-                    <field name="mandantennummer"/>
-                    <field name="name"/>
-                </tree>
-            </field>
-    </record>
-<!--auftraege-->
-   <record model="ir.ui.view" id="auftraege_search_view">
-            <field name="name">auftraege.search</field>
-            <field name="model">backend.auftraege</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <field name="paket"/>
-                    <field name="start"/>
-                    <field name="ende"/>
-                </search>
-            </field>
-    </record>
-    <record model="ir.ui.view" id="auftraege_tree_view">
-            <field name="name">auftraege.tree</field>
-            <field name="model">backend.auftraege</field>
-            <field name="arch" type="xml">
-                <tree string="Course Tree">
-                    <field name="accessid"/>
-                    <field name="name"/>
-                    <field name="paket"/>
-                    <field name="start"/>
-                    <field name="ende"/>
-                    <field name="auftragswert"/>
-                    <field name="currency_id"/>
-                </tree>
-            </field>
-    </record>
-    <!--Berater-->
-    <record model="ir.ui.view" id="berater_search_view">
-            <field name="name">berater.search</field>
-            <field name="model">backend.berater</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <field name="beraterid"/>
-                </search>
-            </field>
-    </record>
-    <record model="ir.ui.view" id="berater_tree_view">
-            <field name="name">berater.tree</field>
-            <field name="model">backend.berater</field>
-            <field name="arch" type="xml">
-                <tree string="Course Tree">
-                    <field name="accessid"/>
-                    <field name="name"/>
-                    <field name="beraterid"/>
-                </tree>
-            </field>
-    </record>
-<!--Branchen-->
-    <record model="ir.ui.view" id="branchen_search_view">
-            <field name="name">branchen.search</field>
-            <field name="model">backend.branchen</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                </search>
-            </field>
-    </record>
-    <record model="ir.ui.view" id="branchen_tree_view">
-            <field name="name">branchen.tree</field>
-            <field name="model">backend.branchen</field>
-            <field name="arch" type="xml">
-                <tree string="Course Tree">
-                    <field name="accessid"/>
-                    <field name="name"/>
-                </tree>
-            </field>
-    </record>
-  <!--checklistentypen-->
-    <record model="ir.ui.view" id="checklistentypen_search_view">
-            <field name="name">checklistentypen.search</field>
-            <field name="model">backend.checklistentypen</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                </search>
-            </field>
-    </record>
-    <record model="ir.ui.view" id="checklistentypen_tree_view">
-            <field name="name">checklistentypen.tree</field>
-            <field name="model">backend.checklistentypen</field>
-            <field name="arch" type="xml">
-                <tree string="Course Tree">
-                    <field name="accessid"/>
-                    <field name="name"/>
-                </tree>
-            </field>
-    </record>
-<!--checklistenvorlagen-->
-    <record model="ir.ui.view" id="checklistenvorlagen_search_view">
-            <field name="name">checklistenvorlagen.search</field>
-            <field name="model">backend.checklistenvorlagen</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <field name="typ"/>
-                </search>
-            </field>
-    </record>
-    <record model="ir.ui.view" id="checklistenvorlagen_tree_view">
-            <field name="name">checklistenvorlagen.tree</field>
-            <field name="model">backend.checklistenvorlagen</field>
-            <field name="arch" type="xml">
-                <tree string="Course Tree">
-                    <field name="accessid"/>
-                    <field name="name"/>
-                    <field name="typ"/>
-                </tree>
-            </field>
-    </record>
+
+  
+
 <!--felix1gruppen-->
     <record model="ir.ui.view" id="felix1gruppen_search_view">
             <field name="name">felix1gruppen.search</field>
@@ -201,28 +70,6 @@
                     <field name="namestammkanzlei"/>
                     <field name="ortstammkanzlei"/>
 
-                </tree>
-            </field>
-    </record>
-<!--kontakte-->
-    <record model="ir.ui.view" id="kontakte_search_view">
-            <field name="name">kontakte.search</field>
-            <field name="model">backend.kontakte</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="nachname"/>
-                    <field name="vip"/>
-                </search>
-            </field>
-    </record>
-    <record model="ir.ui.view" id="kontakte_tree_view">
-            <field name="name">kontakte.tree</field>
-            <field name="model">backend.kontakte</field>
-            <field name="arch" type="xml">
-                <tree string="Course Tree">
-                    <field name="accessid"/>
-                    <field name="vornamenachname"/>
-                    <field name="vip"/>
                 </tree>
             </field>
     </record>
@@ -476,16 +323,6 @@
                 </p>
             </field>
         </record>
-        <record model="ir.actions.act_window" id="felix1de_backend.branchen_list_action">
-            <field name="name">Fields</field>
-            <field name="res_model">backend.branchen</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
-                </p>
-            </field>
-        </record>
         <record model="ir.actions.act_window" id="felix1de_backend.kanzleien_list_action">
             <field name="name">Fields</field>
             <field name="res_model">backend.kanzleien</field>
@@ -496,16 +333,7 @@
                 </p>
             </field>
         </record>
-        <record model="ir.actions.act_window" id="felix1de_backend.mandanten_list_action">
-            <field name="name">Fields</field>
-            <field name="res_model">backend.mandanten</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
-                </p>
-            </field>
-        </record>
+        
         <record model="ir.actions.act_window" id="felix1de_backend.mandantenstatus_list_action">
             <field name="name">Fields</field>
             <field name="res_model">backend.mandantenstatus</field>
@@ -526,26 +354,7 @@
                 </p>
             </field>
         </record>
-        <record model="ir.actions.act_window" id="felix1de_backend.kontakte_list_action">
-            <field name="name">Fields</field>
-            <field name="res_model">backend.kontakte</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
-                </p>
-            </field>
-        </record>
-        <record model="ir.actions.act_window" id="felix1de_backend.auftraege_list_action">
-            <field name="name">Fields</field>
-            <field name="res_model">backend.auftraege</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
-                </p>
-            </field>
-        </record>
+        
         <record model="ir.actions.act_window" id="felix1de_backend.pakete_list_action">
             <field name="name">Fields</field>
             <field name="res_model">backend.pakete</field>
@@ -586,26 +395,8 @@
                 </p>
             </field>
         </record>
-        <record model="ir.actions.act_window" id="felix1de_backend.checklistenvorlagen_list_action">
-            <field name="name">Fields</field>
-            <field name="res_model">backend.checklistenvorlagen</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
-                </p>
-            </field>
-        </record>
-        <record model="ir.actions.act_window" id="felix1de_backend.checklistentypen_list_action">
-            <field name="name">Fields</field>
-            <field name="res_model">backend.checklistentypen</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
-                </p>
-            </field>
-        </record>
+        
+        
         <record model="ir.actions.act_window" id="felix1de_backend.paketestatus_list_action">
             <field name="name">Fields</field>
             <field name="res_model">backend.paketestatus</field>

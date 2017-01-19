@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    <!--search-->
+    <record model="ir.ui.view" id="branchen_search_view">
+            <field name="name">branchen.search</field>
+            <field name="model">backend.branchen</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+    <!--tree-->
+    <record model="ir.ui.view" id="branchen_tree_view">
+            <field name="name">branchen.tree</field>
+            <field name="model">backend.branchen</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="accessid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="felix1de_backend.branchen_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.branchen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+    </record>
