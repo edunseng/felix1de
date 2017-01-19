@@ -44,7 +44,6 @@
          # res.partner 
         'views/res_partner/res_partner.xml',
         'views/res_partner/partner_tree.xml',
-        'views/res_partner/partner_menu.xml',
         'views/res_partner/partner_view.xml',
 
         'views/res_partner/notebooks/bank_details_view.xml',
