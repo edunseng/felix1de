@@ -21,5 +21,3 @@ access_backend_abrechnungszeitraeume,access_backend_abrechnungszeitraeume,model_
 access_backend_ops,access_backend_ops,model_backend_ops,,1,1,1,1,
 access_backend_lohnmandanten,access_backend_lohnmandanten,model_backend_lohnmandanten,,1,1,1,1,
 access_backend_lohnpreiseartikel,access_backend_lohnpreiseartikel,model_backend_lohnpreiseartikel,,1,1,1,1,
-access_backend_apiais_accessid,access_backend_apiais_accessid,model_backend_apiais_accessid,,1,1,1,1,
-access_backend_apiais_autoname,access_backend_apiais_autoname,model_backend_apiais_autoname,,1,1,1,1,

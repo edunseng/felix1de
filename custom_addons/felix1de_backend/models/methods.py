@@ -3,16 +3,16 @@
 from openerp import models, fields, api,_
 
        
-class backend_apiais_accessid(models.Model):
-    _name='backend.apiais.accessid'
+class backend_methods_accessid(models.Model):
+    _name='backend.methods.accessid'
     
     @api.multi
     def _lookup_accessid(self):
         for record in self:
             record.accessid = str(record.id)
 
-class backend_apiais_autoname(models.Model):
-    _name='backend.apiais.autoname'
+class backend_methods_autoname(models.Model):
+    _name='backend.methods.autoname'
 
     @api.onchange('vorname','anrede','titel')
     def _auto_vornamename(self):

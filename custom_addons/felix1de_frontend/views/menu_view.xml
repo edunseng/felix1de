@@ -152,47 +152,49 @@
         <menuitem id="backend_menu" name="Tabellen"
                   parent="main_backend_menu"/>
         <menuitem id="branchen" name="Branchen" parent="backend_menu"
-                  action="branchen_list_action" sequence="1"/>
+                  action="felix1de_backend.branchen_list_action" sequence="1"/>
         <menuitem id="berater" name="Berater" parent="backend_menu"
-                  action="berater_list_action" sequence="2"/>
+                  action="felix1de_backend.berater_list_action" sequence="2"/>
         <menuitem id="kanzleien" name="Kanzleien" parent="backend_menu"
-                  action="kanzleien_list_action" sequence="3"/>
+                  action="felix1de_backend.kanzleien_list_action" sequence="3"/>
         <menuitem id="mandantenstatus" name="Mandantenstatus" parent="backend_menu"
-                  action="mandantenstatus_list_action" sequence="4"/>
+                  action="felix1de_backend.mandantenstatus_list_action" sequence="4"/>
         <menuitem id="unternehmensformen" name="Unternehmensformen" parent="backend_menu"
-                  action="unternehmensformen_list_action" sequence="5"/>        
+                  action="felix1de_backend.unternehmensformen_list_action" sequence="5"/>        
         <menuitem id="paket" name="Paket" parent="backend_menu"
-                  action="paket_list_action" sequence="6"/>
+                  action="felix1de_backend.paket_list_action" sequence="6"/>
         <menuitem id="paketkategorie" name="Paketkategorie" parent="backend_menu"
-                  action="paketkategorie_list_action" sequence="7"/>
+                  action="felix1de_backend.paketkategorie_list_action" sequence="7"/>
         <menuitem id="paketestatus" name="Paketestatus" parent="backend_menu"
-                  action="paketestatus_list_action" sequence="8"/>
+                  action="felix1de_backend.paketestatus_list_action" sequence="8"/>
         <menuitem id="felix1gruppen" name="Felix1gruppen" parent="backend_menu"
-                  action="felix1gruppen_list_action" sequence="9"/>  
+                  action="felix1de_backend.felix1gruppen_list_action" sequence="9"/>  
         <menuitem id="checklistentypen" name="Checklistentypen" parent="backend_menu"
-                  action="checklistentypen_list_action" sequence="10"/>
+                  action="felix1de_backend.checklistentypen_list_action" sequence="10"/>
         <menuitem id="checklistenvorlagen" name="checklistenvorlagen" parent="backend_menu"
-                  action="checklistenvorlagen_list_action" sequence="11"/> 
+                  action="felix1de_backend.checklistenvorlagen_list_action" sequence="11"/> 
         <menuitem id="abrechnungszeitraeume" name="Abrechnungszeitraeume" parent="backend_menu"
-                  action="abrechnungszeitraeume_list_action" sequence="12"/>                           
+                  action="felix1de_backend.abrechnungszeitraeume_list_action" sequence="12"/>                           
         <menuitem id="preiseschluessel" name="Preiseschluessel" parent="backend_menu"
-                  action="preiseschluessel_list_action" sequence="13"/>
+                  action="felix1de_backend.preiseschluessel_list_action" sequence="13"/>
         <menuitem id="pakete" name="Pakete" parent="backend_menu"
-                  action="pakete_list_action" sequence="14"/>
+                  action="felix1de_backend.pakete_list_action" sequence="14"/>
          <menuitem id="lohnpreiseartikel" name="Lohnpreiseartikel" parent="backend_menu"
-                  action="lohnpreiseartikel_list_action" sequence="15"/>
+                  action="felix1de_backend.lohnpreiseartikel_list_action" sequence="15"/>
         <menuitem id="lohnmandanten" name="Lohnmandanten" parent="backend_menu"
-                  action="lohnmandanten_list_action" sequence="16"/>
+                  action="felix1de_backend.lohnmandanten_list_action" sequence="16"/>
         <menuitem id="ops" name="Ops" parent="backend_menu"
-                  action="ops_list_action" sequence="17"/>
+                  action="felix1de_backend.ops_list_action" sequence="17"/>
 
         
         <menuitem id="mandanten" name="Mandanten" parent="backend_menu"
-                  action="mandanten_list_action" sequence="18"/>
+                  action="felix1de_backend.mandanten_list_action" sequence="18"/>
         <menuitem id="auftraege" name="Aufträge" parent="backend_menu"
-                  action="auftraege_list_action" sequence="19"/>
+                  action="felix1de_backend.auftraege_list_action" sequence="19"/>
         <menuitem id="kontakte" name="Kontakte" parent="backend_menu"
-                  action="kontakte_list_action" sequence="20"/>
+                  action="felix1de_backend.kontakte_list_action" sequence="20"/>
+        <menuitem id="mapping_kontakte_mandanten" name="Mapping_Kontakte_Mandaten" parent="backend_menu"
+                  action="felix1de_backend.mapping_kontakte_mandanten_list_action" sequence="21"/>
             
                  
 

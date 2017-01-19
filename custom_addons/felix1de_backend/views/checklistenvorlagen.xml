@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+   <!--search-->
+    <record model="ir.ui.view" id="checklistenvorlagen_search_view">
+            <field name="name">checklistenvorlagen.search</field>
+            <field name="model">backend.checklistenvorlagen</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="chevor_bezeichnung"/>
+                    <field name="chevor_typ_id"/>
+                </search>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="checklistenvorlagen_tree_view">
+            <field name="name">checklistenvorlagen.tree</field>
+            <field name="model">backend.checklistenvorlagen</field>
+            <field name="arch" type="xml">
+                <tree string="Checklisten Typen Liste" editable="bottom">
+                    <field name="chevor_accessid"/>
+                    <field name="chevor_bezeichnung"/>
+                    <field name="chevor_typ_id"/>
+                    <field name="chevor_beschreibung"/>
+                </tree>
+            </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="felix1de_backend.checklistenvorlagen_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.checklistenvorlagen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+        </record>
+</data>
+</openerp>

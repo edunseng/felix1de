@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+   <!--search-->
+    <record model="ir.ui.view" id="kontakte_search_view">
+            <field name="name">kontakte.search</field>
+            <field name="model">backend.kontakte</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="kon_nachname"/>
+                    <field name="kon_accessid"/>
+                </search>
+            </field>
+    </record>
+   <!--tree-->
+    <record model="ir.ui.view" id="kontakte_tree_view">
+            <field name="name">kontakte.tree</field>
+            <field name="model">backend.kontakte</field>
+            <field name="arch" type="xml">
+                <tree string="Kontakte" editable="bottom">
+                    <field name="kon_accessid"/>
+    <field name="kon_vorname"/>
+    <field name="kon_nachname"/>
+    <field name="kon_anrede"/>
+    <field name="kon_titel"/>
+    <field name="kon_nachnamevorname"/>
+    <field name="kon_vornamenachname"/>
+    <field name="kon_telefon1"/>
+    <field name="kon_telefon2"/>
+    <field name="kon_telefon3"/>
+    <field name="kon_email1"/>
+    <field name="kon_email2"/>
+    <field name="kon_email3"/>
+    <field name="kon_fax"/>
+    <field name="kon_bemerkung"/>
+    <field name="kon_vip"/>
+    <field name="kon_strasse"/>
+    <field name="kon_hausnummer"/>
+    <field name="kon_plz"/>
+    <field name="kon_ort"/>
+    <field name="kon_bundesland"/>
+    <field name="kon_land"/>
+    <field name="kon_addresse"/>
+    <field name="kon_datenok"/>
+                </tree>
+            </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="felix1de_backend.kontakte_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.kontakte</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
+            </field>
+    </record>
+</data>
+</openerp>

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api,_
-import apiais
+import methods
 
 #Access Backend 
 class felix1_backend(models.Model):
     _name='felix1de.backend'
-    _inherit='backend.apiais.accessid'
+    _inherit='backend.methods.accessid'
     
     accessid=fields.Char('ID', compute='_lookup_accessid')
     

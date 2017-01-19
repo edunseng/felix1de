@@ -8,7 +8,8 @@
             <field name="arch" type="xml">
                 <search>
                     <group>
-                        <field name="abrechnungszeitraum"/>
+                        <field name="abr_accperiod"/>
+                        <field name="abr_duedate"/>
                     </group>
                 </search>
             </field>
@@ -18,32 +19,26 @@
             <field name="name">abrechnungszeitraeume.tree</field>
             <field name="model">backend.abrechnungszeitraeume</field>
             <field name="arch" type="xml">
-                <tree string="Abrechnungszeitraeume Tree">
+                <tree string="Abrechnungszeitraeume Tree" editable="bottom">
                     <field name="abr_accessid"/>
-                    <field name="abr_name"/>
+                    <field name="abr_accperiod"/>
+                    <field name="abr_duedate"/>
+                    <field name="abr_description"/>
                 </tree>
             </field>
     </record>
-<!-- form view -->
-    <record model="ir.ui.view" id="abrechnungszeitraeume_form_view">
-            <field name="name">abrechnungszeitraeume.form</field>
-            <field name="model">backend.abrechnungszeitraeume</field>
-            <field name="arch" type="xml">
 
-                <form string="Abrechnungszeitraeume Form">
-
-                    <sheet>
-                        <group>                            
-                            <field name="abr_accessid"/>                                                                       
-                        </group> 
-                        <group>
-                            <field name="abrechnungszeitraum"/>
-                            <field name="abr_faelligkeit"/>
-                            <field name="abr_beschreibung"/> 
-                        </group>
-                    </sheet>
-                </form>
+    
+    <record model="ir.actions.act_window" id="felix1de_backend.abrechnungszeitraeume_list_action">
+            <field name="name">Fields</field>
+            <field name="res_model">backend.abrechnungszeitraeume</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="abrechnungszeitraeume_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
+                </p>
             </field>
-    </record>
+        </record>
 </data>
 </openerp>

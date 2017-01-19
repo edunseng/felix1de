@@ -21,11 +21,23 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail'],
+    'depends': [
+        'base','mail'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/backend.xml',
+        'views/abrechnungszeitraeume.xml',
+        'views/auftraege.xml',
+        'views/berater.xml',
+        'views/branchen.xml',
+        'views/mandanten.xml',
+        'views/kontakte.xml',
+        'views/checklistentypen.xml',
+        'views/checklistenvorlagen.xml'
+
+
        # 'views/templates.xml',
         
     ],
@@ -35,5 +47,5 @@
     ],
     'application': True,
     'installable': True,
-    'auto_install': False
+    'auto_install': True
 }

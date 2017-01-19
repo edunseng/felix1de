@@ -134,9 +134,9 @@
     name="Alle Mandanden" 
     res_model="res.partner" 
     view_mode="tree,form"
-    view_id="mail.action_mandanten"
-    domain="[('ist_mandant','=','True')]"
-/> 
+    view_id="mail.action_mandanten"/>
+   <!--domain="[('ist_mandant','=','True')]"
+/--> 
 
     
     
