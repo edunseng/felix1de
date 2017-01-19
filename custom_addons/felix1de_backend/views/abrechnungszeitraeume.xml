@@ -9,6 +9,8 @@
                 <search>
                     <group>
                         <field name="abr_accperiod"/>
+                        <field name="abr_duedate"/>
+
                     </group>
                 </search>
             </field>
@@ -21,6 +23,7 @@
                 <tree string="Abrechnungszeitraeume Tree">
                     <field name="abr_accessid"/>
                     <field name="abr_accperiod"/>
+                    <field name="abr_duedate"/>
                 </tree>
             </field>
     </record>
@@ -33,10 +36,8 @@
                 <form string="Abrechnungszeitraeume Form">
 
                     <sheet>
-                        <group>                            
+                        <group colspan="1">                            
                             <field name="abr_accessid"/>                                                                       
-                        </group> 
-                        <group>
                             <field name="abr_accperiod"/>
                             <field name="abr_duedate"/>
                             <field name="abr_description"/> 
@@ -46,13 +47,12 @@
             </field>
     </record>
     
-    
-    
     <record model="ir.actions.act_window" id="felix1de_backend.abrechnungszeitraeume_list_action">
             <field name="name">Fields</field>
             <field name="res_model">backend.abrechnungszeitraeume</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="abrechnungszeitraeume_tree_view"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Zum Anzeigen der Feldinhalte
                 </p>

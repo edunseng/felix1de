@@ -27,7 +27,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/backend.xml',
-        'views/abrechnungsyeitraeume.xml',
+        'views/abrechnungszeitraeume.xml',
        # 'views/templates.xml',
         
     ],
