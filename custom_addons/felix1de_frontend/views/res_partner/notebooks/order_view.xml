@@ -18,7 +18,7 @@
 		</record>
 
 <!-- Viederlassung -->
-		<record id="order_form_view" model="ir.ui.view">
+		<record id="felix1de_frontend.order_form_view" model="ir.ui.view">
 		    <field name="name">Orders</field>
 		    <field name="model">client.order</field>
 		    <field name="arch" type="xml">
@@ -97,7 +97,6 @@
 		    <field name="res_model">client.order</field>
 		    <field name="view_type">form</field>
 		    <field name="view_mode">tree,form</field>
-		   
 		</record> 
 	</data>
 </openerp>

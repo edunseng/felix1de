@@ -38,13 +38,13 @@
                 <record id="project.open_view_task_project_tree" model="ir.actions.act_window.view">
             <field name="sequence" eval="1"/>
             <field name="view_mode">tree</field>
-            <field name="view_id" ref="felix1de_frontend.action_order_system"/>            
+            <!--field name="view_id" ref="felix1de_frontend.action_order_system"/-->            
             <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
         </record>
         <record id="project.open_view_task_project_form" model="ir.actions.act_window.view">
             <field name="sequence" eval="1"/>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="felix1de_frontend.order_form_view"/>
+            <!--field name="view_id" ref="felix1de_frontend.order_form_view"/-->
             <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
         </record>
         
@@ -66,13 +66,13 @@
         <record id="project.open_view_task_list_tree" model="ir.actions.act_window.view">
             <field name="sequence" eval="1"/>
             <field name="view_mode">tree</field>
-            <field name="view_id" ref="felix1de_frontend.action_order_system"/>            
+            <!--field name="view_id" ref="felix1de_frontend.action_order_system"/-->            
             <field name="act_window_id" ref="project.action_view_task"/>
         </record>
         <record id="project.open_view_task_list_form" model="ir.actions.act_window.view">
             <field name="sequence" eval="1"/>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="felix1de_frontend.order_form_view"/>
+            <!--field name="view_id" ref="felix1de_frontend.order_form_view"/-->
             <field name="act_window_id" ref="project.action_view_task"/>
         </record>
         

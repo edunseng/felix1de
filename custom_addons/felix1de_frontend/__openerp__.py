@@ -38,6 +38,8 @@
         'security/security.xml',
         ## Model related views
         # project.issue 
+        'views/res_partner/notebooks/order_view.xml',
+        
         'views/project_issue/ticketsystem.xml',
         'views/project_issue/project_view.xml',
         
@@ -49,7 +51,6 @@
 
         'views/res_partner/notebooks/bank_details_view.xml',
         #'views/res_partner/mandanten_dlg.xml',
-        'views/res_partner/notebooks/order_view.xml',
         'views/res_partner/notebooks/number_view.xml',
         #'views/res_partner/notebooks/product_view.xml',
         #'views/res_partner/partner_kontakte.xml',
