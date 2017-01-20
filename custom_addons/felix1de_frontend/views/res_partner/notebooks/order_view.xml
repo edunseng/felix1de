@@ -81,11 +81,10 @@
 		                                                      </group>
 		        					     </page>
 		                                                     <page string="Preise">
-		                                                     
-		        					         
-		        					     </page>
-		                                                     <page string="Auftragsänderungen">
-		        					       </page>
+		                                                      <field name="price_id"/>
+		        					                         </page>
+		                                                     <!--page string="Auftragsänderungen">
+		        					                         </page-->
 		        					   </notebook>
 		        		           </sheet>
 		        		        </form>

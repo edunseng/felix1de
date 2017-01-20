@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from openerp import fields,models,api
+from pygments.lexer import _inherit
 class client_order(models.Model):
     _name='client.order'
+    _inherit='project.task'
     
     name=fields.Many2one('res.partner','Mandant')
     clientorder_id=fields.Many2one('backend.mandanten','Mandant')
