@@ -2,13 +2,14 @@
 from openerp import fields,models,api
 class client_order(models.Model):
     _name='client.order'
+    
     name=fields.Many2one('res.partner','Mandant')
     clientorder_id=fields.Many2one('backend.mandanten','Mandant')
     client_number=fields.Char('Mandantennummer', related='name.client_number')
     date=fields.Date('gebucht am')
     start_date=fields.Date('Start')
     end_date=fields.Date('Ende')
-    remarks=fields.Text('Bemerkung')
+    remark=fields.Text('Bemerkung')
     state=fields.Selection([('draft','Erstellung'),('new', 'Neu'),('edit','Bearbeitung'),('close', 'Geschlossen'),('cancel', 'Abgebrochen')], string='Status',  default='draft')
     paket_id=fields.Many2one('order.paket')
     paket_amount=fields.Float('Auftragswert', related='paket_id.amount')

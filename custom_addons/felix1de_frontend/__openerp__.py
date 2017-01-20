@@ -42,9 +42,10 @@
         'views/project_issue/project_view.xml',
         
          # res.partner 
+        'views/res_partner/res_partner_multitree.xml',
+        'views/res_partner/res_partner_form.xml',
         'views/res_partner/res_partner.xml',
-        'views/res_partner/partner_tree.xml',
-        'views/res_partner/partner_view.xml',
+
 
         'views/res_partner/notebooks/bank_details_view.xml',
         #'views/res_partner/mandanten_dlg.xml',

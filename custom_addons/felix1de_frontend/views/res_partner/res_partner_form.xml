@@ -22,17 +22,79 @@
                </record-->
 
 
-        <record id="respartner_mandanten_inherit_form_view" model="ir.ui.view">
+        <record id="felix1de_frontend.view_partner_form" model="ir.ui.view">
             <field name="name">Ticketsystem</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
  
-                <xpath expr="//page[1]" position="replace">
+                
+                 <xpath expr="//page[2]" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[3]" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                     
+                     
+                <xpath expr="//h1" position="replace">
+                    <h1>
+                        <field name="name" default_focus="1" placeholder="Vorname" attrs="{'required' : [('type', '=', 'contact')]}"/>
+                        <field name="lastname" placeholder="Nachname" />
+                    </h1>
+                </xpath>
+                
+                <field name ="parent_id" position="after">
+                            <group colspan="2">
+                                <group>
+                                   <field name="ist_mandant" attrs="{'readonly': ['|', ('ist_kontakt', '=', True)]}"/> 
+                                   <field name="ist_kontakt" attrs="{'readonly': ['|', ('ist_mandant', '=', True)]}"/>
+                                   <field name="client_number_spcl" attrs="{'invisible': ['|', ('ist_mandant', '=', True)]}"/>
+                                   <field name="client_number" attrs="{'invisible': ['|', ('ist_kontakt', '=', True)]}"/>
+                                </group>
+                            </group>
+                </field>
+                
+                <xpath expr="//field[@name='website']" position="after">
+                
+
+                            <!--field name="mandantennummer"/-->
+                            <field name="client_value" invisible="1"/>
+                            <field name="lagel_structure"/>
+                            <field name="parent_id" string="Contact"/>
+                            <field name="type" attrs="{'invisible': [('parent_id','=', False)]}" invisible="1" groups="base.group_no_one"/>                            
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="acquired_by"/>
+                            <field name="client_since"/>
+                            <field name="client_remark"/>               
+                            <field name="con_acquired_by"/>
+                            <field name="contact_since"/>
+                            <field name="comment"/>
+
+                </xpath>
+                <xpath expr="//field[@name='website']" position="replace"></xpath>
+                 <xpath expr="//div[@class='o_address_format']" position="attributes">
+                   <attribute name="invisible">True</attribute>
+                </xpath>
+                <!--xpath expr="//field[@name='parent_id']" position="replace">
+                   <filed name="niederlassung_id"/>
+                </xpath-->
+                <xpath expr="//label[@for='street']" position="attributes">
+                   <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='function']" position="attributes">
+                   <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='lang']" position="attributes">
+                   <attribute name="invisible">True</attribute>
+                </xpath>
+                
+                     
+                  <xpath expr="//page[1]" position="replace">
                      <!--attribute name="string">Mandanten &amp; Addressen</attribute>
                      <attribute name="domain">[('ist_kontakt','=',True)]</attribute-->
-                     
-                     
+                        
                      <page string="Mandanten &amp; Addresses" autofocus="autofocus">
                             <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id,
                              'default_street': street, 'default_street2': street2, 
@@ -136,67 +198,15 @@
                             </field>
                         </page>
                 </xpath>                               
-                <xpath expr="//page[2]" position="attributes">
-                     <attribute name="invisible">1</attribute>
-                </xpath>
-                <xpath expr="//page[3]" position="attributes">
-                     <attribute name="invisible">1</attribute>
-                </xpath>
+               
                 
                 
-                <xpath expr="//div[@class='o_address_format']" position="attributes">
-                   <attribute name="invisible">True</attribute>
-                </xpath>
-                <!--xpath expr="//field[@name='parent_id']" position="replace">
-                   <filed name="niederlassung_id"/>
-                </xpath-->
-                <xpath expr="//label[@for='street']" position="attributes">
-                   <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//field[@name='function']" position="attributes">
-                   <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//field[@name='lang']" position="attributes">
-                   <attribute name="invisible">True</attribute>
-                </xpath>
+               
 
-                <field name ="parent_id" position="after">
-                            <group colspan="2">
-                                <group>
-                                   <field name="ist_mandant" attrs="{'readonly': ['|', ('ist_kontakt', '=', True)]}"/> 
-                                   <field name="ist_kontakt" attrs="{'readonly': ['|', ('ist_mandant', '=', True)]}"/>
-                                   <field name="client_number_spcl" attrs="{'invisible': ['|', ('ist_mandant', '=', True)]}"/>
-                                   <field name="client_number" attrs="{'invisible': ['|', ('ist_kontakt', '=', True)]}"/>
-                                </group>
-                            </group>
-                </field>
                 
                 
-                <xpath expr="//h1" position="replace">
-                    <h1>
-                        <field name="name" default_focus="1" placeholder="Vorname" attrs="{'required' : [('type', '=', 'contact')]}"/>
-                        <field name="lastname" placeholder="Nachname" />
-                    </h1>
-                </xpath>
-                <xpath expr="//field[@name='website']" position="after">
                 
-
-                            <!--field name="mandantennummer"/-->
-                            <field name="client_value" invisible="1"/>
-                            <field name="lagel_structure"/>
-                            <field name="parent_id" string="Contact"/>
-                            <field name="type" attrs="{'invisible': [('parent_id','=', False)]}" invisible="1" groups="base.group_no_one"/>                            
-                            <field name="phone" widget="phone"/>
-                            <field name="email" widget="email"/>
-                            <field name="acquired_by"/>
-                            <field name="client_since"/>
-                            <field name="client_remark"/>               
-                            <field name="con_acquired_by"/>
-                            <field name="contact_since"/>
-                            <field name="comment"/>
-
-                </xpath>
-                <xpath expr="//field[@name='website']" position="replace"></xpath>
+                
 
                 <notebook position="inside">
                     <!--page string="Addresse" autofocus="1">
@@ -231,13 +241,13 @@
                                    </group>
                                  </group>
                              </page-->
-                  <page string="Tickets">
+                  <!--page string="Tickets">
                      <group>
                        <div >
-                          <field name="ticketing_rel" nolable="1"/>
+                          <field name="ticketing_rel" nolable="1" context="{'search_default_partner_id': active_id, 'default_partner_id': active_id}"/>
                        </div>
                      </group>
-                  </page>
+                  </page-->
                 <page string="Bankdetails">
                     <field name="bank_rel"/>
                 </page>

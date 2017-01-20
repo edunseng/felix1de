@@ -5,27 +5,25 @@
     <delete model="ir.actions.act_window" search="[('id', '=', ref('mail.action_contacts_view_form'))]" /> 
     <delete model="ir.actions.act_window" search="[('id', '=', ref('mail.action_contacts_view_tree'))]" />   
     <delete model="ir.actions.act_window" search="[('id', '=', ref('mail.action_contacts_view_kanban'))]" /> 
-
-
-
-<!-- felix1.ticket TREE VIEW-->
-        <record id="felix1_ticket_tree_view" model="ir.ui.view">
-            <field name="name">Ticketsystem</field>
-            <field name="model">felix1.ticket</field>
+    
+    <!--Buttons -->  
+    <record model="ir.ui.view" id="project_issue.res_partner_issues_button_view">
+            <field name="name">res.partner.issues.button.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="priority" eval="50"/>
+            <field name="groups_id" eval="[(4, ref('project.group_project_user'))]"/>
             <field name="arch" type="xml">
-                <tree colors="red:state == 'new';blue:state == 'progress';green:state == 'done';grey:state == 'cancel'" >   
-                  <!--field name="tikSenderID"/>
-                  <field name="tikSenderName"/>
-                  <field name="tikSenderDirectDial"/-->
-                   <!--field name="calFirstnameLastname"/-->
-                   <!--field name="cal_last_name"-->
-                   <field name="name"/>
-                   <field name="claticketname" required="1"/>
-                  
-                </tree>
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="action" name="project_issue.action_view_issues"
+                        context="{'search_default_partner_id': active_id, 'default_partner_id': active_id}"
+                        icon="fa-bug">
+                        <field  string="Issues" name="issue_count" widget="statinfo"/>
+                    </button>
+                </div>
             </field>
         </record>
-
+        
 
 <!--inherit TREE VIEW-->
 
@@ -48,6 +46,8 @@
                         <field name="ist_kontakt"/>
                         <field name="ist_mandant"/>
                         <field name="client_number"/>
+                        <field name="customer"/>
+
                         <field name="child_ids" groups="base.group_user"/>
                         <field name="ticketing_rel" string="Tickets" groups="base.group_user"/> 
                         <!--field name="stage_id" widget="selection" readonly="1"/-->
@@ -59,42 +59,10 @@
             </field>
         </record>
         
-        
 
-<!-- inherit FORM VIEW-->
-        <record id="respartner_mandanten_inherit_form_view" model="ir.ui.view">
-            <field name="name">Ticketsystem</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
-            <field name="arch" type="xml">
- 
-            <xpath expr="//field[@name='phone']" position="replace">
-                <!--field name="partner_id"/-->
-            </xpath>
-
-            </field>
-
-        </record>
-        
-        
-        
-        
-        
-        
-        
-        
         
 <!-- res partner ACTION-->  
 
-<!-- Action fur alle Mandanten-->
-    <act_window 
-    id="action_alle_mandanten" 
-    name="Alle Mandanden" 
-    res_model="res.partner" 
-    view_mode="tree,form"
-    view_id="mail.action_mandanten"/>
-   <!--domain="[('ist_mandant','=','True')]"
-/--> 
 
 
 <!-- Mandanten-->
@@ -107,7 +75,7 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="base.view_res_partner_filter"/>
-        <field name="domain">[('ist_mandant','=',True)]</field>
+        <!--field name="domain">[('ist_mandant','=',True)]</field-->
         <field name="help" type="html">
           <p class="oe_view_nocontent_create">
            Klicken Sie hier, um einen Mandanten zu erstellen.
@@ -146,7 +114,7 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="base.view_res_partner_filter"/>
-        <field name="domain">[('ist_kontakt','=',True)]</field>
+        <!--field name="domain">[('ist_kontakt','=',True)]</field-->
         <field name="help" type="html">
           <p class="oe_view_nocontent_create">
             Click to add a contact in your address book.
@@ -176,12 +144,40 @@
         <field name="act_window_id" ref="mail.action_contacts"/>
     </record>
 
-
+<!-- Action fur alle Mandanten-->
+    <act_window 
+    id="action_alle_mandanten" 
+    name="Alle Mandanden" 
+    res_model="res.partner" 
+    view_mode="tree,form"
+    view_id="mail.action_mandanten"/>
+   <!--domain="[('ist_mandant','=','True')]"
+/--> 
 
 
 
 
         
+
+
+<!-- felix1.ticket TREE VIEW-->
+        <record id="felix1_ticket_tree_view" model="ir.ui.view">
+            <field name="name">Ticketsystem</field>
+            <field name="model">felix1.ticket</field>
+            <field name="arch" type="xml">
+                <tree colors="red:state == 'new';blue:state == 'progress';green:state == 'done';grey:state == 'cancel'" >   
+                  <!--field name="tikSenderID"/>
+                  <field name="tikSenderName"/>
+                  <field name="tikSenderDirectDial"/-->
+                   <!--field name="calFirstnameLastname"/-->
+                   <!--field name="cal_last_name"-->
+                   <field name="name"/>
+                   <field name="claticketname" required="1"/>
+                  
+                </tree>
+            </field>
+        </record>
+
 <!--felix1.ticket TREE ACTION-->
         <record id="action_felix1_ticket_tree_view_eigene_tickets" model="ir.actions.act_window">
                 <field name="name">Tickets List</field>
@@ -201,6 +197,8 @@
                 <field name="view_type">form</field>
                 <field name="view_mode">tree,form</field>          
         </record>
+
+
 
 </data>
 </openerp> 

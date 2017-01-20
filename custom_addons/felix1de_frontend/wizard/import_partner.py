@@ -45,7 +45,9 @@ class res_partner_import(models.Model):
     
      
     def import_partner_data(self, cr, uid, ids, context=None):
-        partner_pool = self.pool.get('res.partner')
+        partner_pool = self.pool.get('res.partner') 
+        #FOR MAPPING Kontakte Mandanten from res.partner
+        
         file_name = self.browse(cr, uid, ids)[0]
         if not file_name.data:
             raise osv.except_osv(_('File Not Chosen!'), _('Please Choose The File!'))
@@ -54,23 +56,23 @@ class res_partner_import(models.Model):
         if not str_data:
             raise osv.except_osv('Warning', 'No File Data')
         try:
-            partner_data = csv.DictReader(cStringIO.StringIO(str_data), delimiter=',', quotechar='"')
-            # saleorder_data = list(csv.reader(cStringIO.StringIO(str_data)))
+            partner_data = list(csv.DictReader(cStringIO.StringIO(str_data), delimiter=',', quotechar='"'))          # saleorder_data = list(csv.reader(cStringIO.StringIO(str_data)))
+            
         except:
             raise osv.except_osv('Warning', 'Make sure you saved the file as .csv extension and import!')
         from pprint import pprint as pp
         print"==================", pp(partner_data)
         for line in partner_data:
             dic={}
-            print"line=======>",line
-            from pprint import pprint as pp
-            print pp(line)
+            print file_name.partner_type
+            
             if file_name.partner_type == 'mandantain' :
                 dic.update({
                     'ist_mandant':True,
                     'ist_kontakt':False,
-                    'street':line.get('Adresse',''),
+                    'street':line.get('Adresse',''),#CSV HEADER (1. Spalte)
                     'name':line.get('Mandant',''),
+                    #res.partner field name    csv-file Header/backend.mandanten
                     'BIC':line.get('BIC',''),
                     'email':line.get('eMailPISA','')
                     })
@@ -86,10 +88,11 @@ class res_partner_import(models.Model):
                     'company_type':'person'
                     })
             
-            if file_name.partner_type in ('kontakte','mandantain'):
+            if file_name.partner_type in ('kontakte','mandantain'):#wenn auswahl = kotakt or mandant
+                print dic
                 partner_id = self.pool.get('res.partner').create(cr,uid,dic,context=None)
                 print "partner_id===============>",partner_id
-                self.pool.get('bank.detail').create(cr,uid,{
+                self.pool.get('bank.detail').create(cr,uid,{#bank.detail <- (csv header/backend.mandanten)
                                                     'iban':line.get('IBAN',''),
                                                     'name':line.get('Bank',''),
                                                     'bic':line.get('BIC',''),
@@ -98,11 +101,13 @@ class res_partner_import(models.Model):
                     })
             if file_name.partner_type == 'mapping_data' :
                 kontakt_id = partner_pool.search(cr,uid,[('name','=',str(line.get('Nachname','')))],limit=1)
+                    #res.partner because of partner_pool                #CSV file because of line (loop)
                 mandant_id = partner_pool.search(cr,uid,[('name','=',str(line.get('Vorname','')))],limit=1)
                 print"kontakt_id===>",kontakt_id
                 print"mandant_id======>",mandant_id
                 if kontakt_id and mandant_id :
                     partner_pool.write(cr,uid,mandant_id,{
+                        
                         'child_ids':[(6,0,kontakt_id)]
                         })
             return True
