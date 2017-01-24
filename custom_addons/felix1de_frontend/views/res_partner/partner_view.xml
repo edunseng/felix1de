@@ -14,7 +14,6 @@
                     <field name="display_name" position="after">
                         <field name="client_number" string="Mandantennummer" attrs="{'invisible' : [('ist_kontakt', '=', 'True')]}"/>
                         <field name="client_number" string="Kontaktnummer" attrs="{'invisible' : [('ist_mandant', '=', 'True')]}"/>
-
                         <field name="email" string="Email"/>
                         <field name="contact_id" string="Kontakt"/>
                     </field>
@@ -34,7 +33,13 @@
                      
                      
                      <page string="Mandanten &amp; Addresses" autofocus="autofocus">
-                            <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_supplier': supplier, 'default_customer': customer, 'default_lang': lang,}">
+                            <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id,
+                             'default_street': street, 'default_street2': street2, 
+                             'default_city': city, 'default_state_id': state_id, 
+                             'default_zip': zip, 'default_country_id': country_id, 
+                             'default_supplier': supplier, 'default_customer': customer,
+                              'default_lang': lang,'default_ist_mandant': ist_mandant,
+                              'default_ist_kontakt': ist_kontakt}">
                                 <kanban>
                                     <field name="color"/>
                                     <field name="name"/>
@@ -110,7 +115,8 @@
                                                 </div>
                                             </group>
                                             <group>
-                                                <field name="partner_id" string="Contact Name" attrs="{'required' : [('type', '=', 'contact')]}"/>
+                                                <field name="partner_id" string="Contact Name" 
+                                                />
                                                 <field name="title" placeholder="e.g. Mr."
                                                     attrs="{'invisible': [('type','&lt;&gt;', 'contact')]}"/>
                                                 <field name="function" placeholder="e.g. Sales Director"
@@ -169,6 +175,8 @@
                     <h1>
                         <field name="name" default_focus="1" placeholder="Vorname" attrs="{'required' : [('type', '=', 'contact')]}"/>
                         <field name="lastname" placeholder="Nachname" />
+                         <field name="complete_name"/> 
+                        <field name="mandantennummer"/> 
                     </h1>
                 </xpath>
                 <xpath expr="//field[@name='website']" position="after">
@@ -236,6 +244,32 @@
                 </page>
                 <page string="Numbers">
                     <field name="number_id"/>
+                </page>
+                <page string="Other Details">
+                <group>
+                <group>
+                    <field name="bemerkung"/>
+                    <field name="branche"/>
+                    <field name="bundesland"/>
+                    <field name="datenok"/>
+                    <field name="empfaenger1"/>
+                    <field name="empfaenger2"/>
+	                <field name="hausnummer"/>
+                    <field name="record_id"/>
+                    <field name="kanzlei"/>
+                    <field name="land"/>
+                    <field name="ort"/>
+                    <field name="plz"/>
+                    <field name="status"/>
+                    <field name="steuerberater"/>
+                    <field name="strasse"/>
+                    <field name="telefon1"/>
+                    <field name="telefon2"/>
+                    <field name="unternehmensform"/>
+                    <field name="eMail1"/>
+                    <field name="eMail2"/>
+                    </group>
+                    </group>
                 </page>
                     
                     
