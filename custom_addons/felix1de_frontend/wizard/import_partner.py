@@ -99,9 +99,9 @@ class res_partner_import(models.Model):
                 dic.update({
                     'ist_mandant':False,
                     'ist_kontakt':True,
-                    'name':line.get('Vorname',''),
+                    'name':line.get('NachnameVorname',''),
                     'lastname':line.get('Nachname',''),
-                    'complete_name':line.get('NachnameVorname',''),
+                    'complete_name':line.get('Vorname',''),
                     'street':line.get('Adresse',''),
                     'name':line.get('Mandant',''),
                     'email':line.get('eMailPISA',''),

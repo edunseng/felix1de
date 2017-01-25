@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_import_partner" model="ir.ui.view">
+            <field name="name">import.partner.form</field>
+            <field name="model">res.partner.import</field>
+            <field name="arch" type="xml">
+                <form string="Import Partner">
+                    <group>
+                         <group>
+                             <field name="partner_type" required="1"/>
+                             <field name="data"/>
+                         </group>
+                    </group>
+                    <footer>
+                        <button string='Import Data' name="import_partner_data" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_import_partner" model="ir.actions.act_window">
+            <field name="name">Import Partner</field>
+            <field name="res_model">res.partner.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_import_partner"/>
+           <field name="target">new</field>
+        </record>
+
+
+    </data>
+</openerp>

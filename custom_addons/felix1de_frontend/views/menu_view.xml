@@ -145,13 +145,13 @@
 <!-- ACCESS BACKEND (own_menus / backend) -->
 
         <!-- top level menu: no parent -->
-        <!--menuitem id="main_backend_menu" name="Access Backend" groups="group_backend_menu" sequence="6"/-->
+        <menuitem id="main_backend_menu" name="Access Backend" groups="group_backend_menu" sequence="6"/>
         <!-- A first level in the left side menu is needed
              before using action= attribute -->
-        <!--menuitem id="backend_menu" name="Tabellen"
+         <menuitem id="backend_menu" name="Tabellen"
                   parent="main_backend_menu"/>
         <menuitem id="branchen" name="Branchen" parent="backend_menu"
-                  action="branchen_list_action" sequence="1"/>
+                  action="branchen_list_action" sequence="1"/> 
         <!--<menuitem id="berater" name="Berater" parent="backend_menu"
                   action="berater_list_action" sequence="2"/> -->
         <menuitem id="kanzleien" name="Kanzleien" parent="backend_menu"
@@ -188,9 +188,14 @@
         
         <menuitem id="mandanten" name="Mandanten" parent="backend_menu"
                   action="mandanten_list_action" sequence="18"/>
+         
+        <menuitem id="import_partner_data" name="Import Partner" parent="start_sub2_menu"
+                  action="action_import_partner" sequence="19"/>
+         
+         
         <menuitem id="auftraege" name="Aufträge" parent="backend_menu"
                   action="auftraege_list_action" sequence="19"/>
-        <menuitem id="kontakte" name="Kontakte" parent="backend_menu"
+        <!-- <menuitem id="kontakte" name="Kontakte" parent="backend_menu"
                   action="kontakte_list_action" sequence="20"/-->
             
                  
