@@ -23,7 +23,7 @@
                     </field>
                     <field name="display_name" position="after">
                         <field name="id"/>
-                        <field name="name"/>
+                        <field name="complete_name"/>
                         <field name="branch_rel"/>
                         <field name="ist_kontakt"/>
                         <field name="ist_mandant"/>
