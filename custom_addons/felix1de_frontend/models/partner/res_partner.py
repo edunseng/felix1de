@@ -2,6 +2,7 @@
 from openerp import fields,models,api,_
 class res_partner(models.Model):
     _inherit='res.partner'
+    _rec_name='complete_name'
     
     lastname=fields.Char()
     complete_name = fields.Char('Complete Name')

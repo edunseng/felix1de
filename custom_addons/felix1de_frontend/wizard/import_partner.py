@@ -142,11 +142,12 @@ class res_partner_import(models.Model):
                     })
                     self.pool.get('bank.detail').create(cr,uid,bank_dic)
             if file_name.partner_type == 'mapping_data' :
-                kontakt_id = partner_pool.search(cr,uid,[('name','=',str(line.get('Nachname','')))],limit=1)
-                mandant_id = partner_pool.search(cr,uid,[('name','=',str(line.get('Vorname','')))],limit=1)
+                kontakt_id = partner_pool.search(cr,uid,[('record_id','=',str(line.get('Kontakt','')))],limit=1)
+                mandant_id = partner_pool.search(cr,uid,[('record_id','=',str(line.get('Mandant','')))],limit=1)
                 print"kontakt_id===>",kontakt_id
                 print"mandant_id======>",mandant_id
                 if kontakt_id and mandant_id :
+                    print"inside the mandant and kontakt"
                     partner_pool.write(cr,uid,mandant_id,{
                         'child_ids':[(6,0,kontakt_id)]
                         })
