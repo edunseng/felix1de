@@ -34,6 +34,7 @@
     # always loaded
     'data': [
         # secutŕity
+        'wizard/import_partner_view.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
         ## Model related views

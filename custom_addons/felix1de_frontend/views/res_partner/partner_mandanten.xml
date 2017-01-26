@@ -6,7 +6,7 @@
                 <field name="model">res.partner</field>
                 <field name="arch" type="xml">
                     <tree string="Mandanten">
-                        <field name="name"/>
+                        <field name="complete_name"/>
                         <field name="branch_rel" string="Branch"/>
                         <field name="client_number" string="Client Number"/>
                         <field name="contact_id" string="Contact"/>

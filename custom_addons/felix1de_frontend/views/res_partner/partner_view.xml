@@ -27,7 +27,7 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
- 
+ 			
                 <xpath expr="//page[1]" position="replace">
                      <!--attribute name="string">Mandanten &amp; Addressen</attribute>
                      <attribute name="domain">[('ist_kontakt','=',True)]</attribute-->
@@ -176,6 +176,8 @@
                     <h1>
                         <field name="name" default_focus="1" placeholder="Vorname" attrs="{'required' : [('type', '=', 'contact')]}"/>
                         <field name="lastname" placeholder="Nachname" />
+                        <field name="complete_name"/>
+                        <field name="mandantennummer"/>
                     </h1>
                 </xpath>
                 <xpath expr="//field[@name='website']" position="after">
@@ -243,6 +245,32 @@
                 </page>
                 <page string="Numbers">
                     <field name="number_id"/>
+                </page>
+                <page string="Other Details">
+                <group>
+                <group>
+                    <field name="bemerkung"/>
+                    <field name="branche"/>
+                    <field name="bundesland"/>
+                    <field name="datenok"/>
+                    <field name="empfaenger1"/>
+                    <field name="empfaenger2"/>
+                    <field name="hausnummer"/>
+                    <field name="record_id"/>
+                    <field name="kanzlei"/>
+                    <field name="land"/>
+                    <field name="ort"/>
+                    <field name="plz"/>
+                    <field name="status"/>
+                    <field name="steuerberater"/>
+                    <field name="strasse"/>
+                    <field name="telefon1"/>
+                    <field name="telefon2"/>
+                    <field name="unternehmensform"/>
+                    <field name="eMail1"/>
+                    <field name="eMail2"/>
+                    </group>
+                    </group>
                 </page>
                     
                     

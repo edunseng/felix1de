@@ -42,11 +42,11 @@ class res_partner_import(models.Model):
                 partner_pool.write(cr,uid,mandant_id,{
                     'child_ids':[(6,0,kontakt_id)]
                     })
-    
      
     def import_partner_data(self, cr, uid, ids, context=None):
         partner_pool = self.pool.get('res.partner')
         file_name = self.browse(cr, uid, ids)[0]
+        partner_data=''
         if not file_name.data:
             raise osv.except_osv(_('File Not Chosen!'), _('Please Choose The File!'))
         str_data = base64.decodestring(file_name.data)
@@ -58,44 +58,89 @@ class res_partner_import(models.Model):
             # saleorder_data = list(csv.reader(cStringIO.StringIO(str_data)))
         except:
             raise osv.except_osv('Warning', 'Make sure you saved the file as .csv extension and import!')
-        from pprint import pprint as pp
-        print"==================", pp(partner_data)
         for line in partner_data:
             dic={}
-            print"line=======>",line
+            bank_dic = {}
             from pprint import pprint as pp
-            print pp(line)
+            print"lines====>", pp(line)
             if file_name.partner_type == 'mandantain' :
                 dic.update({
                     'ist_mandant':True,
                     'ist_kontakt':False,
                     'street':line.get('Adresse',''),
                     'name':line.get('Mandant',''),
-                    'BIC':line.get('BIC',''),
-                    'email':line.get('eMailPISA','')
+                    'email':line.get('eMailPISA',''),
+                    'name':line.get('Mandant',''),
+                    'complete_name':line.get('Mandant',''),
+                    'record_id':line.get('ID',''),
+                    'mandantennummer':line.get('Mandantennummer',''),
+                    'kanzlei':line.get('Kanzlei',''),
+                    'steuerberater':line.get('Steuerberater',''),
+                    'unternehmensform':line.get('Unternehmensform',''),
+                    'branche':line.get('Branche'),
+                    'Status':line.get('Status',''),
+                     'bemerkung':line.get('Bemerkung',''),
+                     'empfaenger1':line.get('Empfaenger1',''),
+                     'empfaenger2':line.get('Empfaenger2',''),
+                     'strasse':line.get('Strasse',''),
+                     'hausnummer':line.get('Hausnummer',''),
+                     'plz':line.get('PLZ'),
+                     'ort':line.get('Ort'),
+                     'bundesland':line.get('Bundesland'),
+                     'land':line.get('Land',''),
+                     'Kontoinhaber':line.get('Kontoinhaber',''),
+                     'phone':line.get('Telefon1',''),
+                     'telefon2':line.get('Telefon2',''),
+                     'eMail1':line.get('eMail1',''),
+                     'eMail2':line.get('eMail2',''),
+                     'datenok':line.get('DatenOK',''),
                     })
             if file_name.partner_type == 'kontakte' :
                 dic.update({
-                    'ist_kontakt':True,
                     'ist_mandant':False,
+                    'ist_kontakt':True,
+                    'name':line.get('Vorname',''),
+                    'lastname':line.get('Nachname',''),
+                    'complete_name':line.get('NachnameVorname',''),
                     'street':line.get('Adresse',''),
-                    'name':line.get('Nachname',''),
-                    'lastname':line.get('NachnameVorname',''),
+                    'name':line.get('Mandant',''),
+                    'email':line.get('eMailPISA',''),
+                    'record_id':line.get('ID',''),
+                    'mandantennummer':line.get('Mandantennummer',''),
+                    'kanzlei':line.get('Kanzlei',''),
+                    'steuerberater':line.get('Steuerberater',''),
+                    'unternehmensform':line.get('Unternehmensform',''),
+                    'branche':line.get('Branche'),
+                    'status':line.get('Status',''),
+                    'bemerkung':line.get('Bemerkung',''),
+                    'empfaenger1':line.get('Empfaenger1',''),
+                    'empfaenger2':line.get('Empfaenger2',''),
+                    'strasse':line.get('Strasse',''),
+                    'hausnummer':line.get('Hausnummer',''),
+                    'plz':line.get('PLZ'),
+                    'ort':line.get('Ort'),
+                    'bundesland':line.get('Bundesland'),
+                    'land':line.get('Land',''),
+                    'Kontoinhaber':line.get('Kontoinhaber',''),
                     'phone':line.get('Telefon1',''),
-                    'email':line.get('eMail1',''),
-                    'company_type':'person'
+                    'telefon2':line.get('Telefon2',''),
+                    'eMail1':line.get('eMail1',''),
+                    'eMail2':line.get('eMail2',''),
+                    'datenok':line.get('DatenOK',''),
                     })
-            
             if file_name.partner_type in ('kontakte','mandantain'):
                 partner_id = self.pool.get('res.partner').create(cr,uid,dic,context=None)
                 print "partner_id===============>",partner_id
-                self.pool.get('bank.detail').create(cr,uid,{
-                                                    'iban':line.get('IBAN',''),
-                                                    'name':line.get('Bank',''),
-                                                    'bic':line.get('BIC',''),
-                                                    'client_number':line.get('Mandantennummer',''),
-                                                    'client_id':partner_id,
+                if line.get('Bank',''):
+                    bank_dic.update({
+                        'name':line.get('Bank',''),
+                        'bic':line.get('BIC',''),
+                        'iban':line.get('IBAN',''),
+                        'client_number':line.get('Mandantennummer',''),
+                        'client_id':partner_id,
+                        'account_number':line.get('Kontoinhaber','')
                     })
+                    self.pool.get('bank.detail').create(cr,uid,bank_dic)
             if file_name.partner_type == 'mapping_data' :
                 kontakt_id = partner_pool.search(cr,uid,[('name','=',str(line.get('Nachname','')))],limit=1)
                 mandant_id = partner_pool.search(cr,uid,[('name','=',str(line.get('Vorname','')))],limit=1)
@@ -105,7 +150,7 @@ class res_partner_import(models.Model):
                     partner_pool.write(cr,uid,mandant_id,{
                         'child_ids':[(6,0,kontakt_id)]
                         })
-            return True
+        return True
     
 res_partner_import()
     
