@@ -146,10 +146,10 @@
 <!-- ACCESS BACKEND (own_menus / backend) -->
 
         <!-- top level menu: no parent -->
-        <menuitem id="main_backend_menu" name="Access Backend" groups="group_backend_menu" sequence="6"/>
+        <!--menuitem id="main_backend_menu" name="Access Backend" groups="group_backend_menu" sequence="6"/-->
         <!-- A first level in the left side menu is needed
              before using action= attribute -->
-        <menuitem id="backend_menu" name="Tabellen"
+        <!--menuitem id="backend_menu" name="Tabellen"
                   parent="main_backend_menu"/>
         <menuitem id="branchen" name="Branchen" parent="backend_menu"
                   action="felix1de_backend.branchen_list_action" sequence="1"/>
@@ -194,7 +194,7 @@
         <menuitem id="kontakte" name="Kontakte" parent="backend_menu"
                   action="felix1de_backend.kontakte_list_action" sequence="20"/>
         <menuitem id="mapping_kontakte_mandanten" name="Mapping_Kontakte_Mandaten" parent="backend_menu"
-                  action="felix1de_backend.mapping_kontakte_mandanten_list_action" sequence="21"/>
+                  action="felix1de_backend.mapping_kontakte_mandanten_list_action" sequence="21"/-->
             
                  
 
