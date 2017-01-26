@@ -2,7 +2,7 @@
 from openerp import fields,models,api,_
 class res_partner(models.Model):
     _inherit='res.partner'
-    _rec_name='complete_name'
+    #_rec_name='complete_name'
     
     lastname=fields.Char()
     complete_name = fields.Char('Complete Name')
@@ -62,6 +62,7 @@ class res_partner(models.Model):
     eMail1 = fields.Char('eMail1')
     eMail2 = fields.Char('eMail2')
     mandantennummer = fields.Char('Mandantennummer')
+    kontakt_lines=fields.One2many('res.partner','partner_id','Kontakt Details')
     
    
    
