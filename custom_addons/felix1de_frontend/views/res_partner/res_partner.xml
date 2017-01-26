@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-<!-- felix1.ticket TREE VIEW-->
-        <record id="felix1_ticket_tree_view" model="ir.ui.view">
-            <field name="name">Ticketsystem</field>
-            <field name="model">felix1.ticket</field>
-            <field name="arch" type="xml">
-                <tree colors="red:state == 'new';blue:state == 'progress';green:state == 'done';grey:state == 'cancel'" >   
-                  <!--field name="tikSenderID"/>
-                  <field name="tikSenderName"/>
-                  <field name="tikSenderDirectDial"/-->
-                   <!--field name="calFirstnameLastname"/-->
-                   <!--field name="cal_last_name"-->
-                   <field name="name"/>
-                   <field name="claticketname" required="1"/>
-                  
-                </tree>
-            </field>
-        </record>
-
 
 <!--res.partner inherit TREE VIEW-->
         <record id="respartner_mandanten_inherit_tree_view" model="ir.ui.view">
@@ -73,25 +55,5 @@
                 <field name="view_mode">form,tree</field>          
         </record>
         
-<!--felix1.ticket TREE ACTION-->
-        <record id="action_felix1_ticket_tree_view_eigene_tickets" model="ir.actions.act_window">
-                <field name="name">Tickets List</field>
-                <field name="type">ir.actions.act_window</field>
-                <field name="res_model">felix1.ticket</field>
-                <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
-                <field name="view_id" ref="felix1_ticket_tree_view"/>
-                <field name="view_type">form</field>
-                <field name="view_mode">tree,form</field>          
-        </record>
-                <record id="action_felix1_ticket_tree_view_kuendigungen_tickets" model="ir.actions.act_window">
-                <field name="name">Tickets List</field>
-                <field name="type">ir.actions.act_window</field>
-                <field name="res_model">felix1.ticket</field>
-                <!--field name="domain">[('mitarbeiter_id.user_id', '=',uid)]</field-->          
-                <field name="view_id" ref="felix1_ticket_tree_view"/>
-                <field name="view_type">form</field>
-                <field name="view_mode">tree,form</field>          
-        </record>
-
 </data>
 </openerp> 
