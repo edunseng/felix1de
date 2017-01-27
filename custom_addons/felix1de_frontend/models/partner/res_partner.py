@@ -63,11 +63,22 @@ class res_partner(models.Model):
     eMail2 = fields.Char('eMail2')
     mandantennummer = fields.Char('Mandantennummer')
     kontakt_lines=fields.One2many('res.partner','partner_id','Kontakt Details')
+    mandant_partner_id = fields.Many2one( 'res.partner', 'Kontakt Name', domain = "[('ist_kontakt', '=', 'True')]" )
+    kontakt_partner_id = fields.Many2one( 'res.partner', 'Mandant Name', domain = "[('ist_mandant', '=', 'True')]" )
+    mandant_child_ids = fields.One2many( 'res.partner', 'parent_id', 'Contacts', domain = [( 'active', '=', True )] )  # force "active_test" domain to bypass _search() override
+    # kontact_child_ids = fields.One2many( 'kontakt.res.partner', 'partner_id', 'Contacts' )  # force "active_test" domain to bypass _search() override
+   
+#     @api.onchange('kontakt_partner_id')
+#     def onchange_kontakt_partner_id(self):
+#         if self:
+#             if self.kontakt_partner_id:
+#                 self.name = self.kontakt_partner_id.complete_name
+#                 self.phone = self.kontakt_partner_id.phone
+#                 self.email = self.kontakt_partner_id.email
+#         return True
+   
+   
     
-   
-   
-   
-   
     @api.multi
     def client_list_view(self):
        for record in self:
@@ -130,4 +141,12 @@ class client_detail(models.Model):
     acc_id=fields.Many2one('bank.detail', string='Steuerberater')
     branch_id=fields.Many2one('branch.branch', string='Niederlassung')
     issued_on=fields.Date('Ausgestellt am')
+    
+
+    
+    
+    
+
+    
+    
     

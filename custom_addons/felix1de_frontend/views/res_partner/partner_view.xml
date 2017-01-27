@@ -1,39 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-              
-              
-              <!--record id="view_mandanten_tree" model="ir.ui.view">
-                <field name="name">Partner</field>
-                <field name="model">res.partner</field>
-                <field name="inherit_id" ref="base.view_partner_tree"/>
-                <field name="arch" type="xml">
-                    <field name="display_name" position="before">
-                                        <field name="id"/>
-                    </field>
-                    <field name="display_name" position="after">
-                        <field name="client_number" string="Mandantennummer" attrs="{'invisible' : [('ist_kontakt', '=', 'True')]}"/>
-                        <field name="client_number" string="Kontaktnummer" attrs="{'invisible' : [('ist_mandant', '=', 'True')]}"/>
 
-                        <field name="email" string="Email"/>
-                        <field name="contact_id" string="Kontakt"/>
-                    </field>
-                </field>
-               </record-->
+<!--commonfields>
+Firstname 
+Lastname
+
+Fonenumber
+E-Mail
+Acquired by
+Remarks
+-->
 
 
         <record id="respartner_mandanten_inherit_form_view" model="ir.ui.view">
-            <field name="name">Ticketsystem</field>
+            <field name="name">Mandanten Kontakte Common Fields</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
- 			
-                <xpath expr="//page[1]" position="replace">
-                     <!--attribute name="string">Mandanten &amp; Addressen</attribute>
-                     <attribute name="domain">[('ist_kontakt','=',True)]</attribute-->
-                     
-                     
-                     <page string="Kontakte &amp; Addresses" autofocus="autofocus">
+ 			    
+ 			    <xpath expr="//page[2]" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <xpath expr="//page[3]" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <xpath expr="//page[1]" position="replace" >
+                   
+                     <page string="Kontakte &amp; Addresses" autofocus="autofocus" attrs="{'invisible': [('ist_kontakt','=', True)]}">
+                            <field name="mandant_child_ids" mode="kanban" context="{'default_parent_id': active_id,
+                             'default_street': street, 'default_street2': street2, 
+                             'default_city': city, 'default_state_id': state_id, 
+                             'default_zip': zip, 'default_country_id': country_id, 
+                             'default_supplier': supplier, 'default_customer': customer,
+                              'default_lang': lang,'default_ist_mandant': ist_mandant,
+                              'default_ist_kontakt': ist_kontakt}">
+                                <kanban>
+                                    <field name="color"/>
+                                    <field name="name"/>
+                                    <field name="title"/>
+                                    <field name="type"/>
+                                    <field name="email"/>
+                                    <field name="parent_id"/>
+                                    <field name="is_company"/>
+                                    <field name="function"/>
+                                    <field name="phone"/>
+                                    <field name="street2"/>
+                                    <field name="zip"/>
+                                    <field name="city"/>
+                                    <field name="country_id"/>
+                                    <field name="mobile"/>
+                                    <field name="fax"/>
+                                    <field name="state_id"/>
+                                    <field name="image"/>
+                                    <field name="lang"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <t t-set="color" t-value="kanban_color(record.color.raw_value)"/>
+                                            <div t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'">
+                                                <a t-if="!read_only_mode" type="delete" class="fa fa-times pull-right"/>
+                                                <div class="o_kanban_image">
+                                                    <img t-if="record.image.raw_value" t-att-src="'data:image/png;base64,'+record.image.raw_value"/>
+                                                    <t t-if="!record.image.raw_value">
+                                                        <img t-if="record.type.raw_value === 'delivery'" t-att-src='_s + "/base/static/src/img/truck.png"'/>
+                                                        <img t-if="record.type.raw_value === 'invoice'" t-att-src='_s + "/base/static/src/img/money.png"'/>
+                                                        <t t-if="record.type.raw_value !== 'invoice' &amp;&amp; record.type.raw_value !== 'delivery'">
+                                                            <img t-if="record.is_company.raw_value === true" t-att-src='_s + "/base/static/src/img/company_image.png"'/>
+                                                            <img t-if="record.is_company.raw_value === false" t-att-src='_s + "/base/static/src/img/avatar.png"'/>
+                                                        </t>
+                                                    </t>
+                                                </div>
+                                                <div class="oe_kanban_details">
+                                                    <field name="name"/>
+                                                    <div t-if="record.function.raw_value"><field name="function"/></div>
+                                                    <div t-if="record.email.raw_value"><field name="email"/></div>
+                                                    <div t-if="record.type.raw_value != 'contact'">
+                                                        <div>
+                                                            <field name="zip"/>
+                                                            <field name="city"/>
+                                                        </div>
+                                                        <field t-if="record.state_id.raw_value" name="state_id"/>
+                                                        <field name="country_id"/>
+                                                    </div>
+                                                    <div t-if="record.phone.raw_value">Phone: <field name="phone"/></div>
+                                                    <div t-if="record.mobile.raw_value">Mobile: <field name="mobile"/></div>
+                                                    <div t-if="record.fax.raw_value">Fax: <field name="fax"/></div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                                <form string="Contact / Address">
+                                    <sheet>
+                                        <field name="type" options="{'horizontal': true}" invisible="1"/>
+                                        <hr/>
+                                        <group>
+                                            <group invisible="1">
+                                                <label for="street" string="Address"/>
+                                                <div>
+                                                    <div class="o_address_format" name="div_address">
+                                                        <field name="street" placeholder="Street..." class="o_address_street"/>
+                                                        <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                                        <field name="city" placeholder="City" class="o_address_city"/>
+                                                        <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}' on_change="onchange_state(state_id)" context="{'country_id': country_id, 'zip': zip}"/>
+                                                        <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                                        <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                                                    </div>
+                                                </div>
+                                            </group>
+                                            <group>
+                                                <field name="name" string="Contact Name"/>
+                                                <field name="partner_id" string="Partner Name" invisible="1"/>
+                                                 <field name="mandant_partner_id" invisible="context.get('default_ist_kontakt', False)"/>
+                                                 <field name="kontakt_partner_id" invisible="context.get('default_ist_mandant', False)"/>
+                                                <field name="title" placeholder="e.g. Mr."/>
+                                                <field name="function" placeholder="e.g. Sales Director"/>
+                                                <field name="email"/>
+                                                <field name="phone" widget="phone"/>
+                                                <field name="mobile" widget="phone"/>
+                                                <field name="comment" placeholder="internal note..."/>
+                                            </group>
+                                        </group>
+                                        <field name="supplier" invisible="True"/>
+                                        <field name="customer" invisible="True"/>
+                                        <field name="lang" invisible="True"/>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        
+                 <!--Mandanten Page --> 
+                        <page string="Mandanten &amp; Addresses" autofocus="autofocus" attrs="{'invisible': [('ist_mandant','=', True)]}">
                             <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id,
                              'default_street': street, 'default_street2': street2, 
                              'default_city': city, 'default_state_id': state_id, 
@@ -99,10 +198,10 @@
                                 </kanban>
                                 <form string="Contact / Address">
                                     <sheet>
-                                        <field name="type" required="1" widget="radio" options="{'horizontal': true}"/>
+                                        <field name="type" invisible="1" options="{'horizontal': true}"/>
                                         <hr/>
                                         <group>
-                                            <group attrs="{'invisible': [('type','=', 'contact')]}">
+                                            <group invisible="1">
                                                 <label for="street" string="Address"/>
                                                 <div>
                                                     <div class="o_address_format" name="div_address">
@@ -116,9 +215,10 @@
                                                 </div>
                                             </group>
                                             <group>
-                                                <field name="name" string="Contact Name" domain="[('ist_kontakt', '=', 'True')]"/>
-                                                <field name="partner_id" string="Partner Name" domain="[('ist_kontakt', '=', 'True')]"/>
-
+                                                <field name="name" string="Contact Name"/>
+                                                <field name="mandant_partner_id" invisible="context.get('default_ist_kontakt', False)"/>
+                                                 <field name="kontakt_partner_id" invisible="context.get('default_ist_mandant', False)"/>
+                                                <field name="partner_id" string="Partner Name" invisible="1"/>
                                                 <field name="title" placeholder="e.g. Mr."/>
                                                 <field name="function" placeholder="e.g. Sales Director"/>
                                                 <field name="email"/>
@@ -133,116 +233,89 @@
                                     </sheet>
                                 </form>
                             </field>
-                        </page>
-                </xpath>                               
-                <xpath expr="//page[2]" position="attributes">
-                     <attribute name="invisible">1</attribute>
-                </xpath>
-                <xpath expr="//page[3]" position="attributes">
-                     <attribute name="invisible">1</attribute>
-                </xpath>
-                
-                
-                <xpath expr="//div[@class='o_address_format']" position="attributes">
-                   <attribute name="invisible">True</attribute>
-                </xpath>
-                <!--xpath expr="//field[@name='parent_id']" position="replace">
-                   <filed name="niederlassung_id"/>
-                </xpath-->
-                <xpath expr="//label[@for='street']" position="attributes">
-                   <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//field[@name='function']" position="attributes">
-                   <attribute name="invisible">True</attribute>
-                </xpath>
-                <xpath expr="//field[@name='lang']" position="attributes">
-                   <attribute name="invisible">True</attribute>
-                </xpath>
-
-                <field name ="parent_id" position="after">
-                            <group colspan="2">
-                                <group>
-                                   <field name="ist_mandant" attrs="{'readonly': ['|', ('ist_kontakt', '=', True)]}"/> 
-                                   <field name="ist_kontakt" attrs="{'readonly': ['|', ('ist_mandant', '=', True)]}"/>
-                                   <field name="client_number_spcl" attrs="{'invisible': ['|', ('ist_mandant', '=', True)]}"/>
-                                   <field name="client_number" attrs="{'invisible': ['|', ('ist_kontakt', '=', True)]}"/>
-                                </group>
+                        </page> 
+                        <!-- Adresses-->
+                        <page string="Addresses" autofocus="autofocus">
+                          <group  colspan="2">  
+                            <group>
+                            <!--field name="type" attrs="{'invisible': [('name','=', False)]}" groups="base.group_no_one"/-->
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <div class="oe_edit_only">
+                                    <button name="open_parent" type="object" string="Edit"
+                                        />
+                                </div>
+                                <field name="street" placeholder="Street..." class="o_address_street"
+                                    />
+                                <field name="street2" placeholder="Street 2..." class="o_address_street"
+                                    />
+                                <field name="city" placeholder="City" class="o_address_city"
+                                    />
+                                <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}' on_change="onchange_state(state_id)"
+                                     context="{'country_id': country_id, 'zip': zip}"/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip"
+                                    />
+                                <!--field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'
+                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/-->
+                            </div>
                             </group>
-                </field>
-                
-                
-                <xpath expr="//h1" position="replace">
-                    <h1>
-                        <field name="name" default_focus="1" placeholder="Vorname" attrs="{'required' : [('type', '=', 'contact')]}"/>
-                        <field name="lastname" placeholder="Nachname" />
-                        <field name="complete_name"/>
-                        <field name="mandantennummer"/>
-                    </h1>
-                </xpath>
-                <xpath expr="//field[@name='website']" position="after">
-                
+                            <group>
+                                <field name="invoice_address" options="{'horizontal': true}"/>
+                                <field name="delivery_address" options="{'horizontal': true}"/>
+                            </group>
+                        </group>
 
-                            <!--field name="mandantennummer"/-->
-                            <field name="client_value" invisible="1"/>
-                            <field name="lagel_structure"/>
-                            <field name="parent_id" string="Contact"/>
-                            <field name="type" attrs="{'invisible': [('parent_id','=', False)]}" invisible="1" groups="base.group_no_one"/>                            
-                            <field name="phone" widget="phone"/>
-                            <field name="email" widget="email"/>
-                            <field name="acquired_by"/>
-                            <field name="client_since"/>
-                            <field name="client_remark"/>               
-                            <field name="con_acquired_by"/>
-                            <field name="contact_since"/>
-                            <field name="comment"/>
+                        <!--Invoice and Shipping Address -->
+                    <group colspan="3">
+                        <group attrs="{'invisible': ['|', ('invoice_address', '!=', True), ('type', '!=', 'contact')]}">
+                            <!--field name="type_inv" attrs="{'invisible': [('name','=', False)]}" groups="base.group_no_one"/-->
+                            <label for="street_inv" string="Rechnungsaddresse"/>
+                            <div class="o_address_format">
 
-                </xpath>
-                <xpath expr="//field[@name='website']" position="replace"></xpath>
+                                <field name="street_inv" placeholder="Street..." class="o_address_street"
+                                attrs="{'invisible': [('invoice_address', '!=', True)]}"/>
+                                <field name="street2_inv" placeholder="Street 2..." class="o_address_street"
+                                attrs="{'invisible': [('invoice_address', '!=', True)]}"/>
+                                <field name="city_inv" placeholder="City" class="o_address_city"
+                                attrs="{'invisible': [('invoice_address', '!=', True)]}"/>
+                                <field name="state_id_inv" class="o_address_state" placeholder="State" options='{"no_open": True}'
+                                attrs="{'invisible': [('invoice_address', '!=', True)]}" context="{'country_id_inv': country_id_inv, 'zip_inv': zip_inv}"/>
+                                <field name="zip_inv" placeholder="ZIP" class="o_address_zip"
+                                attrs="{'invisible': [('invoice_address', '!=', True)]}"/>
+                                <!--field name="country_id_inv" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'
+                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/-->
+                            </div>
+                        </group> 
+                        
+                        <group attrs="{'invisible': ['|', ('delivery_address', '!=', True), ('type', '!=', 'contact')]}">
+                            <!--field name="type_del" attrs="{'invisible': [('name','=', False)]}" groups="base.group_no_one"/-->
+                            <label for="street_del" string="Lieferaddresse"/>
+                            <div class="o_address_format">
 
-                <notebook position="inside">
-                    <!--page string="Addresse" autofocus="1">
-                                 <group>
-                                   <group>
-                                       <label for="street" string="Addresse"/>
-                                            <div class="o_address_format">
-                                                <div class="oe_edit_only">
-                                                    <button name="open_parent" type="object" string="(edit)" class="oe_link"
-                                                        attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}"/>
-                                                </div>
-                                                
-                                                <field name="street" placeholder="Strasse..." class="o_address_street"
-                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                                <field name="house_no" placeholder="Haus Nr...." class="o_address_street"
-                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                                <field name="street2" placeholder="Str 2..." class="o_address_street"
-                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                                    
-                                                <field name="city" placeholder="Stadt" class="o_address_city"
-                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                                <field name="state_id" class="o_address_state" placeholder="Bundesland" options='{"no_open": True}' on_change="onchange_state(state_id)"
-                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'zip': zip}"/>
-                                                <field name="zip" placeholder="ZIP" class="o_address_zip"
-                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                                <field name="country_id" placeholder="Budesland" class="o_address_country" options='{"no_open": True, "no_create": True}'
-                                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                            </div>
-                                   </group>
-                                   <group>
-                                   
-                                   </group>
-                                 </group>
-                             </page-->
-                  <page string="Tickets">
-                     <group>
-                       <div >
-                          <field name="ticketing_rel" nolable="1"/>
-                       </div>
-                     </group>
-                  </page>
-                <page string="Bankdetails">
+                                <field name="street_del" placeholder="Street..." class="o_address_street"
+                                attrs="{'invisible': [('delivery_address', '!=', True)]}"/>
+                                <field name="street2_del" placeholder="Street 2..." class="o_address_street"
+                                attrs="{'invisible': [('delivery_address', '!=', True)]}"/>
+                                <field name="city_del" placeholder="City" class="o_address_city"
+                                attrs="{'invisible': [('delivery_address', '!=', True)]}"/>
+                                <field name="state_id_del" class="o_address_state" placeholder="State" options='{"no_open": True}'
+                                attrs="{'invisible': [('delivery_address', '!=', True)]}" context="{'country_id_del': country_id_del, 'zip_del': zip_del}"/>
+                                <field name="zip_del" placeholder="ZIP" class="o_address_zip"
+                                attrs="{'invisible': [('delivery_address', '!=', True)]}"/>
+                                <!--field name="country_id_del" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'
+                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/-->
+                            </div>
+                        </group>
+                    </group>
+                        </page> 
+                </xpath> 
+                
+                <notebook position="inside" >
+
+                <page string="Bankdetails" attrs="{'invisible': [('ist_kontakt','=', True)]}">
                     <field name="bank_rel"/>
                 </page>
-                <page string="Numbers">
+                <page string="Numbers" attrs="{'invisible': [('ist_kontakt','=', True)]}">
                     <field name="number_id"/>
                 </page>
                 <page string="Other Details">
@@ -271,7 +344,10 @@
                     </group>
                     </group>
                 </page>
-                 <page string="Kontakt Details">
+                
+
+                
+                 <!--<page string="Kontakt Details">
                     <page string="Contacts &amp; Addresses" autofocus="autofocus">
                             <field name="kontakt_lines" mode="kanban" context="{'default_parent_id': active_id, 'default_street': street, 'default_street2': street2,
                              'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id,
@@ -352,7 +428,7 @@
                                             </group>
                                             <group>
                                                 <field name="name" string="Contact Name"/>
-                                                <field name="partner_id" string="Partner Name" domain="[('ist_kontakt','=','True')]"/>
+                                                <field name="kontakt_partner_id" string="Partner Name" domain="[('ist_kontakt','=','True')]"/>
 
                                                 <field name="title" placeholder="e.g. Mr."/>
                                                 <field name="function" placeholder="e.g. Sales Director"/>
@@ -369,10 +445,7 @@
                                 </form>
                             </field>
                         </page>
-                </page>
-                
-                    
-                    
+                </page> -->
                     <!--page string="Mandanten" attrs="{'invisible' : [('ist_kontakt', '=', 'True')]}" >
                         <field name="kontakt_lines" mode="kanban" >
                             <tree editable="bottom">
@@ -385,9 +458,63 @@
                     </page-->
                         
                 </notebook>
+                
+                
+         
+                <xpath expr="//div[@class='o_address_format']" position="attributes">
+                   <attribute name="invisible">0</attribute>
+                </xpath>
+                <!--xpath expr="//field[@name='parent_id']" position="replace">
+                   <filed name="niederlassung_id"/>
+                </xpath-->
+                <xpath expr="//label[@for='street']" position="attributes">
+                   <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='function']" position="attributes">
+                   <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='lang']" position="attributes">
+                   <attribute name="invisible">1</attribute>
+                </xpath>
 
-
-  
+                <field name ="parent_id" position="after">
+                            <group colspan="2">
+                                <group>
+                                   <field name="ist_mandant" attrs="{'readonly': ['|', ('ist_kontakt', '=', True)]}"/> 
+                                   <field name="ist_kontakt" attrs="{'readonly': ['|', ('ist_mandant', '=', True)]}"/>
+                                   <field name="client_number_spcl" attrs="{'invisible': ['|', ('ist_mandant', '=', True)]}"/>
+                                   <field name="client_number" attrs="{'invisible': ['|', ('ist_kontakt', '=', True)]}"/>
+                                </group>
+                            </group>
+                </field>
+                
+                
+                <xpath expr="//h1" position="replace">
+                    <h1>
+                        <field name="name" default_focus="1" placeholder="Vorname" attrs="{'required' : [('type', '=', 'contact')]}"/>
+                        <field name="lastname" placeholder="Nachname" />
+                        <field name="complete_name"/>
+                        <field name="mandantennummer"/>
+                    </h1>
+                </xpath>
+                <xpath expr="//field[@name='website']" position="after">
+                            <!--field name="mandantennummer"/-->
+                            <field name="client_value" invisible="1"/>
+                            <field name="lagel_structure"/>
+                            <field name="parent_id" string="Contact"/>
+                            <field name="type" attrs="{'invisible': [('parent_id','=', False)]}" invisible="1" groups="base.group_no_one"/>                            
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="acquired_by"/>
+                            <field name="client_since"/>
+                            <field name="client_remark"/>               
+                            <field name="con_acquired_by"/>
+                            <field name="contact_since"/>
+                            <field name="comment"/>
+                </xpath>
+                <xpath expr="//field[@name='website']" position="replace">
+                    <field name="website" attrs="{'invisible' : [('company_type', '=', 'person')]}"/>
+                </xpath>
             </field>
 
         </record>

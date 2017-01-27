@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
+
+<!--Mandant Fields>
+Client-ID
+Legal Structure
+client_fullname(Fistname Lastname)
+Client since
+
+Clientnumber
+Clientnumber (Special)
+Chamber
+Accountant
+In house contact person  Chamber
+Status:
+
+PAGES:
+Kontakte,Address,Bankdetails,Orders,Numbers
+-->
 <data>
               <record id="view_mandanten_tree" model="ir.ui.view">
                 <field name="name">Clients</field>

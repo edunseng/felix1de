@@ -15,7 +15,8 @@ class res_partner_import(models.Model):
     _name='res.partner.import'
     partner_type = fields.Selection([('mandantain','Mandanten'),
                                      ('kontakte','Kontakte'),
-                                     ('mapping_data','Mapping Data')],'Partner Data Type')
+                                     ( 'mapping_data_mandant', 'Mapping Data Mandant' ),
+                                     ( 'mapping_data_kontakt', 'Mapping Data Kontakt' )], 'Partner Data Type' )
     data = fields.Binary('Data')
     
     def import_excel_sheet(self, cr, uid, ids, context=None):
@@ -99,11 +100,11 @@ class res_partner_import(models.Model):
                 dic.update({
                     'ist_mandant':False,
                     'ist_kontakt':True,
-                    'name':line.get('Vorname',''),
+                    'name':line.get('Vorname','') or line.get('Nachname','') or line.get('NachnameVorname',''),
                     'lastname':line.get('Nachname',''),
                     'complete_name':line.get('NachnameVorname',''),
                     'street':line.get('Adresse',''),
-                    'name':line.get('Mandant',''),
+                    #'name':line.get('Mandant',''),
                     'email':line.get('eMailPISA',''),
                     'record_id':line.get('ID',''),
                     'mandantennummer':line.get('Mandantennummer',''),
@@ -138,19 +139,34 @@ class res_partner_import(models.Model):
                         'iban':line.get('IBAN',''),
                         'client_number':line.get('Mandantennummer',''),
                         'client_id':partner_id,
+                        'parent_id':partner_id,
                         'account_number':line.get('Kontoinhaber','')
                     })
                     self.pool.get('bank.detail').create(cr,uid,bank_dic)
-            if file_name.partner_type == 'mapping_data' :
-                kontakt_id = partner_pool.search(cr,uid,[('record_id','=',str(line.get('Kontakt','')))],limit=1)
-                mandant_id = partner_pool.search(cr,uid,[('record_id','=',str(line.get('Mandant','')))],limit=1)
-                print"kontakt_id===>",kontakt_id
-                print"mandant_id======>",mandant_id
+            if file_name.partner_type == 'mapping_data_mandant' :
+                cr.execute( "select id from res_partner where record_id = '%s'" % ( str( line.get( 'Kontakt', '' ) ) ) )
+                kontakt_id = cr.fetchone()
+                cr.execute( "select id from res_partner where record_id = '%s'" % ( str( line.get( 'Mandant', '' ) ) ) )
+                mandant_id = cr.fetchone()
+                # mandant_id = partner_pool.search(cr,uid,[('record_id','=',str(line.get('Mandant','')))],limit=1)
+                print"kontakt_id===>", kontakt_id
+                print"mandant_id======>", mandant_id
                 if kontakt_id and mandant_id :
                     print"inside the mandant and kontakt"
-                    partner_pool.write(cr,uid,mandant_id,{
-                        'child_ids':[(6,0,kontakt_id)]
+                    partner_pool.write( cr, uid, mandant_id[0], {
+                        'mandant_child_ids':[( 6, 0, [kontakt_id[0]] )]
                         })
+            if file_name.partner_type == 'mapping_data_kontakt' :
+                cr.execute( "select id from res_partner where record_id = '%s'" % ( str( line.get( 'Kontakt', '' ) ) ) )
+                kontakt_id = cr.fetchone()
+                cr.execute( "select id from res_partner where record_id = '%s'" % ( str( line.get( 'Mandant', '' ) ) ) )
+                mandant_id = cr.fetchone()
+                print"mandant_id======>", mandant_id
+                if kontakt_id and mandant_id :
+                    print"inside the mandant and kontakt"
+                    partner_pool.write( cr, uid, kontakt_id[0], {
+                        'kontact_child_ids':[( 6, 0, [mandant_id[0]] )]
+                        } )
         return True
     
 res_partner_import()

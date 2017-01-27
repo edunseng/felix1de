@@ -35,14 +35,41 @@ class resPartnerKontakte(models.Model):
     email=fields.Char('email')
     comment=fields.Char('Bemerkung')
     title=fields.Char('Titel')
+    
     house_no=fields.Char('Hausnummer')
     street=fields.Char('Strasse')
     street2=fields.Char('Strase2')
     zip=fields.Char('PLZ')
     city=fields.Char('Stadt')
     state=fields.Char('Bundesland')
+   
+    #invoice Address
+    house_no_inv=fields.Char('Hausnummer')
+    street_inv=fields.Char('Strasse')
+    street2_inv=fields.Char('Strase2')
+    zip_inv=fields.Char('PLZ')
+    city_inv=fields.Char('Stadt')
+    state_id_inv=fields.Many2one("res.country.state", 'State', ondelete='restrict')
+    country_id_inv=fields.Many2one('res.country')
+
+    
+    #delivery Address
+    house_no_del=fields.Char('Hausnummer')
+    street_del=fields.Char('Strasse')
+    street2_del=fields.Char('Strase2')
+    zip_del=fields.Char('PLZ')
+    city_del=fields.Char('Stadt')
+    state_id_del=fields.Many2one("res.country.state", 'State', ondelete='restrict')
+    country_id_del=fields.Many2one('res.country')    
+    
+    invoice_address=fields.Boolean(string="Rechnungsadresse")
+    delivery_address=fields.Boolean(string="Lieferadresse")
+    
+    
+    
     kontakt_seit=fields.Date('Kontakt Seit')
     country_id=fields.Many2one('res.country')
+
     ticket_id=fields.One2many('felix1.ticket', 'contact_id')
     client_id=fields.One2many('res.partner', 'contact_id')
     partner_id=fields.Many2one('res.partner')

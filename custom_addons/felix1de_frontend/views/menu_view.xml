@@ -53,7 +53,6 @@
 <!--(mandanten) -->          
             <menuitem id="start_sub2_menu" parent="start_root_menu" name="Mandanten"/> 
             <menuitem id="start_sub2_menu_sub" parent="start_sub2_menu" name="Mandanten" action="mail.action_mandanten"/>
-  			<menuitem id="import_partner_data_import" parent="start_sub2_menu" name="Import Partner Data" action="action_partner_data_import"/>
 
 <!--(inbox) 
 
@@ -145,8 +144,20 @@
 
 <!-- ACCESS BACKEND (own_menus / backend) -->
 
+        <record model="ir.actions.act_window" id="felix1de_frontend.backend_action">
+            <field name="name">Daten Import/Export</field>
+            <field name="res_model">res.partner.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+
+        </record>
+
         <!-- top level menu: no parent -->
-        <!--menuitem id="main_backend_menu" name="Access Backend" groups="group_backend_menu" sequence="6"/-->
+        <menuitem id="main_backend_menu_name" name="Access Backend" groups="group_backend_menu" sequence="6" action="felix1de_frontend.backend_action"/>
+        <menuitem id="import_partner_data" parent="main_backend_menu_name" name="Import/Export Access Tabellen" />
+        <menuitem id="import_partner_data_import" parent="import_partner_data" name="Import" action="action_partner_data_import"/>
+
+
         <!-- A first level in the left side menu is needed
              before using action= attribute -->
         <!--menuitem id="backend_menu" name="Tabellen"
@@ -207,11 +218,6 @@
             <menuitem id="branch_root_menu" name="Niederlassungen" sequence="7"/> 
             <menuitem id="sub_menu_branch" parent="branch_root_menu" name="Liste Niederlassungen"/> 
             <menuitem id="sub_menu_bracnh_sub" parent="sub_menu_branch" name="Niederlassungen" action="action_branch_system"/> 
-
-<!-- TICKETSYSTEM (project_issue/ticketsystem)-->
-            <menuitem id="ticketing_root_menu" name="Ticketsystem" sequence="8" groups="group_ticket_menu"/> 
-            <menuitem id="sub_menu_ticking" parent="ticketing_root_menu" name="Tickets List"/> 
-            <menuitem id="sub_menu_ticking_sub" parent="sub_menu_ticking" name="Tickets" action="action_customer_ticketing_system"/> 
 
 </data>
 </openerp>
