@@ -44,8 +44,25 @@
     
     
     
-    
-
+    <!-- Project Issue-->
+    <!--record id="act_project_project_2_project_task_all" model="ir.actions.act_window">
+            <field name="name">Tasks</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">tree,form,calendar,pivot,graph</field>
+            <field name="context">{
+                'search_default_project_id': [active_id],
+                'default_project_id': active_id,
+            }</field>
+            <field name="search_view_id" ref="view_task_search_form"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Here, you can create new tasks
+                </p>
+                <p>
+                    You can now manage your tasks in order to get things done efficiently. Track progress, discuss, attach documents, etc.
+                </p>
+            </field>
+        </record-->
 
 <!---customizing-->
         <!--record id="task_type_edit_state" model="ir.ui.view">
