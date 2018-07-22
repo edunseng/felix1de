@@ -12,6 +12,6 @@ Milestones of the Development:
   - Transition of depatments from the old CRM to the new system.
   - Monitoring and ensuring data integrity.
   
-You will find all the code in the custom_addons folder. Another project was to create a ticketing system for Customer Service. The project github is https://github.com/codizltd/kundenportal.
+You will find all the code in the custom_addons folder. Another project was to create a ticketing system for the customer service department. The project github is https://github.com/codizltd/kundenportal.
 
 
