@@ -1,4 +1,4 @@
-# felix1.de CRM Application Development
+# felix1.de UI Application Development
 ----------------------------------------
 
 This repository Github was created for the felix1.de CRM development project. The team was led by Hector Edu Nseng. 
